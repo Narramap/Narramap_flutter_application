@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:narramap/core/navigation/routes.dart';
+import 'package:narramap/core/widgets/custom_button.dart';
+import 'package:narramap/core/widgets/custom_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -15,12 +19,31 @@ class LoginScreen extends StatelessWidget {
             )
           ),
           Positioned.fill(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextField(),
-                TextField()
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 100),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset(
+                    'assets/images/logo_narramap.png',
+                    width: 70,
+                  ),
+                  CustomTextField(
+                    onChanged: (String hola) {},
+                    label: "Correo electronico",
+                    spacerHeight: 20,
+                  ),
+                  CustomTextField(
+                    onChanged: (String hola) {},
+                    label: "Contrasena",
+                    spacerHeight: 20,
+                  ),
+                  CustomButton(
+                    text: "Iniciar Sesion", 
+                    onPressed: () => context.push(Routes.home.label)
+                  )
+                ],
+              ),
             )
           )
         ]
