@@ -38,6 +38,10 @@ class LoginScreen extends StatelessWidget {
                     label: "Contrasena",
                     spacerHeight: 20,
                   ),
+                  GestureDetector(
+                    child: Text("Registrate aqui"),
+                    onTap: () => context.push(Routes.register.label),
+                  ),
                   CustomButton(
                     text: "Iniciar Sesion", 
                     onPressed: () => context.push(Routes.home.label)

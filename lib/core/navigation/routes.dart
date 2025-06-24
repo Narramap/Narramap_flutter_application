@@ -2,7 +2,8 @@
 enum Routes {
   home(label: "/"),
   login(label: "/login"),
-  register(label: "/register");
+  register(label: "/register"),
+  aditionSelector(label : "/selector-add");x
 
   final String label;
 

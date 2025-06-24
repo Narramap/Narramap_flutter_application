@@ -33,13 +33,12 @@ class _MapScreenState extends State<MapScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        centerTitle: true,
         toolbarHeight: 100,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset("assets/images/logo_narramap.png"),
-          ],
-        )
+        title: Image.asset(
+              "assets/images/logo_narramap.png",
+              width: 70,
+            )
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
       body: Stack(
@@ -62,7 +61,7 @@ class _MapScreenState extends State<MapScreen> {
                 ),
                 children: [
                   TileLayer(
-                    urlTemplate: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+                    urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                     subdomains: ['a', 'b', 'c', 'd'],
                     userAgentPackageName: 'com.tuapp.nombre',
                   ),

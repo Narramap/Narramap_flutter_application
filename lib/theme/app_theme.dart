@@ -24,7 +24,8 @@ class AppTheme {
         backgroundColor: WidgetStatePropertyAll(Colors.white),
         textStyle: WidgetStatePropertyAll(TextStyle(
           color: Colors.black,
-          fontWeight: FontWeight.bold
+          fontWeight: FontWeight.bold,
+          fontFamily: "Comfortaa"
         )),
       )
     )
