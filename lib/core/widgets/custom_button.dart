@@ -7,21 +7,22 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final bool maxSize;
   final IconData? icon;
+  final double padding;
   const CustomButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.maxSize = false,
+    this.padding = 15,
     this.icon
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      
-      onPressed: onPressed, 
+      onPressed: onPressed,
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(padding),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

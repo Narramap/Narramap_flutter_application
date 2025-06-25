@@ -21,26 +21,34 @@ class QuantitySelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label),
+        Text(label, textAlign: TextAlign.left,),
+        SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CustomButton(
-              text: "", 
+            TextButton(
               onPressed: onIncrement,
-              icon: Icons.add,
+              child: Icon(
+                Icons.add, 
+                color: Colors.white, 
+                size: 30
+              ),
             ),
             Text(
               value.toString(),
               style: TextStyle(
-                fontSize: 40
+                fontSize: 60
               ),
             ),
-            CustomButton(
-              text: "", 
+            TextButton(
               onPressed: onDecrement,
-              icon: Icons.remove,
+              child: Icon(
+                Icons.remove, 
+                color: Colors.white, 
+                size: 30
+              ),
             ),
           ],
         )

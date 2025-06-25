@@ -3,7 +3,11 @@ enum Routes {
   home(label: "/"),
   login(label: "/login"),
   register(label: "/register"),
-  aditionSelector(label : "/selector-add");x
+  aditionSelector(label : "/selector-add"),
+  addEco(label: "/new-eco"),
+  addEvent(label: "/new-event"),
+  addBussiness(label: "new-bussines"),
+  buyTokens(label: 'buy-tokens');
 
   final String label;
 

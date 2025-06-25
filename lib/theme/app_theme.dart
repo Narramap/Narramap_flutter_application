@@ -17,7 +17,7 @@ class AppTheme {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(50),
         borderSide: BorderSide.none
-      )
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
@@ -28,6 +28,16 @@ class AppTheme {
           fontFamily: "Comfortaa"
         )),
       )
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) return Color(0xFFF2F2F2);
+        return Color(0xFF5B5B5B);
+      }),
+      trackColor: WidgetStateColor.resolveWith((states) {
+        if(states.contains(WidgetState.selected)) return Color(0xFF5B5B5B);
+        return Color(0xFFF2F2F2);
+      })
     )
   );
 }

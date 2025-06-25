@@ -57,7 +57,7 @@ class RegisterScreen extends StatelessWidget {
         CustomTextField(
           onChanged: (value) {}, 
           label: "Contrasena",
-          spacerHeight: 40,
+          spacerHeight: 80,
         ),
         CustomButton(
           text: "Registrarse",

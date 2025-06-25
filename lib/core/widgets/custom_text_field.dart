@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
 
   final Function(String) onChanged;
+  final int lines;
   final double? spacerHeight;
   final String label;
 
@@ -11,6 +12,7 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.onChanged,
     required this.label,
+    this.lines = 1,
     this.spacerHeight
   });
 
@@ -28,6 +30,8 @@ class CustomTextField extends StatelessWidget {
         ),
         SizedBox(height: 10),
         TextField(
+          maxLines: lines,
+          cursorColor: Color(0xFFEBEBEB),
           onChanged: onChanged,
           style: TextStyle(
             color: Colors.white
