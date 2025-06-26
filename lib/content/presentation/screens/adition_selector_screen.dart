@@ -14,17 +14,20 @@ class AditionSelectorScreen extends StatelessWidget {
       children: [
         CustomButton(
           text: "Nuevo Eco", 
-          onPressed: () => context.push(Routes.addEco.label)
+          onPressed: () => context.push(Routes.addEco.label),
+          buttonColor: ButtonColors.transparent,
         ),
         SizedBox(height: 40),
         CustomButton(
           text: "Nuevo Evento", 
-          onPressed: () => context.push(Routes.addEvent.label)
+          onPressed: () => context.push(Routes.addEvent.label),
+          buttonColor: ButtonColors.transparent,
         ),
         SizedBox(height: 40),
         CustomButton(
-          text: "Nuevo Eco", 
-          onPressed: () => context.push(Routes.addBussiness.label)
+          text: "Nuevo Comercio", 
+          onPressed: () => context.push(Routes.addBussiness.label),
+          buttonColor: ButtonColors.transparent,
         ),
         SizedBox(height: 40),
         CustomButton(

@@ -56,15 +56,24 @@ class _MapScreenState extends State<MapScreen> {
               opacity: 1,
               child: FlutterMap(
                 options: MapOptions(
-                  initialCenter: LatLng(19.4326, -99.1332), // CDMX
+                  initialCenter: LatLng(16.7362798, -93.1007208), // CDMX
                   initialZoom: 13.0,
                 ),
                 children: [
                   TileLayer(
-                    urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
                     subdomains: ['a', 'b', 'c', 'd'],
                     userAgentPackageName: 'com.tuapp.nombre',
                   ),
+
+                  MarkerLayer(
+                    markers: [
+                      Marker(
+                        point: LatLng(16.7362798, -93.1007208),
+                        child: Icon(Icons.location_on_rounded, color: Colors.red, size: 40,)
+                      )
+                    ]
+                  )
                 ],
               ),
             )

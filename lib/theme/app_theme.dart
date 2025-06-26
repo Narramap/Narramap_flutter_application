@@ -9,6 +9,9 @@ class AppTheme {
       bodyMedium: TextStyle(color: Colors.white)
     ),
     inputDecorationTheme: InputDecorationTheme(
+      focusColor: Colors.white,
+      suffixIconColor: Colors.white,
+      prefixIconColor: Colors.white,
       filled: true,
       fillColor: Color.fromARGB(126, 255, 255, 255),
       hintStyle: TextStyle(

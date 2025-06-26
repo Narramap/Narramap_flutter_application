@@ -26,22 +26,38 @@ class CustomBottomNavigationBar extends StatelessWidget {
       onTap: changeIndex,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.location_pin),
+          icon: Icon(
+            Icons.location_pin,
+            color: Color(0xFFA9A9A9),
+          ),
           label: "",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add),
+          icon: Icon(
+            Icons.add,
+            color: Color(0xFFA9A9A9)
+          ),
           label: ""
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.camera),
+          icon: Icon(
+            Icons.camera,
+            color: Color(0xFFA9A9A9)
+          ),
           label: ""
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.switch_account)
+          icon: Icon(
+            Icons.switch_account,
+            color: Color(0xFFA9A9A9)
+          ),
+          label: ""
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.account_circle),
+          icon: Icon(
+            Icons.account_circle,
+            color: Color(0xFFA9A9A9)
+          ),
           label: ""
         ),
       ]
