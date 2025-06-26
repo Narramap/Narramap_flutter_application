@@ -22,41 +22,41 @@ class CustomBottomNavigationBar extends StatelessWidget {
     }
 
     return BottomNavigationBar(
+      elevation: 10,
       currentIndex: currentIndex,
       onTap: changeIndex,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Color(0xFFA9A9A9),
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       items: [
         BottomNavigationBarItem(
           icon: Icon(
             Icons.location_pin,
-            color: Color(0xFFA9A9A9),
           ),
           label: "",
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.add,
-            color: Color(0xFFA9A9A9)
           ),
           label: ""
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.camera,
-            color: Color(0xFFA9A9A9)
           ),
           label: ""
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.switch_account,
-            color: Color(0xFFA9A9A9)
           ),
           label: ""
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.account_circle,
-            color: Color(0xFFA9A9A9)
           ),
           label: ""
         ),
