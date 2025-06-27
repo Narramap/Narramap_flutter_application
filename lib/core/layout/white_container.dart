@@ -17,12 +17,21 @@ class WhiteContainer extends StatelessWidget  {
       backgroundColor: Color(0xFFF2F2F2),
       appBar: GlobalAppBar(nTokens: 10),
       body: Padding(
-        padding: EdgeInsets.all(40),
+        padding: EdgeInsets.symmetric(horizontal: 40),
         child: ListView(
           children: [
-            if(title != null) 
-              Text(title!),
-            ...children
+            if(title != null)
+              Text(
+                title!,
+                style: TextStyle(
+                  color: Color(0xFF474747),
+                  fontSize: 25
+                ),
+                textAlign: TextAlign.center,
+              ),
+            SizedBox(height: 40),
+            ...children,
+            SizedBox(height: 100),
           ],
         ),
       ),

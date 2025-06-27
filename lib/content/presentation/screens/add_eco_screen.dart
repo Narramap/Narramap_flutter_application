@@ -23,16 +23,20 @@ class AddEcoScreen extends StatelessWidget {
               title: 'Añade una imagen', 
               onImageSelected: (File image) {}
             ),
+            SizedBox(height: 20),
             CustomTextField(
+              textFieldColor: TextFieldColors.gray,
               onChanged: notifier.onChangeTitle, 
               label: "¿Sobre que reflexionaras?",
               spacerHeight: 20,
             ),
             CustomTextField(
+              textFieldColor: TextFieldColors.gray,
               onChanged: notifier.onChangeDescription, 
               label: "¿Que estas pensando?",
               lines: 3,
               spacerHeight: 20,
+              borderRadius: 15,
             ),
             AudioRecord(
               onStop: (path) {
@@ -46,11 +50,13 @@ class AddEcoScreen extends StatelessWidget {
               icon: Icons.audio_file,
               buttonColor: ButtonColors.gray,
             ),
+            SizedBox(height: 20),
             CustomSwitch(
               label: "Eco publico", 
-              value: false, 
+              value: notifier.public, 
               onChanged: notifier.onTogglePublic,
             ),
+            SizedBox(height: 20),
             CustomButton(
               text: "Guardar",
               onPressed: notifier.saveEco

@@ -15,10 +15,12 @@ class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      surfaceTintColor: Colors.transparent,
+      surfaceTintColor: Color(0xFFF2F2F2),
       shadowColor: Colors.transparent,
+      backgroundColor: Color(0xFFF2F2F2),
       elevation: 0,
       centerTitle: true,
+      toolbarHeight: 80,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -28,9 +30,10 @@ class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
             width: 70,
           ),
           CustomButton(
-            text: "$nTokens Eco Coins", 
+            text: "$nTokens EC", 
             onPressed: () => context.push(Routes.buyTokens.label),
             icon: Icons.add_circle,
+            padding: 0,
           )
         ],
       ),

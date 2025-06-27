@@ -41,11 +41,18 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
     return GestureDetector(
       onTap: _pickImage,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.title),
+          Text(
+            widget.title,
+            style: TextStyle(
+              color: Color(0xFF474747)
+            ),
+          ),
+          SizedBox(height: 10),
           Container(
             width: double.infinity,
-            height: 150,
+            height: 300,
             decoration: BoxDecoration(
               color: Color(0xFFE2E2E2),
               borderRadius: BorderRadius.circular(15),
