@@ -18,6 +18,7 @@ class AddEcoScreen extends StatelessWidget {
       create: (context) => AddEcoNotifier(),
       child: Consumer<AddEcoNotifier>(
         builder: (context, notifier, _) => WhiteContainer(
+          title: "Nuevo Eco",
           children: [
             CustomImagePicker(
               title: 'Añade una imagen', 
@@ -34,15 +35,12 @@ class AddEcoScreen extends StatelessWidget {
               textFieldColor: TextFieldColors.gray,
               onChanged: notifier.onChangeDescription, 
               label: "¿Que estas pensando?",
-              lines: 3,
+              lines: 5,
               spacerHeight: 20,
               borderRadius: 15,
             ),
             AudioRecord(
-              onStop: (path) {
-                print('Archivo guardado en: $path');
-                // Aquí podrías reproducirlo o subirlo
-              },
+              
             ),
             CustomButton(
               text: "Grabar voz", 
@@ -55,6 +53,7 @@ class AddEcoScreen extends StatelessWidget {
               label: "Eco publico", 
               value: notifier.public, 
               onChanged: notifier.onTogglePublic,
+              textColor: TextColor.gray,
             ),
             SizedBox(height: 20),
             CustomButton(

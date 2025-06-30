@@ -2,9 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/core/Location/location_service.dart';
 import 'package:narramap/core/widgets/custom_bottom_navigation_bar.dart';
+import 'package:narramap/map/presentation/widgets/selector_add_modal.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -27,6 +29,13 @@ class _MapScreenState extends State<MapScreen> {
     getLocation();
   }
 
+  _showSelectorModal(BuildContext context) {
+    showGeneralDialog(
+      context: context, 
+      pageBuilder: (context, animation, secondaryAnimation) => SelectorAddModal()
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +50,17 @@ class _MapScreenState extends State<MapScreen> {
             )
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () => _showSelectorModal(context), 
+            child: Icon(Icons.add_circle_outlined),
+          )
+         
+        ],
+      ),
       body: Stack(
         children: [
 
