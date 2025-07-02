@@ -1,11 +1,11 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:narramap/core/widgets/custom_button.dart';
+import 'package:narramap/core/widgets/custom_switch.dart';
 
 class QuantitySelector extends StatelessWidget {
 
+  final TextColor textColor;
   final String label;
   final VoidCallback onIncrement;
   final VoidCallback onDecrement;
@@ -15,7 +15,8 @@ class QuantitySelector extends StatelessWidget {
     required this.onDecrement,
     required this.onIncrement,
     required this.label,
-    required this.value
+    required this.value,
+    this.textColor = TextColor.white,
   });
 
   @override
@@ -23,7 +24,13 @@ class QuantitySelector extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, textAlign: TextAlign.left,),
+        Text(
+          label, 
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            color: textColor.textColor,
+          ),
+        ),
         SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -32,13 +39,14 @@ class QuantitySelector extends StatelessWidget {
               onPressed: onIncrement,
               child: Icon(
                 Icons.add, 
-                color: Colors.white, 
+                color: textColor.textColor, 
                 size: 30
               ),
             ),
             Text(
               value.toString(),
               style: TextStyle(
+                color: textColor.textColor,
                 fontSize: 60
               ),
             ),
@@ -46,7 +54,7 @@ class QuantitySelector extends StatelessWidget {
               onPressed: onDecrement,
               child: Icon(
                 Icons.remove, 
-                color: Colors.white, 
+                color: textColor.textColor, 
                 size: 30
               ),
             ),

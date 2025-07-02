@@ -1,11 +1,16 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/content/presentation/notifiers/add_event_notifier.dart';
 import 'package:narramap/core/layout/white_container.dart';
 import 'package:narramap/core/widgets/custom_button.dart';
+import 'package:narramap/core/widgets/custom_image_picker.dart';
+import 'package:narramap/core/widgets/custom_switch.dart';
 import 'package:narramap/core/widgets/custom_text_field.dart';
 import 'package:narramap/core/widgets/date_picker.dart';
+import 'package:narramap/core/widgets/quantity_selector.dart';
+import 'package:narramap/core/widgets/time_picker.dart';
 import 'package:narramap/core/widgets/ubication_selector.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +23,7 @@ class AddEventScreen extends StatelessWidget {
       create: (context) => AddEventNotifier(),
       child: Consumer<AddEventNotifier>(
         builder: (context, notifier, _) => WhiteContainer(
+          lazyload: false,
           title: "Nuevo Evento",
           children: [
             CustomTextField(
@@ -35,22 +41,69 @@ class AddEventScreen extends StatelessWidget {
               borderRadius: 15,
             ),
             UbicationSelector(
-              label: "Ubicacion del Evento", 
+              label: "Elija la ubicacion del Evento", 
               onSelectLocation: notifier.onSelectLocation,
+              markers: [
+                if(notifier.location != null)
+                  Marker(
+                  point: notifier.location!, 
+                  child: Icon(
+                    Icons.circle,  
+                    color: const Color.fromARGB(255, 226, 226, 226),
+                    size: 20,
+                  )
+                )
+              ],
+              circleMarkers: [
+                if(notifier.location != null)
+                  CircleMarker(
+                    point: notifier.location!, 
+                    radius: notifier.radius.toDouble(),
+                    color: const Color.fromARGB(120, 219, 0, 0),
+                    useRadiusInMeter: true
+                  )
+              ],
             ),
+            SizedBox(height: 20),
+            if(notifier.location != null) 
+              QuantitySelector(
+                onDecrement: notifier.onDecrementRadius, 
+                onIncrement: notifier.onIncrementRadius, 
+                label: "Radio del alcance del evento en metros", 
+                value: notifier.radius,
+                textColor: TextColor.gray,
+              ),
             SizedBox(height: 20),
             DatePicker(
               label: "Fecha de Evento", 
-              date: notifier.date, 
-              onSelectDate: notifier.onSelectDate
+              selectedDate: notifier.date, 
+              onDateSelected: notifier.onSelectDate
             ),
             SizedBox(height: 20),
+            TimePicker(
+              label: "Hora de Inicio", 
+              selectedTime: notifier.initTime, 
+              onTimeSelected: notifier.onSelectInitTime
+            ),
+            SizedBox(height: 20),
+            TimePicker(
+              label: "Hora de Finalizacion", 
+              selectedTime: notifier.endTime, 
+              onTimeSelected: notifier.onSelectEndTime
+            ),
+            SizedBox(height: 20),
+            CustomImagePicker(
+              title: "Añade una imagen", 
+              onImagesSelected: notifier.onImagesSelected
+            ),
 
+            SizedBox(height: 80),
             CustomButton(
               text: "Cancelar",
               buttonColor: ButtonColors.gray, 
-              onPressed: () => context.pop()
+              onPressed: () => context.pop(),
             ),
+            SizedBox(height: 20),
             CustomButton(
               text: "Guardar",
               onPressed: () {}

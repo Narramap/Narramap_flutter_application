@@ -2,7 +2,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:narramap/content/presentation/screens/add_eco_screen.dart';
 import 'package:narramap/content/presentation/screens/add_event_screen.dart';
-import 'package:narramap/content/presentation/screens/adition_selector_screen.dart';
 import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/map/presentation/screen/map_screen.dart';
 import 'package:narramap/users/presentation/login_screen.dart';
@@ -22,10 +21,6 @@ GoRouter goRouter = GoRouter(
     GoRoute(
       path: Routes.register.label,
       builder: (context, state) => RegisterScreen() 
-    ),
-    GoRoute(
-      path: Routes.aditionSelector.label,
-      builder: (context, state) => AditionSelectorScreen(),
     ),
     GoRoute(
       path: Routes.addEco.label,

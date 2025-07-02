@@ -1,15 +1,16 @@
 import 'dart:io';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CustomImagePicker extends StatefulWidget {
-  final void Function(File)? onImageSelected;
+  final void Function(List<File>)? onImagesSelected;
   final String title;
 
   const CustomImagePicker({
     super.key,
     required this.title,
-    required this.onImageSelected,
+    required this.onImagesSelected,
   });
 
   @override
@@ -17,115 +18,180 @@ class CustomImagePicker extends StatefulWidget {
 }
 
 class _CustomImagePickerState extends State<CustomImagePicker> {
-  File? _imageFile;
-  List<File>? _imagesSelected;
-  int currentIndex = 0;
+  List<File> _imagesSelected = [];
+  CameraController? _cameraController;
+  bool _cameraInitialized = false;
 
-  void _incrementIndex() {
-
-    currentIndex == _imagesSelected!.length - 1 ? 
-      setState(() {
-        currentIndex = 0;
-      })
-    :
-      setState(() {
-        currentIndex += 1;
-      });      
+  @override
+  void initState() {
+    super.initState();
+    _initializeCamera();
   }
 
-  void _decrementIndex() {
-    currentIndex == 0 ? 
-      setState(() {
-        currentIndex = _imagesSelected!.length - 1;
-      })
-    :
-      setState(() {
-        currentIndex -= 1;
-      });
+  Future<void> _initializeCamera() async {
+    final cameras = await availableCameras();
+    final camera = cameras.first;
+
+    _cameraController = CameraController(camera, ResolutionPreset.medium);
+    await _cameraController!.initialize();
+
+    setState(() {
+      _cameraInitialized = true;
+    });
   }
 
-  Future<void> _pickImage() async {
+  Future<void> _pickImagesFromGallery() async {
     final picker = ImagePicker();
     final pickedFiles = await picker.pickMultiImage();
 
+    if (pickedFiles.isNotEmpty) {
+      setState(() {
+        _imagesSelected.addAll(pickedFiles.map((file) => File(file.path)));
+      });
+      widget.onImagesSelected?.call(_imagesSelected);
+    }
+  }
+
+  Future<void> _captureImageFromCamera() async {
+    if (_cameraController != null && _cameraController!.value.isInitialized) {
+      final file = await _cameraController!.takePicture();
+      final image = File(file.path);
+
+      setState(() {
+        _imagesSelected.add(image);
+      });
+
+      widget.onImagesSelected?.call(_imagesSelected);
+    }
+  }
+
+  void _removeImage(int index) {
     setState(() {
-      _imagesSelected = pickedFiles.map((file) => File(file.path)).toList();
+      _imagesSelected.removeAt(index);
     });
+    widget.onImagesSelected?.call(_imagesSelected);
+  }
 
-    // if (pickedFile != null) {
-    //   setState(() {
-    //     _imageFile = File(pickedFile.path);
-    //   });
+  void _resetSelection() {
+    setState(() {
+      _imagesSelected.clear();
+    });
+    widget.onImagesSelected?.call(_imagesSelected);
+  }
 
-    //   if (widget.onImageSelected != null) {
-    //     widget.onImageSelected!(_imageFile!);
-    //   }
-    // }
+  @override
+  void dispose() {
+    _cameraController?.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _pickImage,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.title,
-            style: const TextStyle(color: Color(0xFF474747)),
-          ),
-          const SizedBox(height: 10),
-          CustomPaint(
-            painter: DashedBorderPainter(),
-            child: Container(
-              width: double.infinity,
-              height: 300,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: _imagesSelected != null
-                    ? Stack(
-                      children: [
-                        Positioned.fill(
-                          child: Image.file(
-                            _imagesSelected![currentIndex],
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            height: double.infinity,
-                          ),
-                        ),
+    final hasImages = _imagesSelected.isNotEmpty;
 
-                        Positioned.fill(
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                IconButton(
-                                  onPressed: _decrementIndex, 
-                                  icon: Icon(Icons.arrow_back_ios_new)
-                                ),
-                                IconButton(
-                                  onPressed: _incrementIndex, 
-                                  icon: Icon(Icons.arrow_forward_ios)
-                                )
-                              ],
-                            ),
-                          )
-                        )
-                        
-                      ]
-                    )
-                    : const Center(
-                        child: Icon(
-                          Icons.add_a_photo,
-                          size: 40,
-                          color: Color(0xFFE2E2E2),
-                        ),
-                      ),
-              ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.title,
+          style: const TextStyle(color: Color(0xFF474747)),
+        ),
+        const SizedBox(height: 20),
+
+        // Contenedor con borde dashed y vista previa de cámara
+        CustomPaint(
+          painter: DashedBorderPainter(),
+          child: Container(
+            width: double.infinity,
+            height: 400,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: _cameraInitialized
+                ? AspectRatio(
+                    aspectRatio: _cameraController!.value.aspectRatio,
+                    child: CameraPreview(_cameraController!),
+                  )
+                : const Center(child: CircularProgressIndicator()),
+
             ),
           ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 10),
+
+        // Botones de acción
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+
+            // Tomar foto
+            IconButton(
+              onPressed: _captureImageFromCamera,
+              icon: const Text("📸", style: TextStyle(fontSize: 28)),
+              tooltip: "Tomar foto",
+            ),
+
+            // Retomar o cambiar cámara
+            IconButton(
+              onPressed: _resetSelection,
+              icon: const Text("🔄", style: TextStyle(fontSize: 28)),
+              tooltip: "Cambiar cámara",
+            ),
+
+            // Galería
+            IconButton(
+              onPressed: _pickImagesFromGallery,
+              icon: const Text("🖼️", style: TextStyle(fontSize: 28)),
+              tooltip: "Elegir de galería",
+            ),
+
+            // Agregar más desde cámara
+            
+          ],
+        ),
+
+        const SizedBox(height: 10),
+
+        // Miniaturas de imágenes seleccionadas
+        if (hasImages)
+          SizedBox(
+            height: 80,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: _imagesSelected.length,
+              itemBuilder: (context, index) {
+                return Stack(
+                  alignment: Alignment.topRight,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 5),
+                      width: 70,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                          image: FileImage(_imagesSelected[index]),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 2,
+                      right: 2,
+                      child: GestureDetector(
+                        onTap: () => _removeImage(index),
+                        child: const CircleAvatar(
+                          radius: 10,
+                          backgroundColor: Colors.black54,
+                          child: Icon(Icons.close, size: 14, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+      ],
     );
   }
 }

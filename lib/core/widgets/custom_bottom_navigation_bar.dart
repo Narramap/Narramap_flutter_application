@@ -1,66 +1,78 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/navigation/routes.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
+  final int currentIndex;
 
-  var currentIndex = 0;
-  CustomBottomNavigationBar({super.key});
-
-  
+  CustomBottomNavigationBar({super.key, this.currentIndex = 0});
 
   @override
   Widget build(BuildContext context) {
-
-    changeIndex (int index) {
-      switch(index) {
-        case 0: context.push(Routes.home.label);
-        case 1: context.push(Routes.aditionSelector.label);
-        default: print("no existe una ruta para este index");
+    void changeIndex(int index) {
+      switch (index) {
+        case 0:
+          context.push(Routes.home.label);
+          break;
+        default:
+          print("No existe una ruta para este index");
       }
     }
 
-    return BottomNavigationBar(
-      elevation: 10,
-      currentIndex: currentIndex,
-      onTap: changeIndex,
-      selectedItemColor: Colors.black,
-      unselectedItemColor: Color(0xFFA9A9A9),
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.location_pin,
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 10.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.transparent, // Fondo transparente
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(115, 58, 58, 58), // sombra leve
+                blurRadius: 12,
+                offset: const Offset(0, -4), // solo hacia arriba
+              ),
+            ],
           ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.add,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+            child: BottomNavigationBar(
+              backgroundColor: Colors.white.withOpacity(0.85), // barra semitransparente
+              elevation: 0,
+              currentIndex: currentIndex,
+              onTap: changeIndex,
+              selectedItemColor: Colors.black,
+              unselectedItemColor: const Color(0xFFA9A9A9),
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.location_pin),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.camera),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.switch_account),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.account_circle),
+                  label: "",
+                ),
+              ],
+            ),
           ),
-          label: ""
         ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.camera,
-          ),
-          label: ""
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.switch_account,
-          ),
-          label: ""
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.account_circle,
-          ),
-          label: ""
-        ),
-      ]
+      ),
     );
   }
 }

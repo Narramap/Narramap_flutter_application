@@ -6,11 +6,15 @@ import 'package:narramap/core/widgets/map_widget.dart';
 class UbicationSelector extends StatefulWidget {
 
   final Function(LatLng) onSelectLocation;
+  final List<Marker> markers;
+  final List<CircleMarker> circleMarkers;
   final String label;
-  UbicationSelector({
+  const UbicationSelector({
     super.key,
     required this.label,
-    required this.onSelectLocation
+    required this.onSelectLocation,
+    required this.markers,
+    required this.circleMarkers
   });
 
   @override
@@ -18,23 +22,6 @@ class UbicationSelector extends StatefulWidget {
 }
 
 class _UbicationSelectorState extends State<UbicationSelector> {
-  List<Marker> markers = [];
-
-  void _onSelectLocation(LatLng location) {
-    setState(() {
-      markers = [
-        Marker(
-          point: location, 
-          child: Icon(
-            Icons.location_on,  
-            color: Colors.red,
-            size: 20,
-          )
-        )
-      ];
-    });
-    widget.onSelectLocation(location);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +37,9 @@ class _UbicationSelectorState extends State<UbicationSelector> {
         ),
         SizedBox(height: 10),
         MapWidget(
-          markers: markers,
-          onSelectLocation: _onSelectLocation,
+          markers: widget.markers,
+          circleMarkers: widget.circleMarkers,
+          onSelectLocation: widget.onSelectLocation,
           borderRadius: 20,
         )
       ],

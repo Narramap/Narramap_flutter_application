@@ -8,10 +8,12 @@ class MapWidget extends StatefulWidget {
 
   final Function(LatLng location)? onSelectLocation;
   final List<Marker> markers;
+  final List<CircleMarker> circleMarkers;
   final double borderRadius;
   const MapWidget({
     super.key,
     this.markers = const [],
+    this.circleMarkers = const [],
     this.onSelectLocation,
     this.borderRadius = 0
   });
@@ -53,8 +55,8 @@ class _MapWidgetState extends State<MapWidget> {
         child: FlutterMap(
           options: MapOptions(
             initialCenter: LatLng(location!.latitude, location!.longitude), // CDMX
-            initialZoom: 13.0,
-            minZoom: 10,
+            initialZoom: 15.0,
+            minZoom: 13,
             onTap: widget.onSelectLocation != null ? 
             (tapPosition, point) => widget.onSelectLocation!(point) : null
           ),
@@ -62,6 +64,9 @@ class _MapWidgetState extends State<MapWidget> {
             TileLayer(
               urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
               userAgentPackageName: 'com.tuapp.nombre',
+            ),
+            CircleLayer(
+              circles: widget.circleMarkers
             ),
             MarkerLayer(
               markers: widget.markers
