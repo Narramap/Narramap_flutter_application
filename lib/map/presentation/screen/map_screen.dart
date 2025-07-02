@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/core/Location/location_service.dart';
+import 'package:narramap/core/layout/stackable_scaffold.dart';
 import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/core/widgets/custom_bottom_navigation_bar.dart';
 import 'package:narramap/map/presentation/notifiers/map_notifier.dart';
@@ -31,11 +32,52 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     getLocation();
-    
   }
 
   @override
   Widget build(BuildContext context) {
+
+    return StackableScaffold(
+      child: ChangeNotifierProvider(
+        create: (context) => MapNotifier(),
+        builder: (context, _) {
+
+          final notifier = Provider.of<MapNotifier>(context, listen: false);
+
+          return FutureBuilder(
+            future: notifier.getAll(), 
+            builder: (context, snapshot) {
+              if(snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                return Consumer<MapNotifier>(
+                  builder: (context, notifier, _) => FlutterMap(
+                    options: MapOptions(
+                      initialCenter: LatLng(16.7362798, -93.1007208),
+                      initialZoom: 15.0,
+                      minZoom: 13.0
+                    ),
+                    children: [
+                      TileLayer(
+                        urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                        subdomains: ['a', 'b', 'c', 'd'],
+                        userAgentPackageName: 'com.tuapp.nombre',
+                      ),
+                      CircleLayer(
+                        circles: getCircleLayers(notifier.emotionsZones)
+                      ),
+                      MarkerLayer(
+                        markers: getPostsMarkers(notifier.posts)
+                      ),
+                    ],
+                  )
+                );
+              }
+            },
+          );
+        }
+      )
+    );
 
 
     return ChangeNotifierProvider<MapNotifier>(

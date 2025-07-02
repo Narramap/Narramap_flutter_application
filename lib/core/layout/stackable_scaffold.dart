@@ -14,7 +14,6 @@ class StackableScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true, // Importante para que el fondo se vea tras el nav bar
       backgroundColor: Colors.transparent,
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
@@ -36,13 +35,12 @@ class StackableScaffold extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          /// Capa de mapa (MapLayer)
           Positioned.fill(
             child: child
           ),
     
           Positioned(
-            top: 50, // Ajusta este valor según tu padding superior
+            top: 50,
             left: 20,
             right: 20,
             child: Container(
@@ -54,7 +52,6 @@ class StackableScaffold extends StatelessWidget {
             ),
           ),
     
-          /// Bottom Navigation flotante sobre el mapa
           Positioned(
             left: 0,
             right: 0,
