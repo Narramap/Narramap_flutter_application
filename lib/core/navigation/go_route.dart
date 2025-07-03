@@ -4,8 +4,9 @@ import 'package:narramap/content/presentation/screens/add_eco_screen.dart';
 import 'package:narramap/content/presentation/screens/add_event_screen.dart';
 import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/map/presentation/screen/map_screen.dart';
-import 'package:narramap/users/presentation/login_screen.dart';
-import 'package:narramap/users/presentation/register_screen.dart';
+import 'package:narramap/auth/presentation/screens/login_screen.dart';
+import 'package:narramap/auth/presentation/screens/register_screen.dart';
+import 'package:narramap/users/presentation/screens/public_profile_screen.dart';
 
 GoRouter goRouter = GoRouter(
   initialLocation: Routes.login.label,
@@ -29,6 +30,10 @@ GoRouter goRouter = GoRouter(
     GoRoute(
       path: Routes.addEvent.label,
       builder: (context, state) => AddEventScreen(),
+    ),
+    GoRoute(
+      path: Routes.publicProfile.label,
+      builder: (context, state) => PublicProfileScreen(),
     )
   ]
 );

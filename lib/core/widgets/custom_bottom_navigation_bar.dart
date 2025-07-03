@@ -14,6 +14,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
         case 0:
           context.push(Routes.home.label);
           break;
+        case 3:
+          context.push(Routes.publicProfile.label);
+          break;
         default:
           print("No existe una ruta para este index");
       }

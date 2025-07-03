@@ -5,7 +5,8 @@ enum Routes {
   register(label: "/register"),
   addEco(label: "/new-eco"),
   addEvent(label: "/new-event"),
-  addBussiness(label: "new-bussines"),
+  addBussiness(label: "/new-bussines"),
+  publicProfile(label: "/public-profile"),
   buyTokens(label: 'buy-tokens');
 
   final String label;

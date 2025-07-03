@@ -1,10 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:narramap/core/Location/location_service.dart';
 import 'package:narramap/core/layout/stackable_scaffold.dart';
 import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/core/widgets/custom_bottom_navigation_bar.dart';
@@ -22,16 +20,9 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
 
-  Position? location;
-
-  void getLocation () async {
-    location = await LocationService().getCurrentLocation();
-  }
-
   @override
   void initState() {
     super.initState();
-    getLocation();
   }
 
   @override
@@ -53,7 +44,7 @@ class _MapScreenState extends State<MapScreen> {
                 return Consumer<MapNotifier>(
                   builder: (context, notifier, _) => FlutterMap(
                     options: MapOptions(
-                      initialCenter: LatLng(16.7362798, -93.1007208),
+                      initialCenter: notifier.currentLocation!,
                       initialZoom: 15.0,
                       minZoom: 13.0
                     ),
@@ -67,7 +58,16 @@ class _MapScreenState extends State<MapScreen> {
                         circles: getCircleLayers(notifier.emotionsZones)
                       ),
                       MarkerLayer(
-                        markers: getPostsMarkers(notifier.posts)
+                        markers: [
+                            Marker(
+                              point: notifier.currentLocation!, 
+                              child: Icon(
+                                Icons.accessibility_sharp,
+                                color: Colors.white,
+                              )
+                            ),
+                            ...getPostsMarkers(notifier.posts)
+                          ]
                       ),
                     ],
                   )
