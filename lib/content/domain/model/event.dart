@@ -3,7 +3,7 @@ import 'package:latlong2/latlong.dart';
 
 class Event {
   final String id;
-  final String userId;
+  final String userImage;
   final LatLng location;
   final int radius;
   final String title;
@@ -15,7 +15,7 @@ class Event {
 
   Event({
     required this.id,
-    required this.userId,
+    required this.userImage,
     required this.location, 
     required this.radius,
     required this.title,

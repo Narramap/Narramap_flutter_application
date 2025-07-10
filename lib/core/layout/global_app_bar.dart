@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/navigation/routes.dart';
-import 'package:narramap/core/widgets/custom_button.dart';
+import 'package:narramap/shared/widgets/custom_button.dart';
 
 class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
   
@@ -21,21 +21,9 @@ class GlobalAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       centerTitle: true,
       toolbarHeight: 80,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(width: 1),
-          Image.asset(
-            "assets/images/logo_narramap.png",
-            width: 70,
-          ),
-          CustomButton(
-            text: "$nTokens EC", 
-            onPressed: () => context.push(Routes.buyTokens.label),
-            icon: Icons.add_circle,
-            padding: 0,
-          )
-        ],
+      title: Image.asset(
+        "assets/images/logo_narramap.png",
+        width: 70,
       ),
     );
   }

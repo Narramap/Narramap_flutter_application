@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:narramap/users/data/repository/dummy_user_repository.dart';
 import 'package:narramap/users/domain/model/phrase.dart';
@@ -8,6 +10,9 @@ import 'package:narramap/users/domain/repository/i_user_repository.dart';
 class PublicProfileNotifier extends ChangeNotifier {
 
   final IUserRepository userRepository = DummyUserRepository();
+
+  File? _newProfilePhoto;
+  File? get newProfilePhoto => _newProfilePhoto;
 
   UserProfile? _user;
   UserProfile? get user => _user;
@@ -47,6 +52,10 @@ class PublicProfileNotifier extends ChangeNotifier {
         text: _textPhrase
       )
     );
+  }
+
+  void onChangeProfilePhoto(File photo) {
+    _newProfilePhoto = photo;
   }
 
 }

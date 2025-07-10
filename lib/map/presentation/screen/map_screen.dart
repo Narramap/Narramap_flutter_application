@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/core/layout/stackable_scaffold.dart';
 import 'package:narramap/core/navigation/routes.dart';
-import 'package:narramap/core/widgets/custom_bottom_navigation_bar.dart';
+import 'package:narramap/shared/widgets/custom_bottom_navigation_bar.dart';
 import 'package:narramap/map/presentation/notifiers/map_notifier.dart';
 import 'package:narramap/map/presentation/screen/utils/get_circle_layers.dart';
 import 'package:narramap/map/presentation/screen/utils/get_posts_markers.dart';
@@ -44,7 +44,7 @@ class _MapScreenState extends State<MapScreen> {
                 return Consumer<MapNotifier>(
                   builder: (context, notifier, _) => FlutterMap(
                     options: MapOptions(
-                      initialCenter: notifier.currentLocation!,
+                      initialCenter: LatLng(notifier.currentLocation!.latitude, notifier.currentLocation!.longitude),
                       initialZoom: 15.0,
                       minZoom: 13.0
                     ),

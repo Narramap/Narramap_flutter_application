@@ -2,14 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:narramap/core/layout/gradient_container.dart';
-import 'package:narramap/core/widgets/custom_button.dart';
-import 'package:narramap/core/widgets/custom_checklist.dart';
-import 'package:narramap/core/widgets/custom_radio_button.dart';
-import 'package:narramap/core/widgets/custom_switch.dart';
-import 'package:narramap/core/widgets/custom_text_field.dart';
-import 'package:narramap/core/widgets/password_text_field.dart';
-import 'package:narramap/core/widgets/quantity_selector.dart';
+import 'package:narramap/shared/widgets/custom_button.dart';
+import 'package:narramap/shared/widgets/custom_checklist.dart';
+import 'package:narramap/shared/widgets/custom_radio_button.dart';
+import 'package:narramap/shared/widgets/custom_switch.dart';
+import 'package:narramap/shared/widgets/custom_text_field.dart';
+import 'package:narramap/shared/widgets/password_text_field.dart';
+import 'package:narramap/shared/widgets/quantity_selector.dart';
 import 'package:narramap/auth/presentation/notifiers/register_notifier.dart';
+import 'package:narramap/shared/enum/sex_enum.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -38,28 +39,14 @@ class RegisterScreen extends StatelessWidget {
                   value: notifier.age
                 ),
                 SizedBox(height: 30),
-                CustomRadioButton<String>(
+                CustomRadioButton<SexEnum>(
                   label: "Sexo",
                   selectedValue: notifier.sex,
-                  group: "Sexo",
-                  options: [
-                    Option<String>(
-                      label: "H", 
-                      value: "H"
-                    ),
-                    Option<String>(
-                      label: "M", 
-                      value: "M",
-                    ),
-                    Option<String>(
-                      label: "NB", 
-                      value: "NB",
-                    ),
-                    Option<String>(
-                      label: "O", 
-                      value: "O",
-                    )
-                  ], 
+                  group: SexEnum.other,
+                  options: SexEnum.values.map((sex) => Option<SexEnum>(
+                    label: sex.label, 
+                    value: sex
+                  )).toList(), 
                   onChanged: notifier.onChangeSex
                 ),
                 SizedBox(height: 30),
@@ -78,8 +65,11 @@ class RegisterScreen extends StatelessWidget {
                   onChanged: notifier.onChangePassword, 
                   changeShowPassword: notifier.onChangeShowPassword, 
                   showPassword: notifier.showPassword,
-                  spacerHeight: 80,
+                  spacerHeight: 30,
                 ),
+                if(notifier.error)
+                  Text(notifier.errorMessage),
+                SizedBox(height: 50),
                 CustomButton(
                   text: "Registrarse",
                   maxSize: true,

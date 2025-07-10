@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:narramap/core/widgets/custom_button.dart';
+import 'package:narramap/shared/widgets/custom_button.dart';
+import 'package:narramap/shared/widgets/custom_switch.dart';
 import 'package:narramap/users/domain/model/user.dart';
 
 class ConexionsContainer extends StatelessWidget {
@@ -14,8 +15,16 @@ class ConexionsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 10,
       children: [
-        Text("Conexiones"),
+        Text(
+          "Conexiones",
+          style: TextStyle(
+            color: TextColor.gray.textColor,
+            fontSize: 20
+          ),
+        ),
         SizedBox(height: 20),
         ...conexions.map((conexion) => Container(
           padding: EdgeInsets.all(10),
@@ -33,7 +42,12 @@ class ConexionsContainer extends StatelessWidget {
                 radius: 20,
               ),
               
-              Text(conexion.nickname)
+              Text(
+                conexion.nickname,
+                style: TextStyle(
+                  color: Color(0xFF848484)
+                ),
+              )
             ],
           ),
         ))

@@ -29,7 +29,8 @@ class MapNotifier extends ChangeNotifier{
   Future<void> getCurrentLocation() async {
 
     final location = await LocationService().getCurrentLocation();
-    _currentLocation = LatLng(location.latitude, location.latitude);
+    _currentLocation = LatLng(location.latitude, location.longitude);
+    print("Ubaicacion obtenida notifier $_currentLocation");
     notifyListeners();
   }
 

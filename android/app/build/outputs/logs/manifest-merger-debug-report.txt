@@ -1,0 +1,660 @@
+-- Merging decision tree log ---
+application
+INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:12:5-44:19
+INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:17:5-18:19
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:17:5-18:19
+MERGED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:10:5-20:19
+MERGED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:10:5-20:19
+MERGED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-13:19
+MERGED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-32:19
+MERGED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-32:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/rodrigo/.gradle/caches/8.10.2/transforms/c39cd0604fe5e9aa1fb22ebc22988410/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/rodrigo/.gradle/caches/8.10.2/transforms/c39cd0604fe5e9aa1fb22ebc22988410/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/bbb9d5f127b01cc557e0ea99ebd348a8/transformed/jetified-camera-core-1.5.0-beta01/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/bbb9d5f127b01cc557e0ea99ebd348a8/transformed/jetified-camera-core-1.5.0-beta01/AndroidManifest.xml:23:5-34:19
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bc40bc5f6e40c88241fb805931d29c4c/transformed/jetified-play-services-location-21.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bc40bc5f6e40c88241fb805931d29c4c/transformed/jetified-play-services-location-21.2.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/a0dd44f6bde9aaae99011f8ea15baea7/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/a0dd44f6bde9aaae99011f8ea15baea7/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/ffafe5f631203f4924364ba072ee19e0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/ffafe5f631203f4924364ba072ee19e0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:29:5-43:19
+MERGED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:29:5-43:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d1d97c503b3a4bd9cc3718f3fd84010a/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d1d97c503b3a4bd9cc3718f3fd84010a/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:name
+		INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml
+manifest
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:1:1-56:12
+MERGED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:1:1-56:12
+INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+MERGED from [:just_audio] /home/rodrigo/.pub-cache/hosted/pub.dev/just_audio-0.10.4/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:audio_session] /home/rodrigo/.pub-cache/hosted/pub.dev/audio_session-0.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-15:12
+MERGED from [:record_android] /home/rodrigo/.pub-cache/hosted/pub.dev/record_android-1.3.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-9:12
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-20:12
+MERGED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:2:1-22:12
+MERGED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-15:12
+MERGED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-34:12
+MERGED from [:flutter_plugin_android_lifecycle] /home/rodrigo/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.28/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider_android] /home/rodrigo/.pub-cache/hosted/pub.dev/path_provider_android-2.2.17/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [:permission_handler_android] /home/rodrigo/.pub-cache/hosted/pub.dev/permission_handler_android-12.1.0/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/rodrigo/.gradle/caches/8.10.2/transforms/c39cd0604fe5e9aa1fb22ebc22988410/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.media:media:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bfb521cf7dbeee9e7fd9882b71e4fd39/transformed/media-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-video:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/64c35ba927fb2259f1459d15f4dc42d7/transformed/jetified-camera-video-1.5.0-beta01/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-lifecycle:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/e1916dc83e898745dd79446bc0d73a79/transformed/jetified-camera-lifecycle-1.5.0-beta01/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.camera:camera-core:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/bbb9d5f127b01cc557e0ea99ebd348a8/transformed/jetified-camera-core-1.5.0-beta01/AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ea4cce335927c35eacf6d356c88effd/transformed/jetified-appcompat-resources-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/85c77be983ff31483166768add7eb823/transformed/appcompat-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bc40bc5f6e40c88241fb805931d29c4c/transformed/jetified-play-services-location-21.2.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/a0dd44f6bde9aaae99011f8ea15baea7/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:16:1-26:12
+MERGED from [io.github.sceneview:sceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/7e34d3265355dcf017f501158df6d636/transformed/jetified-sceneview-2.2.1/AndroidManifest.xml:2:1-15:12
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/da563446475d3ff73b8066be02648858/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.7.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/cf3a986fc94dc98dab92da85e4b25558/transformed/fragment-1.7.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/adca7586a5765ecc64fcc31db50a7ed9/transformed/jetified-animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/0c0a32c77f9e2c343eedb2aaebf24c5d/transformed/jetified-animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/08a37eeb32e63af3144988db0109c643/transformed/jetified-foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/cacc8255b4e26e920080c6d46207a031/transformed/jetified-foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/628072bdaf99d123433e1aa0948651c7/transformed/jetified-ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/ff8e5f4932599b762082350dbdbe639d/transformed/jetified-ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/f23c360eba9df3aa1f2e04707816a4af/transformed/jetified-ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/74284b6f8467b82c2f4645c6f3a3b7a3/transformed/jetified-ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/8faa22748f083027e74a5a2dd1b52150/transformed/jetified-ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/4adff5efe17138a14a879eefa61eedd9/transformed/jetified-ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.3] /home/rodrigo/.gradle/caches/8.10.2/transforms/3d9662a0e7c297833ce8fabe4baa8c18/transformed/jetified-activity-ktx-1.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.9.3] /home/rodrigo/.gradle/caches/8.10.2/transforms/f4945d9b5f034fedd21e910069a69270/transformed/jetified-activity-1.9.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-extractor:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/2da29a4db85fa016031a8271d099d5c9/transformed/jetified-media3-extractor-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-container:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/16069dfcaf91077f5dfacee6009cf7d6/transformed/jetified-media3-container-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-datasource:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/45c277e554b2f642f0039a8bdf70fe37/transformed/jetified-media3-datasource-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-decoder:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d08e828b5953a7666b3f2ff56e0b0d85/transformed/jetified-media3-decoder-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-database:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/62b74d7625893290d7b631ab22ccef38/transformed/jetified-media3-database-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-common:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/784c75164cbdfbd8765b78e0df7f6470/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media3:media3-exoplayer-dash:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/9b220ff5472263f76e2e1c28ba809216/transformed/jetified-media3-exoplayer-dash-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-exoplayer-hls:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/bdb7dd109a5baef195820de030bfc0b8/transformed/jetified-media3-exoplayer-hls-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-exoplayer-smoothstreaming:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/c53d2e9525bf91370b12bc771c004400/transformed/jetified-media3-exoplayer-smoothstreaming-1.4.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/78ff6c8884fea0892664a420c0bc3af4/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.window:window-java:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/a2be31f5f98c024d17eda5160252de46/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:17:1-21:12
+MERGED from [androidx.loader:loader:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/f5514dcb374b97bfc540797fb8036c6b/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7d52ea09101bb351c12b3e49b2217222/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/5122419419ca483b6156ee9e53b81d72/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48338089db6adf2af564fa3dee5e901e/transformed/jetified-emoji2-views-helper-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.customview:customview:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/5524283dab257914603f1a116284cfb7/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1f09a68f32073750392738f19795bebb/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/760bf388237b0fe561efd518543baa2a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.autofill:autofill:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1d212a794d0be83909d599e97cedddd2/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/218e378d13704d359b9622dcea6cce71/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1b308bb3b211b8a2a98b65df57ac5d71/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/03c28736e15b3378b012cee867bacea5/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/4c860eba32ffd640cf27d7bcf8c58afd/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1051ba3f70c22c6b6fe969df2dc22087/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/99c402a3648559de984e485c4b7bb0db/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3c95229e85d86102cdd7c59033387933/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/cf4bcb5d0d3efd13db4a1c454d9ea19e/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d8f536ab661db8c110fa8f555d4045bd/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/4fc20009fbb469c189a90fdeb685306f/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/db6c09fc961c91044ff5d9cd8dd67ef9/transformed/jetified-customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/e3f2b050ee295e3aa25c0b40346b22e9/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/2bf4e494cae922786c1836daab839078/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/ffafe5f631203f4924364ba072ee19e0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/2c54165b066b4ebdf8a3c03617e1f28b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/cb3550aaefe6264f927b55ae2c124f04/transformed/jetified-tracing-ktx-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/42a647dddfd4d90dd7eff806611d6372/transformed/exifinterface-1.3.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:8:1-45:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/2191f642bb5d35c54ec69e277330946c/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1c33255f411e345b8c9153cdc8b772a9/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d1d97c503b3a4bd9cc3718f3fd84010a/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/69e5ac8e407d7c551f1f5ec5856a45aa/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.filament:filament-utils-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/8b036af4521428fe2dfe7950e70d9105/transformed/jetified-filament-utils-android-1.52.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.filament:gltfio-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/54b97add2922549ef9b52ef949cea612/transformed/jetified-gltfio-android-1.52.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.filament:filament-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3e3b806b2e0f42afeacc5170419c15e8/transformed/jetified-filament-android-1.52.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.window.extensions.core:core:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/214b8070ae4c800f920040867b251ddc/transformed/jetified-core-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/f06d8af5aef2f974bdefc5161e11a03b/transformed/jetified-runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/2b14afef30bb90dbc1044695bef445d9/transformed/jetified-runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.github.kittinunf.fuel:fuel-android:2.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/1e416ef7ef67e7d1e7e3daf4a454cd7f/transformed/jetified-fuel-android-2.3.1/AndroidManifest.xml:2:1-10:12
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /home/rodrigo/.gradle/caches/8.10.2/transforms/1841dfdc9324175fac5338109cf574de/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:2:1-7:12
+	package
+		INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:3:5-79
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:3:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:4:5-81
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:4:22-78
+uses-permission#android.permission.ACCESS_BACKGROUND_LOCATION
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:5:5-85
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:5:22-82
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:6:5-70
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:5-71
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:5-71
+MERGED from [:record_android] /home/rodrigo/.pub-cache/hosted/pub.dev/record_android-1.3.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-71
+MERGED from [:record_android] /home/rodrigo/.pub-cache/hosted/pub.dev/record_android-1.3.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-71
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:6:22-68
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:7:5-80
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:5-13:38
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:5-13:38
+	android:maxSdkVersion
+		ADDED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:9-35
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:7:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:8:22-77
+uses-permission#android.permission.CAMERA
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:9:5-64
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:5-65
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:5-65
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-65
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-65
+MERGED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:8:5-65
+MERGED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:8:5-65
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:9:22-62
+uses-feature#android.hardware.camera.ar
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:10:5-86
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:5-12:35
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:5-12:35
+	android:required
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:10:61-84
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:10:19-60
+queries
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:50:5-55:15
+MERGED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:20:5-27:15
+MERGED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:20:5-27:15
+intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:51:9-54:18
+action#android.intent.action.PROCESS_TEXT
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:52:21-70
+data
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:53:13-50
+	android:mimeType
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:53:19-48
+uses-permission#android.permission.INTERNET
+ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml:6:5-66
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-67
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-67
+MERGED from [io.github.sceneview:sceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/7e34d3265355dcf017f501158df6d636/transformed/jetified-sceneview-2.2.1/AndroidManifest.xml:8:5-67
+MERGED from [io.github.sceneview:sceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/7e34d3265355dcf017f501158df6d636/transformed/jetified-sceneview-2.2.1/AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml:6:22-64
+uses-sdk
+INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+MERGED from [:just_audio] /home/rodrigo/.pub-cache/hosted/pub.dev/just_audio-0.10.4/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:just_audio] /home/rodrigo/.pub-cache/hosted/pub.dev/just_audio-0.10.4/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:audio_session] /home/rodrigo/.pub-cache/hosted/pub.dev/audio_session-0.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:audio_session] /home/rodrigo/.pub-cache/hosted/pub.dev/audio_session-0.2.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:record_android] /home/rodrigo/.pub-cache/hosted/pub.dev/record_android-1.3.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:record_android] /home/rodrigo/.pub-cache/hosted/pub.dev/record_android-1.3.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:5:5-44
+MERGED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:6:5-44
+MERGED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:6:5-44
+MERGED from [:flutter_plugin_android_lifecycle] /home/rodrigo/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.28/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] /home/rodrigo/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.28/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /home/rodrigo/.pub-cache/hosted/pub.dev/path_provider_android-2.2.17/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /home/rodrigo/.pub-cache/hosted/pub.dev/path_provider_android-2.2.17/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:permission_handler_android] /home/rodrigo/.pub-cache/hosted/pub.dev/permission_handler_android-12.1.0/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:permission_handler_android] /home/rodrigo/.pub-cache/hosted/pub.dev/permission_handler_android-12.1.0/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/rodrigo/.gradle/caches/8.10.2/transforms/c39cd0604fe5e9aa1fb22ebc22988410/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/rodrigo/.gradle/caches/8.10.2/transforms/c39cd0604fe5e9aa1fb22ebc22988410/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.media:media:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bfb521cf7dbeee9e7fd9882b71e4fd39/transformed/media-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.media:media:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bfb521cf7dbeee9e7fd9882b71e4fd39/transformed/media-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-video:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/64c35ba927fb2259f1459d15f4dc42d7/transformed/jetified-camera-video-1.5.0-beta01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-video:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/64c35ba927fb2259f1459d15f4dc42d7/transformed/jetified-camera-video-1.5.0-beta01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/e1916dc83e898745dd79446bc0d73a79/transformed/jetified-camera-lifecycle-1.5.0-beta01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/e1916dc83e898745dd79446bc0d73a79/transformed/jetified-camera-lifecycle-1.5.0-beta01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/bbb9d5f127b01cc557e0ea99ebd348a8/transformed/jetified-camera-core-1.5.0-beta01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/bbb9d5f127b01cc557e0ea99ebd348a8/transformed/jetified-camera-core-1.5.0-beta01/AndroidManifest.xml:21:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ea4cce335927c35eacf6d356c88effd/transformed/jetified-appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ea4cce335927c35eacf6d356c88effd/transformed/jetified-appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/85c77be983ff31483166768add7eb823/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/85c77be983ff31483166768add7eb823/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bc40bc5f6e40c88241fb805931d29c4c/transformed/jetified-play-services-location-21.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bc40bc5f6e40c88241fb805931d29c4c/transformed/jetified-play-services-location-21.2.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/a0dd44f6bde9aaae99011f8ea15baea7/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/a0dd44f6bde9aaae99011f8ea15baea7/transformed/jetified-play-services-tasks-18.1.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:18:5-43
+MERGED from [io.github.sceneview:sceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/7e34d3265355dcf017f501158df6d636/transformed/jetified-sceneview-2.2.1/AndroidManifest.xml:5:5-44
+MERGED from [io.github.sceneview:sceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/7e34d3265355dcf017f501158df6d636/transformed/jetified-sceneview-2.2.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/da563446475d3ff73b8066be02648858/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/da563446475d3ff73b8066be02648858/transformed/jetified-fragment-ktx-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/cf3a986fc94dc98dab92da85e4b25558/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/cf3a986fc94dc98dab92da85e4b25558/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/adca7586a5765ecc64fcc31db50a7ed9/transformed/jetified-animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/adca7586a5765ecc64fcc31db50a7ed9/transformed/jetified-animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/0c0a32c77f9e2c343eedb2aaebf24c5d/transformed/jetified-animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/0c0a32c77f9e2c343eedb2aaebf24c5d/transformed/jetified-animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/08a37eeb32e63af3144988db0109c643/transformed/jetified-foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/08a37eeb32e63af3144988db0109c643/transformed/jetified-foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/cacc8255b4e26e920080c6d46207a031/transformed/jetified-foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/cacc8255b4e26e920080c6d46207a031/transformed/jetified-foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/628072bdaf99d123433e1aa0948651c7/transformed/jetified-ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/628072bdaf99d123433e1aa0948651c7/transformed/jetified-ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/ff8e5f4932599b762082350dbdbe639d/transformed/jetified-ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/ff8e5f4932599b762082350dbdbe639d/transformed/jetified-ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/f23c360eba9df3aa1f2e04707816a4af/transformed/jetified-ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/f23c360eba9df3aa1f2e04707816a4af/transformed/jetified-ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/74284b6f8467b82c2f4645c6f3a3b7a3/transformed/jetified-ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/74284b6f8467b82c2f4645c6f3a3b7a3/transformed/jetified-ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/8faa22748f083027e74a5a2dd1b52150/transformed/jetified-ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/8faa22748f083027e74a5a2dd1b52150/transformed/jetified-ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/4adff5efe17138a14a879eefa61eedd9/transformed/jetified-ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/4adff5efe17138a14a879eefa61eedd9/transformed/jetified-ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] /home/rodrigo/.gradle/caches/8.10.2/transforms/3d9662a0e7c297833ce8fabe4baa8c18/transformed/jetified-activity-ktx-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] /home/rodrigo/.gradle/caches/8.10.2/transforms/3d9662a0e7c297833ce8fabe4baa8c18/transformed/jetified-activity-ktx-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.9.3] /home/rodrigo/.gradle/caches/8.10.2/transforms/f4945d9b5f034fedd21e910069a69270/transformed/jetified-activity-1.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.3] /home/rodrigo/.gradle/caches/8.10.2/transforms/f4945d9b5f034fedd21e910069a69270/transformed/jetified-activity-1.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/2da29a4db85fa016031a8271d099d5c9/transformed/jetified-media3-extractor-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/2da29a4db85fa016031a8271d099d5c9/transformed/jetified-media3-extractor-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/16069dfcaf91077f5dfacee6009cf7d6/transformed/jetified-media3-container-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/16069dfcaf91077f5dfacee6009cf7d6/transformed/jetified-media3-container-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/45c277e554b2f642f0039a8bdf70fe37/transformed/jetified-media3-datasource-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/45c277e554b2f642f0039a8bdf70fe37/transformed/jetified-media3-datasource-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d08e828b5953a7666b3f2ff56e0b0d85/transformed/jetified-media3-decoder-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d08e828b5953a7666b3f2ff56e0b0d85/transformed/jetified-media3-decoder-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/62b74d7625893290d7b631ab22ccef38/transformed/jetified-media3-database-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/62b74d7625893290d7b631ab22ccef38/transformed/jetified-media3-database-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/784c75164cbdfbd8765b78e0df7f6470/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/784c75164cbdfbd8765b78e0df7f6470/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-dash:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/9b220ff5472263f76e2e1c28ba809216/transformed/jetified-media3-exoplayer-dash-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-dash:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/9b220ff5472263f76e2e1c28ba809216/transformed/jetified-media3-exoplayer-dash-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-hls:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/bdb7dd109a5baef195820de030bfc0b8/transformed/jetified-media3-exoplayer-hls-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-hls:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/bdb7dd109a5baef195820de030bfc0b8/transformed/jetified-media3-exoplayer-hls-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-smoothstreaming:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/c53d2e9525bf91370b12bc771c004400/transformed/jetified-media3-exoplayer-smoothstreaming-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-smoothstreaming:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/c53d2e9525bf91370b12bc771c004400/transformed/jetified-media3-exoplayer-smoothstreaming-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/78ff6c8884fea0892664a420c0bc3af4/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/78ff6c8884fea0892664a420c0bc3af4/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window-java:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/a2be31f5f98c024d17eda5160252de46/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.window:window-java:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/a2be31f5f98c024d17eda5160252de46/transformed/jetified-window-java-1.2.0/AndroidManifest.xml:19:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/f5514dcb374b97bfc540797fb8036c6b/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/f5514dcb374b97bfc540797fb8036c6b/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7d52ea09101bb351c12b3e49b2217222/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7d52ea09101bb351c12b3e49b2217222/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/5122419419ca483b6156ee9e53b81d72/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/5122419419ca483b6156ee9e53b81d72/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48338089db6adf2af564fa3dee5e901e/transformed/jetified-emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48338089db6adf2af564fa3dee5e901e/transformed/jetified-emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/5524283dab257914603f1a116284cfb7/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/5524283dab257914603f1a116284cfb7/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1f09a68f32073750392738f19795bebb/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1f09a68f32073750392738f19795bebb/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/760bf388237b0fe561efd518543baa2a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/760bf388237b0fe561efd518543baa2a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1d212a794d0be83909d599e97cedddd2/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1d212a794d0be83909d599e97cedddd2/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/218e378d13704d359b9622dcea6cce71/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/218e378d13704d359b9622dcea6cce71/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1b308bb3b211b8a2a98b65df57ac5d71/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1b308bb3b211b8a2a98b65df57ac5d71/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/03c28736e15b3378b012cee867bacea5/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/03c28736e15b3378b012cee867bacea5/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/4c860eba32ffd640cf27d7bcf8c58afd/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/4c860eba32ffd640cf27d7bcf8c58afd/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1051ba3f70c22c6b6fe969df2dc22087/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1051ba3f70c22c6b6fe969df2dc22087/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/99c402a3648559de984e485c4b7bb0db/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/99c402a3648559de984e485c4b7bb0db/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3c95229e85d86102cdd7c59033387933/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3c95229e85d86102cdd7c59033387933/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/cf4bcb5d0d3efd13db4a1c454d9ea19e/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/cf4bcb5d0d3efd13db4a1c454d9ea19e/transformed/jetified-savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d8f536ab661db8c110fa8f555d4045bd/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d8f536ab661db8c110fa8f555d4045bd/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/4fc20009fbb469c189a90fdeb685306f/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/4fc20009fbb469c189a90fdeb685306f/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/db6c09fc961c91044ff5d9cd8dd67ef9/transformed/jetified-customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/db6c09fc961c91044ff5d9cd8dd67ef9/transformed/jetified-customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/e3f2b050ee295e3aa25c0b40346b22e9/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/e3f2b050ee295e3aa25c0b40346b22e9/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/2bf4e494cae922786c1836daab839078/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/2bf4e494cae922786c1836daab839078/transformed/jetified-annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/ffafe5f631203f4924364ba072ee19e0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/ffafe5f631203f4924364ba072ee19e0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/2c54165b066b4ebdf8a3c03617e1f28b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/2c54165b066b4ebdf8a3c03617e1f28b/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/cb3550aaefe6264f927b55ae2c124f04/transformed/jetified-tracing-ktx-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/cb3550aaefe6264f927b55ae2c124f04/transformed/jetified-tracing-ktx-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/42a647dddfd4d90dd7eff806611d6372/transformed/exifinterface-1.3.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/42a647dddfd4d90dd7eff806611d6372/transformed/exifinterface-1.3.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:16:5-18:41
+MERGED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:16:5-18:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/2191f642bb5d35c54ec69e277330946c/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/2191f642bb5d35c54ec69e277330946c/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1c33255f411e345b8c9153cdc8b772a9/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/1c33255f411e345b8c9153cdc8b772a9/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d1d97c503b3a4bd9cc3718f3fd84010a/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/d1d97c503b3a4bd9cc3718f3fd84010a/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/69e5ac8e407d7c551f1f5ec5856a45aa/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/69e5ac8e407d7c551f1f5ec5856a45aa/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.filament:filament-utils-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/8b036af4521428fe2dfe7950e70d9105/transformed/jetified-filament-utils-android-1.52.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.filament:filament-utils-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/8b036af4521428fe2dfe7950e70d9105/transformed/jetified-filament-utils-android-1.52.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.filament:gltfio-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/54b97add2922549ef9b52ef949cea612/transformed/jetified-gltfio-android-1.52.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.filament:gltfio-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/54b97add2922549ef9b52ef949cea612/transformed/jetified-gltfio-android-1.52.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.filament:filament-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3e3b806b2e0f42afeacc5170419c15e8/transformed/jetified-filament-android-1.52.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.filament:filament-android:1.52.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3e3b806b2e0f42afeacc5170419c15e8/transformed/jetified-filament-android-1.52.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/214b8070ae4c800f920040867b251ddc/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/214b8070ae4c800f920040867b251ddc/transformed/jetified-core-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/f06d8af5aef2f974bdefc5161e11a03b/transformed/jetified-runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/f06d8af5aef2f974bdefc5161e11a03b/transformed/jetified-runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/2b14afef30bb90dbc1044695bef445d9/transformed/jetified-runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.7] /home/rodrigo/.gradle/caches/8.10.2/transforms/2b14afef30bb90dbc1044695bef445d9/transformed/jetified-runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [com.github.kittinunf.fuel:fuel-android:2.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/1e416ef7ef67e7d1e7e3daf4a454cd7f/transformed/jetified-fuel-android-2.3.1/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.kittinunf.fuel:fuel-android:2.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/1e416ef7ef67e7d1e7e3daf4a454cd7f/transformed/jetified-fuel-android-2.3.1/AndroidManifest.xml:6:5-8:41
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /home/rodrigo/.gradle/caches/8.10.2/transforms/1841dfdc9324175fac5338109cf574de/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /home/rodrigo/.gradle/caches/8.10.2/transforms/1841dfdc9324175fac5338109cf574de/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
+	android:targetSdkVersion
+		INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml
+uses-feature#android.hardware.camera.any
+ADDED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-64
+	android:name
+		ADDED from [:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:19-61
+uses-feature#0x00030000
+ADDED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:5-15:35
+MERGED from [io.github.sceneview:sceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/7e34d3265355dcf017f501158df6d636/transformed/jetified-sceneview-2.2.1/AndroidManifest.xml:11:5-13:35
+MERGED from [io.github.sceneview:sceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/7e34d3265355dcf017f501158df6d636/transformed/jetified-sceneview-2.2.1/AndroidManifest.xml:11:5-13:35
+	android:glEsVersion
+		ADDED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:9-41
+	android:required
+		ADDED from [:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:9-32
+meta-data#com.google.ar.core
+ADDED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:17:9-19:40
+	android:value
+		ADDED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:19:13-37
+	android:name
+		ADDED from [io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:18:13-46
+service#com.baseflow.geolocator.GeolocatorLocationService
+ADDED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-12:56
+	android:enabled
+		ADDED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-35
+	android:exported
+		ADDED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-37
+	android:foregroundServiceType
+		ADDED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-53
+	android:name
+		ADDED from [:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-77
+provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
+ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:9-17:20
+	android:grantUriPermissions
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-47
+	android:authorities
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-74
+	android:exported
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-37
+	android:name
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-82
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-16:75
+	android:resource
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:17-72
+	android:name
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-67
+service#com.google.android.gms.metadata.ModuleDependencies
+ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:9-31:19
+	android:enabled
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:13-36
+	android:exported
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:13-37
+	tools:ignore
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:23:13-40
+	android:name
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:13-78
+intent-filter#action:name:com.google.android.gms.metadata.MODULE_DEPENDENCIES
+ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:13-26:29
+action#com.google.android.gms.metadata.MODULE_DEPENDENCIES
+ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:17-94
+	android:name
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:25-91
+meta-data#photopicker_activity:0:required
+ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:13-30:36
+	android:value
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:30:17-33
+	android:name
+		ADDED from [:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:17-63
+service#androidx.camera.core.impl.MetadataHolderService
+ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:24:9-33:19
+MERGED from [androidx.camera:camera-core:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/bbb9d5f127b01cc557e0ea99ebd348a8/transformed/jetified-camera-core-1.5.0-beta01/AndroidManifest.xml:29:9-33:78
+MERGED from [androidx.camera:camera-core:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/bbb9d5f127b01cc557e0ea99ebd348a8/transformed/jetified-camera-core-1.5.0-beta01/AndroidManifest.xml:29:9-33:78
+	tools:node
+		ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:29:13-31
+	android:enabled
+		ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:26:13-36
+	android:exported
+		ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:28:13-75
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:25:13-75
+meta-data#androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER
+ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:30:13-32:89
+	android:value
+		ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:32:17-86
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:31:17-103
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [androidx.media3:media3-common:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/784c75164cbdfbd8765b78e0df7f6470/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/78ff6c8884fea0892664a420c0bc3af4/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/78ff6c8884fea0892664a420c0bc3af4/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [androidx.media3:media3-common:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/784c75164cbdfbd8765b78e0df7f6470/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:22-76
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+	android:required
+		ADDED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/ffafe5f631203f4924364ba072ee19e0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/ffafe5f631203f4924364ba072ee19e0/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#com.example.narramap.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#com.example.narramap.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+package#com.google.ar.core
+ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:21:9-54
+	android:name
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:21:18-51
+package#com.android.vending
+ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:22:9-55
+	android:name
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:22:18-52
+intent#action:name:com.google.android.play.core.install.BIND_INSTALL_SERVICE
+ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:24:9-26:18
+action#com.google.android.play.core.install.BIND_INSTALL_SERVICE
+ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:25:13-96
+	android:name
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:25:21-93
+meta-data#com.google.ar.core.min_apk_version
+ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:32:9-34:41
+	android:value
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:34:13-38
+	android:name
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:33:13-62
+activity#com.google.ar.core.InstallActivity
+ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:36:9-42:80
+	android:excludeFromRecents
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:39:13-46
+	android:launchMode
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:41:13-43
+	android:exported
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:40:13-37
+	android:configChanges
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:38:13-74
+	android:theme
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:42:13-77
+	android:name
+		ADDED from [com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:37:13-62

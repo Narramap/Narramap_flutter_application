@@ -7,7 +7,7 @@ enum Routes {
   addEvent(label: "/new-event"),
   addBussiness(label: "/new-bussines"),
   publicProfile(label: "/public-profile"),
-  buyTokens(label: 'buy-tokens');
+  aumentedReality(label: "/aumented_reality");
 
   final String label;
 

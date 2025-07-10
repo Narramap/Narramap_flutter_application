@@ -1,0 +1,348 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.narramap"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="30"
+9        android:targetSdkVersion="35" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml:6:5-66
+15-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/debug/AndroidManifest.xml:6:22-64
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:3:5-79
+16-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:3:22-76
+17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+17-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:4:5-81
+17-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:4:22-78
+18    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+18-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:5:5-85
+18-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:5:22-82
+19    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+19-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:6:5-70
+19-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:6:22-68
+20    <uses-permission
+20-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:7:5-80
+21        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+21-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:7:22-78
+22        android:maxSdkVersion="28" />
+22-->[:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:9-35
+23    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+23-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:8:5-79
+23-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:8:22-77
+24    <uses-permission android:name="android.permission.CAMERA" />
+24-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:9:5-64
+24-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:9:22-62
+25
+26    <uses-feature
+26-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:10:5-86
+27        android:name="android.hardware.camera.ar"
+27-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:10:19-60
+28        android:required="true" />
+28-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:10:61-84
+29    <!--
+30 Required to query activities that can process text, see:
+31         https://developer.android.com/training/package-visibility and
+32         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+33
+34         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+35    -->
+36    <queries>
+36-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:50:5-55:15
+37        <intent>
+37-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:51:9-54:18
+38            <action android:name="android.intent.action.PROCESS_TEXT" />
+38-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:52:13-72
+38-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:52:21-70
+39
+40            <data android:mimeType="text/plain" />
+40-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:53:13-50
+40-->/home/rodrigo/Documentos/UP/moviles2/narramap/android/app/src/main/AndroidManifest.xml:53:19-48
+41        </intent>
+42
+43        <package android:name="com.google.ar.core" />
+43-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:21:9-54
+43-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:21:18-51
+44        <package android:name="com.android.vending" />
+44-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:22:9-55
+44-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:22:18-52
+45
+46        <intent>
+46-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:24:9-26:18
+47            <action android:name="com.google.android.play.core.install.BIND_INSTALL_SERVICE" />
+47-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:25:13-96
+47-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:25:21-93
+48        </intent>
+49    </queries>
+50
+51    <uses-feature android:name="android.hardware.camera.any" />
+51-->[:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-64
+51-->[:camera_android_camerax] /home/rodrigo/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.19/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:19-61
+52    <uses-feature
+52-->[:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:5-15:35
+53        android:glEsVersion="0x00030000"
+53-->[:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:9-41
+54        android:required="true" />
+54-->[:ar_flutter_plugin_2] /home/rodrigo/.pub-cache/hosted/pub.dev/ar_flutter_plugin_2-0.0.3/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:9-32
+55
+56    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+56-->[androidx.media3:media3-common:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/784c75164cbdfbd8765b78e0df7f6470/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:5-79
+56-->[androidx.media3:media3-common:1.4.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/784c75164cbdfbd8765b78e0df7f6470/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:22-76
+57
+58    <permission
+58-->[androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+59        android:name="com.example.narramap.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+59-->[androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+60        android:protectionLevel="signature" />
+60-->[androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+61
+62    <uses-permission android:name="com.example.narramap.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+62-->[androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+62-->[androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+63
+64    <application
+65        android:name="android.app.Application"
+66        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+66-->[androidx.core:core:1.13.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/dfc2fbca530748e569b0737b09fa016f/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+67        android:debuggable="true"
+68        android:extractNativeLibs="false"
+69        android:icon="@mipmap/ic_launcher"
+70        android:label="narramap" >
+71        <uses-library
+72            android:name="org.apache.http.legacy"
+73            android:required="false" />
+74
+75        <activity
+76            android:name="com.example.narramap.MainActivity"
+77            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+78            android:exported="true"
+79            android:hardwareAccelerated="true"
+80            android:launchMode="singleTop"
+81            android:taskAffinity=""
+82            android:theme="@style/LaunchTheme"
+83            android:windowSoftInputMode="adjustResize" >
+84
+85            <!--
+86                 Specifies an Android theme to apply to this Activity as soon as
+87                 the Android process has started. This theme is visible to the user
+88                 while the Flutter UI initializes. After that, this theme continues
+89                 to determine the Window background behind the Flutter UI.
+90            -->
+91            <meta-data
+92                android:name="io.flutter.embedding.android.NormalTheme"
+93                android:resource="@style/NormalTheme" />
+94
+95            <intent-filter>
+96                <action android:name="android.intent.action.MAIN" />
+97
+98                <category android:name="android.intent.category.LAUNCHER" />
+99            </intent-filter>
+100        </activity>
+101        <!--
+102             Don't delete the meta-data below.
+103             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+104        -->
+105        <meta-data
+106            android:name="flutterEmbedding"
+107            android:value="2" />
+108        <!--
+109        Indicates that this app requires Google Play Services for AR ("AR Required") and causes
+110        the Google Play Store to download and intall Google Play Services for AR along with the app.
+111        For an "AR Optional" app, specify "optional" instead of "required".
+112        -->
+113        <meta-data
+113-->[io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:17:9-19:40
+114            android:name="com.google.ar.core"
+114-->[io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:18:13-46
+115            android:value="optional" />
+115-->[io.github.sceneview:arsceneview:2.2.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/51957a5c53ea4fae9f8187e40b82efdf/transformed/jetified-arsceneview-2.2.1/AndroidManifest.xml:19:13-37
+116
+117        <service
+117-->[:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-12:56
+118            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+118-->[:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-77
+119            android:enabled="true"
+119-->[:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-35
+120            android:exported="false"
+120-->[:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-37
+121            android:foregroundServiceType="location" />
+121-->[:geolocator_android] /home/rodrigo/.pub-cache/hosted/pub.dev/geolocator_android-4.6.2/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-53
+122
+123        <provider
+123-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:9-17:20
+124            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+124-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-82
+125            android:authorities="com.example.narramap.flutter.image_provider"
+125-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-74
+126            android:exported="false"
+126-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-37
+127            android:grantUriPermissions="true" >
+127-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-47
+128            <meta-data
+128-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-16:75
+129                android:name="android.support.FILE_PROVIDER_PATHS"
+129-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:17-67
+130                android:resource="@xml/flutter_image_picker_file_paths" />
+130-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:17-72
+131        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+132        <service
+132-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:9-31:19
+133            android:name="com.google.android.gms.metadata.ModuleDependencies"
+133-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:13-78
+134            android:enabled="false"
+134-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:13-36
+135            android:exported="false" >
+135-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:13-37
+136            <intent-filter>
+136-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:13-26:29
+137                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+137-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:17-94
+137-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:25-91
+138            </intent-filter>
+139
+140            <meta-data
+140-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:13-30:36
+141                android:name="photopicker_activity:0:required"
+141-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:17-63
+142                android:value="" />
+142-->[:image_picker_android] /home/rodrigo/.pub-cache/hosted/pub.dev/image_picker_android-0.8.12+23/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:30:17-33
+143        </service>
+144        <service
+144-->[androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:24:9-33:19
+145            android:name="androidx.camera.core.impl.MetadataHolderService"
+145-->[androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:25:13-75
+146            android:enabled="false"
+146-->[androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:26:13-36
+147            android:exported="false" >
+147-->[androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:27:13-37
+148            <meta-data
+148-->[androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:30:13-32:89
+149                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+149-->[androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:31:17-103
+150                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+150-->[androidx.camera:camera-camera2:1.5.0-beta01] /home/rodrigo/.gradle/caches/8.10.2/transforms/9c9d3231ef370c78e77e4431beaf6406/transformed/jetified-camera-camera2-1.5.0-beta01/AndroidManifest.xml:32:17-86
+151        </service>
+152
+153        <activity
+153-->[com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:9-22:45
+154            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+154-->[com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:20:19-85
+155            android:exported="false"
+155-->[com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:22:19-43
+156            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+156-->[com.google.android.gms:play-services-base:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/b93785a04fcd49acabbaa600426866db/transformed/jetified-play-services-base-18.3.0/AndroidManifest.xml:21:19-78
+157
+158        <meta-data
+158-->[com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+159            android:name="com.google.android.gms.version"
+159-->[com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+160            android:value="@integer/google_play_services_version" />
+160-->[com.google.android.gms:play-services-basement:18.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/48bb13e58e49cdf1e6377472107b28a8/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+161
+162        <uses-library
+162-->[androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+163            android:name="androidx.window.extensions"
+163-->[androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+164            android:required="false" />
+164-->[androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+165        <uses-library
+165-->[androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+166            android:name="androidx.window.sidecar"
+166-->[androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+167            android:required="false" />
+167-->[androidx.window:window:1.2.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/aed2861b2b6894f7067df3f3f96b791f/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+168
+169        <provider
+169-->[androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+170            android:name="androidx.startup.InitializationProvider"
+170-->[androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:25:13-67
+171            android:authorities="com.example.narramap.androidx-startup"
+171-->[androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:26:13-68
+172            android:exported="false" >
+172-->[androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:27:13-37
+173            <meta-data
+173-->[androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+174                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+174-->[androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:30:17-75
+175                android:value="androidx.startup" />
+175-->[androidx.emoji2:emoji2:1.3.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/3698409b289fdea99c71b7f68e143016/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:31:17-49
+176            <meta-data
+176-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+177                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+177-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+178                android:value="androidx.startup" />
+178-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/bb10008c4b33ee9597583412a41828ed/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+179            <meta-data
+179-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+180                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+180-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+181                android:value="androidx.startup" />
+181-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+182        </provider>
+183
+184        <receiver
+184-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+185            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+185-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+186            android:directBootAware="false"
+186-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+187            android:enabled="true"
+187-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+188            android:exported="true"
+188-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+189            android:permission="android.permission.DUMP" >
+189-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+190            <intent-filter>
+190-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+191                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+191-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+191-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+192            </intent-filter>
+193            <intent-filter>
+193-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+194                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+194-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+194-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+195            </intent-filter>
+196            <intent-filter>
+196-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+197                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+197-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+197-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+198            </intent-filter>
+199            <intent-filter>
+199-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+200                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+200-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+200-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/rodrigo/.gradle/caches/8.10.2/transforms/5aacd87baa6feaa7bece87b01e7698f0/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+201            </intent-filter>
+202        </receiver> <!-- The minimal version code of ARCore APK required for an app using this SDK. -->
+203        <meta-data
+203-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:32:9-34:41
+204            android:name="com.google.ar.core.min_apk_version"
+204-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:33:13-62
+205            android:value="240350000" /> <!-- This activity is critical for installing ARCore when it is not already present. -->
+205-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:34:13-38
+206        <activity
+206-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:36:9-42:80
+207            android:name="com.google.ar.core.InstallActivity"
+207-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:37:13-62
+208            android:configChanges="keyboardHidden|orientation|screenSize"
+208-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:38:13-74
+209            android:excludeFromRecents="true"
+209-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:39:13-46
+210            android:exported="false"
+210-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:40:13-37
+211            android:launchMode="singleTop"
+211-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:41:13-43
+212            android:theme="@android:style/Theme.Material.Light.Dialog.Alert" />
+212-->[com.google.ar:core:1.43.0] /home/rodrigo/.gradle/caches/8.10.2/transforms/7ac9f156d78d140903c810be698e5c8f/transformed/jetified-core-1.43.0/AndroidManifest.xml:42:13-77
+213    </application>
+214
+215</manifest>

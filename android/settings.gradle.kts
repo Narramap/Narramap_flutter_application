@@ -22,4 +22,9 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.8.22" apply false
 }
 
+// Incluye el módulo de Unity
 include(":app")
+// include(":unityLibrary")
+// project(":unityLibrary").projectDir = File(rootDir.parentFile, "UnityExport/unityLibrary")
+// include(":unityLibrary:xrmanifest.androidlib")
+// project(":unityLibrary:xrmanifest.androidlib").projectDir = File(rootDir.parentFile, "UnityExport/unityLibrary/xrmanifest.androidlib")

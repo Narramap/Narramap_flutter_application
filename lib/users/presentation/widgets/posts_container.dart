@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:narramap/core/widgets/post_card.dart';
+import 'package:narramap/shared/widgets/custom_switch.dart';
+import 'package:narramap/shared/widgets/post_card.dart';
 import 'package:narramap/map/domain/model/post.dart';
 
 class PostsContainer extends StatelessWidget {
@@ -14,9 +15,16 @@ class PostsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 20,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 40,
       children: [
-        Text("Tus Ecos Publicados"),
+        Text(
+          "Tus Ecos Publicados",
+          style: TextStyle(
+            fontSize: 20,
+            color: TextColor.gray.textColor
+          ),
+        ),
         ...posts.map((post) => PostCard(post: post))
       ],
     );

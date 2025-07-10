@@ -1,5 +1,6 @@
 
 import 'package:go_router/go_router.dart';
+import 'package:narramap/aumented_reality.dart/presentation/screens/aumented_reality_screen.dart';
 import 'package:narramap/content/presentation/screens/add_eco_screen.dart';
 import 'package:narramap/content/presentation/screens/add_event_screen.dart';
 import 'package:narramap/core/navigation/routes.dart';
@@ -34,6 +35,10 @@ GoRouter goRouter = GoRouter(
     GoRoute(
       path: Routes.publicProfile.label,
       builder: (context, state) => PublicProfileScreen(),
+    ),
+    GoRoute(
+      path: Routes.aumentedReality.label,
+      builder: (context, state) => ARViewScreen(),
     )
   ]
 );

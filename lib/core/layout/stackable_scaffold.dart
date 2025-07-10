@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/navigation/routes.dart';
-import 'package:narramap/core/widgets/custom_bottom_navigation_bar.dart';
+import 'package:narramap/shared/widgets/custom_bottom_navigation_bar.dart';
 
 class StackableScaffold extends StatelessWidget {
 
@@ -14,7 +14,7 @@ class StackableScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Color(0xFFF2F2F2),
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -24,11 +24,13 @@ class StackableScaffold extends StatelessWidget {
             onPressed: () => context.push(Routes.addEvent.label),
             backgroundColor: Color(0xFFF2F2F2),
             child: Text("📅", style: TextStyle(fontSize: 20)),
+            heroTag: "evento",
           ),
           FloatingActionButton(
             onPressed: () => context.push(Routes.addEco.label),
             backgroundColor: Color(0xFFF2F2F2),
             child: Text("💭", style: TextStyle(fontSize: 20)),
+            heroTag: "eco",
           ),
           SizedBox(height: 70,)
         ],
@@ -56,7 +58,7 @@ class StackableScaffold extends StatelessWidget {
             left: 0,
             right: 0,
             bottom: 0,
-            child: CustomBottomNavigationBar(),
+            child: CustomBottomNavigationBar.getInstance(),
           ),
         ],
       ),
