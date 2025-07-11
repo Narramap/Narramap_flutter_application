@@ -2,6 +2,10 @@
 
 class PostDetailedInterceptor {
 
-  final 
+  final String id;
+
+  PostDetailedInterceptor({
+    required this.id
+  });
   
 }
