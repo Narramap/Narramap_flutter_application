@@ -67,9 +67,21 @@ class RegisterScreen extends StatelessWidget {
                   showPassword: notifier.showPassword,
                   spacerHeight: 30,
                 ),
+
+                CustomSwitch(
+                  label: "Cuenta de negocios", 
+                  value: notifier.bussinessProfile, 
+                  onChanged: notifier.onChangeBussinessProfile
+                ),
+                SizedBox(height: 10),
                 if(notifier.error)
-                  Text(notifier.errorMessage),
-                SizedBox(height: 50),
+                  Text(
+                    notifier.errorMessage,
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 156, 156, 156)
+                    ),
+                  ),
+                SizedBox(height: 40),
                 CustomButton(
                   text: "Registrarse",
                   maxSize: true,
@@ -78,7 +90,6 @@ class RegisterScreen extends StatelessWidget {
               ],
             )
           )
-          
         ]
       ),
     );    

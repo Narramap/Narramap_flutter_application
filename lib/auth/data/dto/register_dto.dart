@@ -9,6 +9,7 @@ class RegisterDto {
   final String password;
   final SexEnum sex;
   final bool publicProfile;
+  final bool bussinessProfile;
 
   RegisterDto({
     required this.nickname,
@@ -16,6 +17,20 @@ class RegisterDto {
     required this.age,
     required this.password,
     required this.sex,
-    required this.publicProfile
+    required this.publicProfile,
+    required this.bussinessProfile
   });
+
+  Map<String, dynamic> toJsonMap() {
+
+    return {
+      "nickname": nickname,
+      "email": email,
+      "password": password,
+      "age": age,
+      "gender": sex,
+      "public": publicProfile,
+      "bussiness": bussinessProfile
+    };
+  }
 }

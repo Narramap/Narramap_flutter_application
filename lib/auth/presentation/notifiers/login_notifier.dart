@@ -44,13 +44,15 @@ class LoginNotifier extends ChangeNotifier {
     if(!validateEmail(email)){
       _error = true;
       _errorMessage = "ingresa un correo valido";
+      notifyListeners();
       return;
     }
 
     _error = false;
+    notifyListeners();
 
     repository.login(LoginDto(email: email, password: password));
-
+    
 
   }
 

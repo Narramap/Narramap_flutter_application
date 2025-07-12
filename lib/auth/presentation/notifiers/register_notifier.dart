@@ -1,15 +1,17 @@
-
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:narramap/auth/data/dto/register_dto.dart';
 import 'package:narramap/auth/data/repository/auth_repository.dart';
 import 'package:narramap/auth/domain/repository/i_auth_repository.dart';
+import 'package:narramap/auth/domain/use_cases/register_use_case.dart';
 import 'package:narramap/shared/enum/sex_enum.dart';
 import 'package:narramap/shared/utils/validations.dart';
 
 class RegisterNotifier extends ChangeNotifier{
 
-  IAuthRepository repository = AuthRepository();
+
+  final RegisterUseCase registerUseCase = RegisterUseCase();
 
   String _nickaname = "";
   String get nickname => _nickaname;
@@ -29,8 +31,11 @@ class RegisterNotifier extends ChangeNotifier{
   String _password = "";
   String get password => _password;
 
-  SexEnum? _sex = null;
+  SexEnum? _sex;
   SexEnum? get sex => _sex;
+
+  bool _bussinessProfile = false;
+  bool get bussinessProfile => _bussinessProfile;
 
   bool _error = false;
   bool get error => _error;
@@ -40,6 +45,11 @@ class RegisterNotifier extends ChangeNotifier{
 
   void onChangePublic(bool value) {
     _public = value;
+    notifyListeners();
+  }
+
+  onChangeBussinessProfile(bool value) {
+    _bussinessProfile = value;
     notifyListeners();
   }
 
@@ -92,29 +102,35 @@ class RegisterNotifier extends ChangeNotifier{
     if(!validateEmail(email)){
       _error = true;
       _errorMessage = "ingresa un correo valido";
+      notifyListeners();
       return;
     }
 
-    if(_password.length >= 8 && _password.length <= 16) {
+    if(!(_password.length >= 8 && _password.length <= 16)) {
       _error = true;
       _errorMessage = "La contraseña debe tener una longitud de 8 a 16 caracteres";
+      notifyListeners();
       return;
     }
 
     if(_sex == null) {
       _error = true;
       _errorMessage = "Selecciona tu sexo";
+      notifyListeners();
+      return;
     }
 
-    repository.register(RegisterDto(
+    _error = false;
+    notifyListeners();
+
+    registerUseCase.run(RegisterDto(
       nickname: nickname, 
       email: email, 
       age: age, 
       password: password, 
       sex: sex!, 
-      publicProfile: public
+      publicProfile: public,
+      bussinessProfile: bussinessProfile
     ));
-
-
   }
 }

@@ -9,7 +9,8 @@ class User {
   final int age;
   final SexEnum sex;
   final String imageUrl;
-  final bool public;
+  final bool publicProfile;
+  final bool bussinessProfile;
 
   User({
     required this.id,
@@ -18,7 +19,8 @@ class User {
     required this.age,
     required this.sex,
     required this.imageUrl,
-    required this.public
+    required this.publicProfile,
+    required this.bussinessProfile
   });
   
 }

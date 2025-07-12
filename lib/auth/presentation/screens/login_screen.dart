@@ -47,11 +47,19 @@ class LoginScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(height: 80),
+                SizedBox(height: 20),
+                if(notifier.error) 
+                  Text(
+                    notifier.errorMessage,
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 156, 156, 156)
+                    ),
+                  ),
+                SizedBox(height: 60),
                 
                 CustomButton(
                   text: "Iniciar Sesion", 
-                  onPressed: () => context.push(Routes.home.label)
+                  onPressed: notifier.onLogin//() => context.push(Routes.home.label)
                 )
               ],
             )
