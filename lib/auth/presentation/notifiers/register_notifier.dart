@@ -1,17 +1,16 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:narramap/auth/data/dto/register_dto.dart';
-import 'package:narramap/auth/data/repository/auth_repository.dart';
-import 'package:narramap/auth/domain/repository/i_auth_repository.dart';
 import 'package:narramap/auth/domain/use_cases/register_use_case.dart';
+import 'package:narramap/core/DI/get_it_config.dart';
+import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/shared/enum/sex_enum.dart';
 import 'package:narramap/shared/utils/validations.dart';
 
 class RegisterNotifier extends ChangeNotifier{
 
 
-  final RegisterUseCase registerUseCase = RegisterUseCase();
+  final RegisterUseCase registerUseCase = getIt<RegisterUseCase>();
 
   String _nickaname = "";
   String get nickname => _nickaname;
@@ -97,7 +96,7 @@ class RegisterNotifier extends ChangeNotifier{
     }
   }
 
-  void onRegister() {
+  void onRegister(void Function() navigateToHome) async {
 
     if(!validateEmail(email)){
       _error = true;
@@ -123,7 +122,7 @@ class RegisterNotifier extends ChangeNotifier{
     _error = false;
     notifyListeners();
 
-    registerUseCase.run(RegisterDto(
+    final user = await registerUseCase.run(RegisterDto(
       nickname: nickname, 
       email: email, 
       age: age, 
@@ -132,5 +131,9 @@ class RegisterNotifier extends ChangeNotifier{
       publicProfile: public,
       bussinessProfile: bussinessProfile
     ));
+
+    if(user != null) {
+      navigateToHome();
+    }
   }
 }

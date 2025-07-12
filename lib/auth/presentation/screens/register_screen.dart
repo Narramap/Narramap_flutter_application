@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 import 'package:narramap/core/layout/gradient_container.dart';
+import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/shared/widgets/custom_button.dart';
 import 'package:narramap/shared/widgets/custom_checklist.dart';
 import 'package:narramap/shared/widgets/custom_radio_button.dart';
@@ -85,7 +87,7 @@ class RegisterScreen extends StatelessWidget {
                 CustomButton(
                   text: "Registrarse",
                   maxSize: true,
-                  onPressed: notifier.onRegister
+                  onPressed: () => notifier.onRegister(() => context.push(Routes.home.label))
                 )
               ],
             )
