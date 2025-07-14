@@ -119,7 +119,7 @@ class PublicProfileScreen extends StatelessWidget {
                             ],
                           ),
                         SizedBox(height: 40),
-                        PostsContainer(posts: currentProfile.posts),
+                        // PostsContainer(posts: currentProfile.posts),
                         SizedBox(height: 40),
                         EventsContainer(events: currentProfile.events),
                         SizedBox(height: 40),

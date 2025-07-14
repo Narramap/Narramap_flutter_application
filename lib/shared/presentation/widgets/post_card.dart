@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
 import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/shared/presentation/widgets/card_header.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
@@ -8,9 +9,11 @@ import 'package:narramap/shared/presentation/widgets/reactions_container.dart';
 class PostCard extends StatelessWidget {
 
   final Post post;
+  final Future<Post?> Function(ReactionToPostDTO) react;
   const PostCard({
     super.key,
-    required this.post
+    required this.post,
+    required this.react
   });
 
   @override
@@ -48,7 +51,8 @@ class PostCard extends StatelessWidget {
           ),
         
         ReactionsContainer(
-          reactions: post.reactions
+          post: post,
+          onTap: react,
         )
       ],
     );

@@ -25,7 +25,7 @@ class PostsContainer extends StatelessWidget {
             color: TextColor.gray.textColor
           ),
         ),
-        ...posts.map((post) => PostCard(post: post))
+        ...posts.map((post) => PostCard(post: post, react: (s) async {},))
       ],
     );
   }

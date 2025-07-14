@@ -71,7 +71,8 @@ class _MapScreenState extends State<MapScreen> {
                             ...getPostsMarkers(
                               context,
                               notifier.posts,
-                              showPostModal
+                              showPostModal,
+                              notifier.reactToPost
                             )
                           ]
                       ),

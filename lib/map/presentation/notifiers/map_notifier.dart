@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
 import 'package:narramap/content/domain/model/post.dart';
+import 'package:narramap/content/domain/use_cases/react_to_post_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/Location/location_service.dart';
 import 'package:narramap/map/data/repository/dummy_emotions_zones_repository.dart';
@@ -9,7 +11,9 @@ import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
 
 class MapNotifier extends ChangeNotifier{
 
-  final GetAllPostsUseCase useCase = getIt<GetAllPostsUseCase>();
+  final GetAllPostsUseCase getAllUseCase = getIt<GetAllPostsUseCase>();
+  final ReactToPostUseCase reactUseCase = getIt<ReactToPostUseCase>();
+
   LatLng? _currentLocation;
   LatLng? get currentLocation => _currentLocation;
 
@@ -32,17 +36,22 @@ class MapNotifier extends ChangeNotifier{
 
     final location = await LocationService().getCurrentLocation();
     _currentLocation = LatLng(location.latitude, location.longitude);
-    print("Ubaicacion obtenida notifier $_currentLocation");
+    print("Ubicacion obtenida notifier $_currentLocation");
     notifyListeners();
   }
 
   Future<void> getPosts() async {
     // _posts = await DummyPostRepository().getPosts();
-    final postsRes = await useCase.run();
+    final postsRes = await getAllUseCase.run();
     if(postsRes != null) {
       _posts = postsRes;
     }
     notifyListeners();
+  }
+
+  Future<Post?> reactToPost(ReactionToPostDTO reactionDTO) async {
+
+    return await reactUseCase.run(reactionDTO);
   }
 
   Future<void> getEmotionsZones() async {
