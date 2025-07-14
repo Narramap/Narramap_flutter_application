@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:narramap/auth/data/dto/login_dto.dart';
-import 'package:narramap/auth/data/repository/auth_repository.dart';
-import 'package:narramap/auth/domain/repository/i_auth_repository.dart';
 import 'package:narramap/auth/domain/use_cases/login_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
+import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/shared/utils/validations.dart';
 
 class LoginNotifier extends ChangeNotifier {
@@ -56,6 +55,9 @@ class LoginNotifier extends ChangeNotifier {
     final loginResponse = await loginUseCase.run(LoginDto(email: email, password: password));
 
     if(loginResponse != null) {
+
+      SecureStorage.init();
+      SecureStorage.saveAuthData(loginResponse.token, loginResponse.userId);
       navigateToHome();
     } else {
       _error = true;

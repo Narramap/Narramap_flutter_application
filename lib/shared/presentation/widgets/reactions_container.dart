@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
 import 'package:narramap/content/data/interceptors/reaction_interceptor.dart';
 import 'package:narramap/content/domain/model/post.dart';
+import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/shared/data/enum/reactions_enum.dart';
 import 'package:narramap/shared/presentation/widgets/custom_button.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
@@ -42,11 +43,13 @@ class _ReactionsContainerState extends State<ReactionsContainer> {
       children: _reactions.map((reaction) {
         return GestureDetector(
           onTap: () async {
-
+            
+            final userId = await SecureStorage.getUserId();
+            print(userId);
             final post = await widget.onTap(
               ReactionToPostDTO(
               postId: widget.post.id, 
-              userId: widget.post.userId, 
+              userId: userId!, 
               reactionId: reaction.id
               )
             );

@@ -49,7 +49,7 @@ class UserInterceptor {
       nickname: json["nickname"], 
       email: json["email"], 
       age: json["age"], 
-      gender: json["gender"], 
+      gender: GenderInterceptorEnum.fromString(json["gender"]), 
       isPublic: json["isPublic"], 
       bussiness: json["business"]
     );

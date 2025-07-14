@@ -5,6 +5,7 @@ import 'package:narramap/content/data/dto/new_post_dto.dart';
 import 'package:narramap/content/domain/use_cases/register_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/Location/location_service.dart';
+import 'package:narramap/core/storage/secure_storage.dart';
 
 class AddEcoNotifier extends ChangeNotifier{
 
@@ -81,9 +82,10 @@ class AddEcoNotifier extends ChangeNotifier{
   void saveEco(void Function() navigateBack) async {
     
     final location = await LocationService().getCurrentLocation();
+    final userId = await SecureStorage.getUserId();
 
     final post = await useCase.run(NewPostDTO(
-      userId: "u1", 
+      userId: userId!, 
       title: title, 
       content: description, 
       isPublic: public, 
@@ -94,6 +96,7 @@ class AddEcoNotifier extends ChangeNotifier{
     if(post != null) {
       _error = false;
       notifyListeners();
+      navigateBack();
     } else {
       _error = true;
       _errorMessage = "No se pudo registrar este eco";
