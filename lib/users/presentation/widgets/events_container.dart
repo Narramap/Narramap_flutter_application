@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:narramap/content/domain/model/event.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
-import 'package:narramap/shared/widgets/event_card.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/event_card.dart';
 
 class EventsContainer extends StatelessWidget {
 

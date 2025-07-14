@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:narramap/auth/data/dto/register_dto.dart';
 import 'package:narramap/auth/domain/use_cases/register_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
-import 'package:narramap/core/navigation/routes.dart';
-import 'package:narramap/shared/enum/sex_enum.dart';
+import 'package:narramap/shared/data/enum/sex_enum.dart';
 import 'package:narramap/shared/utils/validations.dart';
 
 class RegisterNotifier extends ChangeNotifier{
@@ -96,7 +94,7 @@ class RegisterNotifier extends ChangeNotifier{
     }
   }
 
-  void onRegister(void Function() navigateToHome) async {
+  void onRegister(void Function() navigateToLogin) async {
 
     if(!validateEmail(email)){
       _error = true;
@@ -133,7 +131,11 @@ class RegisterNotifier extends ChangeNotifier{
     ));
 
     if(user != null) {
-      navigateToHome();
+      navigateToLogin();
+    } else {
+      _error = true;
+      _errorMessage = "No se pudo registrar el usuario";
+      notifyListeners();
     }
   }
 }

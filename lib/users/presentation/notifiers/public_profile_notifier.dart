@@ -2,14 +2,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:narramap/users/data/repository/dummy_user_repository.dart';
 import 'package:narramap/users/domain/model/phrase.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/domain/repository/i_user_repository.dart';
 
 class PublicProfileNotifier extends ChangeNotifier {
 
-  final IUserRepository userRepository = DummyUserRepository();
+  // final IUserRepository userRepository = DummyUserRepository();
 
   File? _newProfilePhoto;
   File? get newProfilePhoto => _newProfilePhoto;
@@ -40,18 +39,18 @@ class PublicProfileNotifier extends ChangeNotifier {
   }
 
   Future<void> getUserProfile() async {
-    _user = await userRepository.getUserProfile("token");
+    // _user = await userRepository.getUserProfile("token");
     notifyListeners();
   }
 
   Future<void> addPhrase() async {
-    await userRepository.addPhrase(
-      "token",
-      Phrase(
-        author: _author!, 
-        text: _textPhrase
-      )
-    );
+    // await userRepository.addPhrase(
+    //   "token",
+    //   Phrase(
+    //     author: _author!, 
+    //     text: _textPhrase
+    //   )
+    // );
   }
 
   void onChangeProfilePhoto(File photo) {

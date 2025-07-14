@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/core/Location/location_service.dart';
 import 'package:narramap/map/data/repository/dummy_emotions_zones_repository.dart';
-import 'package:narramap/map/data/repository/dummy_post_repository.dart';
 import 'package:narramap/map/domain/model/emotions_zone.dart';
-import 'package:narramap/map/domain/model/post.dart';
 
 class MapNotifier extends ChangeNotifier{
 
@@ -35,7 +34,7 @@ class MapNotifier extends ChangeNotifier{
   }
 
   Future<void> getPosts() async {
-    _posts = await DummyPostRepository().getPosts();
+    // _posts = await DummyPostRepository().getPosts();
     notifyListeners();
   }
 

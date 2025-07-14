@@ -4,14 +4,14 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/content/presentation/notifiers/add_event_notifier.dart';
 import 'package:narramap/core/layout/white_container.dart';
-import 'package:narramap/shared/widgets/custom_button.dart';
-import 'package:narramap/shared/widgets/custom_image_picker.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
-import 'package:narramap/shared/widgets/custom_text_field.dart';
-import 'package:narramap/shared/widgets/date_picker.dart';
-import 'package:narramap/shared/widgets/quantity_selector.dart';
-import 'package:narramap/shared/widgets/time_picker.dart';
-import 'package:narramap/shared/widgets/ubication_selector.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_image_picker.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/date_picker.dart';
+import 'package:narramap/shared/presentation/widgets/quantity_selector.dart';
+import 'package:narramap/shared/presentation/widgets/time_picker.dart';
+import 'package:narramap/shared/presentation/widgets/ubication_selector.dart';
 import 'package:provider/provider.dart';
 
 class AddEventScreen extends StatelessWidget {

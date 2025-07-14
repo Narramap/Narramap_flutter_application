@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:narramap/shared/widgets/map_widget.dart';
+import 'package:narramap/shared/presentation/widgets/map_widget.dart';
 
 class UbicationSelector extends StatefulWidget {
 

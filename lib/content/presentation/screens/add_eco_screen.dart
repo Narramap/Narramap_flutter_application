@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:narramap/content/presentation/notifiers/add_eco_notifier.dart';
 import 'package:narramap/core/layout/white_container.dart';
-import 'package:narramap/shared/widgets/audio_record.dart';
-import 'package:narramap/shared/widgets/custom_button.dart';
-import 'package:narramap/shared/widgets/custom_image_picker.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
-import 'package:narramap/shared/widgets/custom_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_image_picker.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
 import 'package:provider/provider.dart';
 
 class AddEcoScreen extends StatelessWidget {
@@ -48,10 +48,24 @@ class AddEcoScreen extends StatelessWidget {
               onChanged: notifier.onTogglePublic,
               textColor: TextColor.gray,
             ),
+            SizedBox(height: 10),
+            if(notifier.error)
+              Text(
+                notifier.errorMessage,
+                style: TextStyle(
+                  color: const Color.fromARGB(255, 156, 156, 156)
+                ),
+              ),
+            SizedBox(height: 50),
+            CustomButton(
+              text: "Cancelar",
+              onPressed: context.pop,
+              buttonColor: ButtonColors.gray,
+            ),
             SizedBox(height: 20),
             CustomButton(
               text: "Guardar",
-              onPressed: notifier.saveEco
+              onPressed: () => notifier.saveEco(context.pop)
             )
           ]
         ),

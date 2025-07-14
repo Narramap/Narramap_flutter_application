@@ -4,15 +4,15 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/layout/gradient_container.dart';
 import 'package:narramap/core/navigation/routes.dart';
-import 'package:narramap/shared/widgets/custom_button.dart';
-import 'package:narramap/shared/widgets/custom_checklist.dart';
-import 'package:narramap/shared/widgets/custom_radio_button.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
-import 'package:narramap/shared/widgets/custom_text_field.dart';
-import 'package:narramap/shared/widgets/password_text_field.dart';
-import 'package:narramap/shared/widgets/quantity_selector.dart';
+import 'package:narramap/shared/data/enum/sex_enum.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_checklist.dart';
+import 'package:narramap/shared/presentation/widgets/custom_radio_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/password_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/quantity_selector.dart';
 import 'package:narramap/auth/presentation/notifiers/register_notifier.dart';
-import 'package:narramap/shared/enum/sex_enum.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -80,14 +80,14 @@ class RegisterScreen extends StatelessWidget {
                   Text(
                     notifier.errorMessage,
                     style: TextStyle(
-                      color: const Color.fromARGB(255, 156, 156, 156)
+                      color: const Color.fromARGB(255, 220, 220, 220)
                     ),
                   ),
                 SizedBox(height: 40),
                 CustomButton(
                   text: "Registrarse",
                   maxSize: true,
-                  onPressed: () => notifier.onRegister(() => context.push(Routes.home.label))
+                  onPressed: () => notifier.onRegister(() => context.push(Routes.login.label))
                 )
               ],
             )

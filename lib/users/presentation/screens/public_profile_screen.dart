@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:narramap/core/layout/stackable_scaffold.dart';
 import 'package:narramap/core/layout/white_container.dart';
-import 'package:narramap/shared/widgets/custom_button.dart';
-import 'package:narramap/shared/widgets/custom_image_picker.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
-import 'package:narramap/shared/widgets/custom_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
+
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/presentation/notifiers/public_profile_notifier.dart';
 import 'package:narramap/users/presentation/widgets/conexions_container.dart';

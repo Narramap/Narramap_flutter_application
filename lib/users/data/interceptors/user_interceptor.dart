@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
+
 enum GenderInterceptorEnum {
 
   masculine(label: "HOMBRE"),
   femenine(label: "MUJER"),
-  nonBinary(label: "NO BINARIO"),
+  nonBinary(label: "NO_BINARIO"),
   other(label: "OTRO");
 
   final String label;
@@ -10,6 +12,13 @@ enum GenderInterceptorEnum {
   const GenderInterceptorEnum({
     required this.label
   });
+
+  factory GenderInterceptorEnum.fromString(String value) {
+
+    final genderEnumn = GenderInterceptorEnum.values.firstWhere((genderEnum) => genderEnum.label == value);
+    return genderEnumn;
+
+  }
 
 }
 

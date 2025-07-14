@@ -1,5 +1,5 @@
 
-import 'package:narramap/shared/enum/sex_enum.dart';
+import 'package:narramap/shared/data/enum/sex_enum.dart';
 
 class RegisterDto {
 
@@ -28,7 +28,7 @@ class RegisterDto {
       "email": email,
       "password": password,
       "age": age,
-      "gender": sex,
+      "gender": sex.valueForAPI,
       "public": publicProfile,
       "bussiness": bussinessProfile
     };

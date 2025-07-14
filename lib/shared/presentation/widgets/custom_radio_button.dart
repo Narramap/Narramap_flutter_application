@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:narramap/shared/widgets/custom_checklist.dart';
+import 'package:narramap/shared/presentation/widgets/custom_checklist.dart';
 
 class CustomRadioButton<T> extends StatelessWidget {
   

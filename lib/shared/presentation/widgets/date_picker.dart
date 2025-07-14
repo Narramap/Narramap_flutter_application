@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart' as picker;
-import 'package:narramap/shared/widgets/custom_button.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 
 class DatePicker extends StatelessWidget {
   final TextColor textColor;

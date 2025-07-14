@@ -1,7 +1,5 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 
 class QuantitySelector extends StatelessWidget {
 

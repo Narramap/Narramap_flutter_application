@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/layout/gradient_container.dart';
 import 'package:narramap/core/navigation/routes.dart';
-import 'package:narramap/shared/widgets/custom_button.dart';
-import 'package:narramap/shared/widgets/custom_text_field.dart';
-import 'package:narramap/shared/widgets/password_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/password_text_field.dart';
 import 'package:narramap/auth/presentation/notifiers/login_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                 
                 CustomButton(
                   text: "Iniciar Sesion", 
-                  onPressed: notifier.onLogin//() => context.push(Routes.home.label)
+                  onPressed: () => notifier.onLogin(() => context.push(Routes.home.label))
                 )
               ],
             )

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/navigation/routes.dart';
-import 'package:narramap/shared/widgets/custom_bottom_navigation_bar.dart';
+import 'package:narramap/shared/presentation/widgets/custom_bottom_navigation_bar.dart';
+
 
 class StackableScaffold extends StatelessWidget {
 

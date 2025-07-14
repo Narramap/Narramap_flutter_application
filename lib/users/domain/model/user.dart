@@ -1,5 +1,5 @@
 
-import 'package:narramap/shared/enum/sex_enum.dart';
+import 'package:narramap/shared/data/enum/sex_enum.dart';
 
 class User {
 

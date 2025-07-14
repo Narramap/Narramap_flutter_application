@@ -1,5 +1,5 @@
 
-import 'package:narramap/shared/enum/reactions_enum.dart';
+import 'package:narramap/shared/data/enum/reactions_enum.dart';
 
 class Reaction {
 

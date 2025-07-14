@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:narramap/shared/widgets/custom_button.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+
+
 import 'package:narramap/users/domain/model/user.dart';
 
 class ConexionsContainer extends StatelessWidget {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:narramap/shared/widgets/custom_button.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
-import 'package:narramap/shared/domain/model/reaction.dart';
-import 'package:narramap/shared/enum/reactions_enum.dart';
+import 'package:narramap/content/data/interceptors/reaction_interceptor.dart';
+import 'package:narramap/shared/data/enum/reactions_enum.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 
 class ReactionsContainer extends StatelessWidget {
-  final List<Reaction> reactions;
+  final List<ReactionInterceptor> reactions;
 
   const ReactionsContainer({
     super.key,
@@ -39,7 +39,7 @@ class ReactionsContainer extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 Image.asset(
-                  "assets/icons/${reaction.type.imageName}",
+                  "assets/icons/${ReactionsEnum.getReactionImage(reaction.id)}",
                   width: 16,
                   height: 16,
                 ),

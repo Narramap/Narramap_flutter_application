@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:narramap/content/domain/model/event.dart';
-import 'package:narramap/shared/widgets/card_header.dart';
-import 'package:narramap/shared/widgets/custom_switch.dart';
-import 'package:narramap/shared/widgets/ubication_selector.dart';
+import 'package:narramap/shared/presentation/widgets/card_header.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/ubication_selector.dart';
 
 class EventCard extends StatelessWidget {
 
