@@ -23,7 +23,7 @@ class AddEcoScreen extends StatelessWidget {
           children: [
             CustomImagePicker(
               title: 'Añade una imagen', 
-              onImagesSelected: (List<File> image) {}
+              onImagesSelected: notifier.onChangeFileImages
             ),
             SizedBox(height: 20),
             CustomTextField(

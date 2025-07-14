@@ -11,7 +11,7 @@ class ApiResponseInterceptor<T> {
     required this.success
   });
 
-  factory ApiResponseInterceptor.fromJson(Map<String, dynamic> json, T Function(Map<String, dynamic>) fromJson) {
+  factory ApiResponseInterceptor.fromJson(Map<String, dynamic> json, T Function(dynamic) fromJson) {
 
     return ApiResponseInterceptor(
       message: json["message"], 

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:narramap/content/data/dto/new_post_dto.dart';
@@ -52,12 +53,29 @@ class AddEcoNotifier extends ChangeNotifier{
 
   void onChangeFileImages(List<File> images) {
     _fileImages = images;
+    notifyListeners();
   }
 
   Future<List<String>> _getBase64Images() async {
-    return await Future.wait(
-      fileImages.map((fileImage) async => await fileImage.readAsBytes().toString())
-    );
+
+    print(fileImages.length);
+
+    return await Future.wait(_fileImages.map((file) async {
+      final bytes = await file.readAsBytes();
+      final extension = file.path.split('.').last.toLowerCase();
+
+      // Detectar tipo MIME básico
+      final mimeType = {
+        'jpg': 'image/jpeg',
+        'jpeg': 'image/jpeg',
+        'png': 'image/png',
+        'gif': 'image/gif',
+        'webp': 'image/webp',
+      }[extension] ?? 'application/octet-stream';
+
+      final base64Str = base64Encode(bytes);
+      return 'data:$mimeType;base64,$base64Str';
+    }));
   }
 
   void saveEco(void Function() navigateBack) async {

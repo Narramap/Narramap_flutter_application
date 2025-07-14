@@ -36,7 +36,7 @@ class Post {
     return Post(
       id: json["id"], 
       userId: json["userId"], 
-      date: json["date"],
+      date: DateTime.parse(json["date"]),
       title: json["title"], 
       content: json["content"], 
       isPublic: json["isPublic"], 

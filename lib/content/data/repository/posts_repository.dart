@@ -13,11 +13,11 @@ class PostsRepository implements IPostsRepository  {
   Future<Post?> register(NewPostDTO newPost) async {
 
     final post = await DioClient.post(
-      path: "4000/posts", 
+      path: "3000/posts", 
       body: newPost.toJsonMap(), 
       fromJsonT: (json) => ApiResponseInterceptor<Post>.fromJson(
         json, 
-        Post.fromJson
+        (json) => Post.fromJson(json as Map<String, dynamic>)
       )
     );
 
@@ -28,11 +28,13 @@ class PostsRepository implements IPostsRepository  {
   Future<List<Post>?> getAll() async {
     
     final posts = await DioClient.get(
-      path: "4000/posts", 
+      path: "3000/posts", 
       fromJsonT: (json) => ApiResponseInterceptor<List<Post>>.fromJson(
         json, 
-        (data) => (data as List).map((postJson) => Post.fromJson(postJson)).toList()
-
+        (data) => (data as List<dynamic>).map(
+          (postJson) => Post.fromJson(postJson as Map<String, dynamic>)
+        ).toList(),
+        
       )
     );
 

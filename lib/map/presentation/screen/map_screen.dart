@@ -54,9 +54,11 @@ class _MapScreenState extends State<MapScreen> {
                         subdomains: ['a', 'b', 'c', 'd'],
                         userAgentPackageName: 'com.tuapp.nombre',
                       ),
-                      CircleLayer(
-                        circles: getCircleLayers(notifier.emotionsZones)
-                      ),
+                      
+                      // CircleLayer(
+                      //   circles: getCircleLayers(notifier.emotionsZones)
+                      // ),
+                      
                       MarkerLayer(
                         markers: [
                             Marker(

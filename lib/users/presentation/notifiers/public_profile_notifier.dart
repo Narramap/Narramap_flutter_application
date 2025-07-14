@@ -2,9 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:narramap/users/domain/model/phrase.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
-import 'package:narramap/users/domain/repository/i_user_repository.dart';
 
 class PublicProfileNotifier extends ChangeNotifier {
 

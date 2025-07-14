@@ -11,28 +11,37 @@ void showPostModal(BuildContext context, Post post) {
     barrierDismissible: true,
     barrierColor: Colors.black.withAlpha(126),
     builder: (BuildContext context) {
-      return Stack(
-        children: [
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: Container(color: Colors.transparent), // transparente, solo blur
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-              child: Material(
-                color: Colors.transparent,
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF2F2F2)
+      return Dialog(
+        backgroundColor: Colors.transparent,
+        insetPadding: EdgeInsets.all(16), // padding general
+        child: Stack(
+          children: [
+            // Fondo difuminado (blur)
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(color: Colors.transparent),
+            ),
+            // Contenido principal del modal
+            Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height * 0.9,
+                  maxWidth: MediaQuery.of(context).size.width * 0.95,
+                ),
+                child: SingleChildScrollView(
+                  child: Container(
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withAlpha(200),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: PostCard(post: post),
                   ),
-                  child: PostCard(post: post),
                 ),
               ),
             ),
-          )
-        ],
+          ],
+        ),
       );
     }
   );

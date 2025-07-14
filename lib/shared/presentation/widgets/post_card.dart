@@ -24,7 +24,13 @@ class PostCard extends StatelessWidget {
           title: post.title, 
           date: post.date
         ),
-
+        Text(
+          post.content,
+          textAlign: TextAlign.justify,
+          style: TextStyle(
+            color: TextColor.gray.textColor
+          ),
+        ),
         if(post.images.isNotEmpty)
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
@@ -40,13 +46,7 @@ class PostCard extends StatelessWidget {
               ),
             ),
           ),
-        Text(
-          post.content,
-          textAlign: TextAlign.justify,
-          style: TextStyle(
-            color: TextColor.gray.textColor
-          ),
-        ),
+        
         ReactionsContainer(
           reactions: post.reactions
         )
