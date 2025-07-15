@@ -1,20 +1,27 @@
 
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
+import 'package:narramap/users/data/dto/update_profile_dto.dart';
 import 'package:narramap/users/domain/model/phrase.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_phrases_use_case.dart';
+import 'package:narramap/users/domain/use_cases/get_user_posts_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_user_profile_use_case.dart';
+import 'package:narramap/users/domain/use_cases/update_profile_use_case.dart';
 
 class PublicProfileNotifier extends ChangeNotifier {
 
   final getProfileUseCase = getIt<GetUserProfileUseCase>();
   final getPhrasesUseCase = getIt<GetPhrasesUseCase>();
   final addPhraseUseCase = getIt<AddPhraseUseCase>();
+  final getUserPostsUseCase = getIt<GetUserPostsUseCase>();
+  final updateProfileUseCase = getIt<UpdateProfileUseCase>();
 
   File? _newProfilePhoto;
   File? get newProfilePhoto => _newProfilePhoto;
@@ -24,6 +31,9 @@ class PublicProfileNotifier extends ChangeNotifier {
 
   List<Phrase> _phrases = [];
   List<Phrase> get phrases => _phrases;
+
+  List<Post> _userPosts = [];
+  List<Post> get userPosts => _userPosts;
 
   bool _addingPhrase = false;
   bool get addingPhrase => _addingPhrase;
@@ -36,15 +46,50 @@ class PublicProfileNotifier extends ChangeNotifier {
 
   bool _editing = false;
   bool get editing => _editing;
+
+  String? _biography;
+  String? get biography => _biography;
+
+  String? _newNickname;
+  String? get newNickname => _newNickname;
+
+  bool? _public;
+  bool? get public => _public;
+
+  bool? _bussiness;
+  bool? get bussiness => _bussiness;
   
   void toggleEditing() {
     _editing = !_editing;
+
+    if(!_editing) {
+      resetEditingValues();
+    } else {
+      _public = user!.isPublic;
+      _bussiness = user!.bussiness;
+      _newNickname = user!.nickname;
+    }
+    
     notifyListeners();
   }
 
   void toggleAddingPhrase() {
     _addingPhrase = !_addingPhrase;
     notifyListeners();
+  }
+
+  void togglePublic(bool value) {
+    _public = value;
+    notifyListeners();
+  }
+
+  void toggleBussiness(bool value) {
+    _bussiness = value;
+    notifyListeners();
+  }
+
+  String onChangeNickname(String value) {
+    return _newNickname = value;
   }
 
   String onChangeTextPhrase(String value) {
@@ -55,8 +100,25 @@ class PublicProfileNotifier extends ChangeNotifier {
     return _author = value;
   }
 
+  String onChangeBiography(String value) {
+    return _biography = value;
+  }
+
+  void onChangeProfilePhoto(File photo) {
+    _newProfilePhoto = photo;
+  }
+
+  Future<void> getAll() async {
+
+    await Future.wait([
+      getUserProfile(),
+      getPhrases(),
+      getPostsByUserId()
+    ]);
+  }
+
   Future<void> getUserProfile() async {
-    // _user = await userRepository.getUserProfile("token");
+
     final userId = await SecureStorage.getUserId();
     final token = await SecureStorage.getToken();
 
@@ -70,7 +132,8 @@ class PublicProfileNotifier extends ChangeNotifier {
   Future<void> getPhrases() async {
 
     final token = await SecureStorage.getToken();
-    final phrases = await getPhrasesUseCase.run(token!);
+    final userId = await SecureStorage.getUserId();
+    final phrases = await getPhrasesUseCase.run(token!, userId!);
 
     if(phrases != null) {
       _phrases = phrases;
@@ -91,15 +154,59 @@ class PublicProfileNotifier extends ChangeNotifier {
         if(newPhrase != null) {
           _phrases.add(newPhrase);
           _phrases = _phrases;
+          toggleAddingPhrase();
           notifyListeners();
         }
       }
     }
-
   }
 
-  void onChangeProfilePhoto(File photo) {
-    _newProfilePhoto = photo;
+  Future<void> getPostsByUserId() async {
+
+    final userId = await SecureStorage.getUserId();
+    final userPosts = await getUserPostsUseCase.run(userId!);
+
+    if(userPosts != null) {
+      _userPosts = userPosts;
+    }
   }
 
+  Future<void> updateProfile() async {
+
+    final updateDTO = UpdateProfileDTO(
+      profile: user!,
+      age: user!.age,
+      gender: user!.gender,
+      biography: _biography,
+      imageBase64: _newProfilePhoto != null ? base64Encode(await _newProfilePhoto!.readAsBytes()) : null,
+      nickname: _newNickname,
+      public: _public
+    );
+
+    final token = await SecureStorage.getToken();
+
+    if(updateDTO.isUpdateable()) {
+      final newUser = await updateProfileUseCase.run(token!, updateDTO);
+
+      if(newUser != null) {
+        _user = newUser;
+        toggleEditing();
+        notifyListeners();
+      }
+    } else {
+      print("no hay cambios en el perfil");
+    }
+    
+  }
+
+  void resetEditingValues() {
+
+    _public = null;
+    _bussiness = null;
+    _newNickname = user!.nickname;
+    _biography = user!.biography;
+    _newProfilePhoto = null;
+  }
+
+  
 }

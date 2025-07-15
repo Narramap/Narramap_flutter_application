@@ -23,7 +23,7 @@ class DioClient {
       InterceptorsWrapper(
         onRequest: (options, handler) {
           if (authToken != null) {
-            options.headers["Authorization"] = authToken;
+            options.headers["Authorization"] = "Bearer $authToken";
           }
           return handler.next(options);
         }
@@ -61,6 +61,27 @@ class DioClient {
   }) async {
     try {
       final res = await _instance.dio.post(
+        path,
+        data: body
+      );
+
+      final json = jsonDecode(jsonEncode(res.data));
+      final apiRes = fromJsonT(json);
+
+      return apiRes;
+    } catch(e) {
+      print("error en el post de dio: $e");
+      return null;
+    }
+  }
+
+  static Future<T?> patch<T>({
+    required String path,
+    required Map<String, dynamic> body,
+    required T Function(dynamic json) fromJsonT
+  }) async {
+    try {
+      final res = await _instance.dio.patch(
         path,
         data: body
       );

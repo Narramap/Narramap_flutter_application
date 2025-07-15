@@ -10,9 +10,9 @@ class GetPhrasesUseCase {
 
   final IUserRepository repository = getIt<UserRepository>(); 
 
-  Future<List<Phrase>?> run(String token) async {
+  Future<List<Phrase>?> run(String token, String userId) async {
 
-    return await repository.getPhrases(token);
+    return await repository.getPhrases(token, userId);
   }
 
 }

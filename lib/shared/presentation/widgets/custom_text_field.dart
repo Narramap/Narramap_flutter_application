@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 
 enum TextFieldColors {
 
@@ -20,7 +21,7 @@ enum TextFieldColors {
   });
 }
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
 
   final Function(String) onChanged;
   final int lines;
@@ -30,6 +31,7 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextFieldColors textFieldColor;
   final double borderRadius;
+  final String? defaultValue;
 
   const CustomTextField({
     super.key,
@@ -40,41 +42,66 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.spacerHeight,
     this.textFieldColor = TextFieldColors.white,
-    this.borderRadius = 50
+    this.borderRadius = 50,
+    this.defaultValue
   });
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+
+  late final TextEditingController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController(text: widget.defaultValue);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+
+  @override
   Widget build(BuildContext context) {
+
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          label,
+          widget.label,
           textAlign: TextAlign.left,
           style: TextStyle(
-            color: textFieldColor.textColor
+            color: widget.textFieldColor.textColor
           ),
         ),
         SizedBox(height: 10),
         TextField(
-          maxLines: lines,
-          obscureText: obscureText,
-          cursorColor: Color(0xFFEBEBEB),
-          onChanged: onChanged,
+          controller: controller,
+          maxLines: widget.lines,
+          obscureText: widget.obscureText,
+          cursorColor: widget.textFieldColor.textColor,
+          onChanged: widget.onChanged,
           style: TextStyle(
-            color: textFieldColor.textColor
+            color: widget.textFieldColor.textColor
           ),
           decoration: InputDecoration(
-            suffixIcon: suffixIcon,
-            fillColor: textFieldColor.backgroundColor,
+            suffixIcon: widget.suffixIcon,
+            fillColor: widget.textFieldColor.backgroundColor,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
+              borderRadius: BorderRadius.circular(widget.borderRadius),
               borderSide: BorderSide.none
             ),
           ),
         ),
-        if (spacerHeight != null) 
-          SizedBox(height: spacerHeight)
+        if (widget.spacerHeight != null) 
+          SizedBox(height: widget.spacerHeight)
       ],
     );
   }

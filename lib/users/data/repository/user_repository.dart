@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
 import 'package:narramap/core/network/dio_client.dart';
+import 'package:narramap/users/data/dto/update_profile_dto.dart';
 import 'package:narramap/users/domain/model/phrase.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/domain/repository/i_user_repository.dart';
@@ -26,13 +27,13 @@ class UserRepository implements IUserRepository{
   }
 
   @override
-  Future<List<Phrase>?> getPhrases(String token) async {
+  Future<List<Phrase>?> getPhrases(String token, String userId) async {
 
     DioClient.authToken = token;
     
     final phrasesRes = await DioClient.get(
-      path: "$url/users/phrases", 
-      fromJsonT: (json) => (json as List<Map<String, dynamic>>).map((jsonPhrase)  => Phrase.fromJson(jsonPhrase)).toList()
+      path: "$url/users/phrases/$userId", 
+      fromJsonT: (json) => (json as List<dynamic>).map((jsonPhrase)  => Phrase.fromJson(jsonPhrase as Map<String, dynamic>)).toList()
     );
 
     return phrasesRes;
@@ -50,5 +51,19 @@ class UserRepository implements IUserRepository{
     );
 
     return phraseRes;
+  }
+
+  @override
+  Future<UserProfile?> updateUserProfile(String token, UpdateProfileDTO updateDTO) async {
+    
+    DioClient.authToken = token;
+
+    final updatedProfile = await DioClient.patch(
+      path: "$url/users/profile", 
+      body: updateDTO.toJsonMap(), 
+      fromJsonT: (json) => UserProfile.fromJson(json as Map<String, dynamic>)
+    );
+
+    return updatedProfile;
   }
 }

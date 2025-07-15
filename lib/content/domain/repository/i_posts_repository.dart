@@ -8,5 +8,6 @@ abstract class IPostsRepository {
   Future<Post?> register(NewPostDTO newPost);
   Future<List<Post>?> getAll();
   Future<Post?> reactByPostId(ReactionToPostDTO reactionDTO);
+  Future<List<Post>?> getAllByUserId(String userId);
 
 }

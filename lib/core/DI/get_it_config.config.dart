@@ -22,6 +22,17 @@ import 'package:narramap/content/domain/use_cases/register_use_case.dart'
     as _i102;
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart'
     as _i107;
+import 'package:narramap/users/data/repository/user_repository.dart' as _i575;
+import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart'
+    as _i282;
+import 'package:narramap/users/domain/use_cases/get_phrases_use_case.dart'
+    as _i385;
+import 'package:narramap/users/domain/use_cases/get_user_posts_use_case.dart'
+    as _i204;
+import 'package:narramap/users/domain/use_cases/get_user_profile_use_case.dart'
+    as _i671;
+import 'package:narramap/users/domain/use_cases/update_profile_use_case.dart'
+    as _i1043;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -30,13 +41,23 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    gh.factory<_i107.GetAllPostsUseCase>(() => _i107.GetAllPostsUseCase());
     gh.factory<_i365.AuthRepository>(() => _i365.AuthRepository());
-    gh.factory<_i363.RegisterUseCase>(() => _i363.RegisterUseCase());
     gh.factory<_i801.LoginUseCase>(() => _i801.LoginUseCase());
-    gh.factory<_i1007.PostsRepository>(() => _i1007.PostsRepository());
+    gh.factory<_i363.RegisterUseCase>(() => _i363.RegisterUseCase());
+    gh.factory<_i671.GetUserProfileUseCase>(
+      () => _i671.GetUserProfileUseCase(),
+    );
+    gh.factory<_i385.GetPhrasesUseCase>(() => _i385.GetPhrasesUseCase());
+    gh.factory<_i282.AddPhraseUseCase>(() => _i282.AddPhraseUseCase());
+    gh.factory<_i204.GetUserPostsUseCase>(() => _i204.GetUserPostsUseCase());
+    gh.factory<_i1043.UpdateProfileUseCase>(
+      () => _i1043.UpdateProfileUseCase(),
+    );
+    gh.factory<_i575.UserRepository>(() => _i575.UserRepository());
     gh.factory<_i102.RegisterUseCase>(() => _i102.RegisterUseCase());
     gh.factory<_i437.ReactToPostUseCase>(() => _i437.ReactToPostUseCase());
-    gh.factory<_i107.GetAllPostsUseCase>(() => _i107.GetAllPostsUseCase());
+    gh.factory<_i1007.PostsRepository>(() => _i1007.PostsRepository());
     return this;
   }
 }

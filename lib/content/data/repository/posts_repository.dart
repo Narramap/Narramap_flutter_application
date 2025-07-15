@@ -1,4 +1,6 @@
 
+import 'dart:convert';
+
 import 'package:injectable/injectable.dart';
 import 'package:narramap/content/data/dto/new_post_dto.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
@@ -57,5 +59,21 @@ class PostsRepository implements IPostsRepository  {
     );
     
     return post?.data;
+  }
+
+  @override
+  Future<List<Post>?> getAllByUserId(String userId) async {
+    
+    final posts = await DioClient.get(
+      path: "$url/posts/user/$userId", 
+      fromJsonT: (json) => ApiResponseInterceptor.fromJson(
+        json, 
+        (data) => (data as List<dynamic>).map(
+          (postJson) => Post.fromJson(postJson as Map<String, dynamic>)
+        ).toList(),
+      )
+    );
+
+    return posts?.data;
   }
 }
