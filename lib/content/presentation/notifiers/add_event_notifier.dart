@@ -2,8 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:narramap/content/data/dto/new_event_dto.dart';
+import 'package:narramap/content/data/dto/new_post_dto.dart';
+import 'package:narramap/content/domain/use_cases/event_use_case.dart';
+import 'package:narramap/core/Location/location_service.dart';
+import 'package:narramap/core/storage/secure_storage.dart';
+import 'package:narramap/shared/data/enum/events_enum.dart';
 
 class AddEventNotifier extends ChangeNotifier {
+  EventUseCase eventUseCase = EventUseCase();
 
   String _title = "";
   String get title => _title;
@@ -26,18 +33,27 @@ class AddEventNotifier extends ChangeNotifier {
   DateTime? _endTime;
   DateTime? get endTime => _endTime;
 
+  EventEnum? _eventType;
+  EventEnum? get eventType => _eventType;
+
   List<File> _images = [];
   List<File> get images => _images;
-  
+
+  bool _error = false;
+  bool get error => _error;
+
+  String _errorMessage = "";
+  String get errorMessage => _errorMessage;
+
   void onIncrementRadius() {
-    if(radius < 500) {
+    if (radius < 500) {
       _radius += 10;
       notifyListeners();
     }
   }
 
   void onDecrementRadius() {
-    if(radius > 10){
+    if (radius > 10) {
       _radius -= 10;
       notifyListeners();
     }
@@ -73,7 +89,54 @@ class AddEventNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  void onChangeType(EventEnum? eventType) {
+    if (eventType != null) {
+      _eventType = eventType;
+      notifyListeners();
+    }
+  }
+
   void onImagesSelected(List<File> images) {
     _images = images;
+  }
+
+  void saveEvent(void Function() navigateBack) async {
+    try {
+      final location = await LocationService().getCurrentLocation();
+      final userId = await SecureStorage.getUserId();
+
+      final event = await eventUseCase.run(
+        NewEventDTO(
+          userId: userId!,
+          title: _title,
+          description: _description,
+          location: LocationDTO(
+            latitude: location.latitude,
+            longitude: location.longitude,
+          ),
+          radius: _radius,
+          date: _date!,
+          initTime: _initTime!,
+          endTime: _endTime!,
+          eventType: EventEnum.social,
+          imageUrls: _images,
+        ),
+      );
+
+      if (event != null) {
+        _error = false;
+        notifyListeners();
+        navigateBack();
+      } else {
+        _error = true;
+        _errorMessage = "No se pudo registrar este evento";
+        notifyListeners();
+      }
+    } catch (e) {
+      print("Error al guardar evento: $e");
+      _error = true;
+      _errorMessage = "Ocurrió un error inesperado";
+      notifyListeners();
+    }
   }
 }

@@ -13,7 +13,7 @@ class AuthRepository extends IAuthRepository {
   Future<LoginInterceptor?> login(LoginDto loginDto) async {
 
     final user = await DioClient.post(
-      path: "3001/auth/login", 
+      path: "authapi-production.up.railway.app/auth/login", 
       body: loginDto.toJsonMap(), 
       fromJsonT: (json) => LoginInterceptor.fromJson(json)
     );
@@ -25,7 +25,7 @@ class AuthRepository extends IAuthRepository {
   Future<UserInterceptor?> register(RegisterDto registerDto) async {
 
     final user = await DioClient.post<UserInterceptor>(
-      path: "3001/auth/register",
+      path: "authapi-production.up.railway.app/auth/register",
       body: registerDto.toJsonMap(), 
       fromJsonT: (json) => UserInterceptor.fromJson(json)
     );

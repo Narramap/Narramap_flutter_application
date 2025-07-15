@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/shared/presentation/widgets/event_card.dart';
+import 'package:narramap/users/domain/model/user.dart';
 
 class EventsContainer extends StatelessWidget {
 
   final List<Event> events;
+  final User user;
   const EventsContainer({
     super.key,
-    required this.events
+    required this.events,
+    required this.user
   });
 
   @override
@@ -25,7 +28,7 @@ class EventsContainer extends StatelessWidget {
             color: TextColor.gray.textColor
           ),
         ),
-        ...events.map((event) => EventCard(event: event))
+        ...events.map((event) => EventCard(event: event, user: user))
       ],
     );
   }

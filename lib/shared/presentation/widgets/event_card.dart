@@ -5,13 +5,16 @@ import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/shared/presentation/widgets/card_header.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/shared/presentation/widgets/ubication_selector.dart';
+import 'package:narramap/users/domain/model/user.dart';
 
 class EventCard extends StatelessWidget {
 
   final Event event;
+  final User user;
   const EventCard({
     super.key,
-    required this.event
+    required this.event,
+    required this.user
   });
 
   @override
@@ -20,7 +23,7 @@ class EventCard extends StatelessWidget {
       spacing: 10,
       children: [
         CardHeader(
-          userImage: event.userImage, 
+          userImage: user.imageUrl, 
           title: event.title, 
           date: event.date
         ),
