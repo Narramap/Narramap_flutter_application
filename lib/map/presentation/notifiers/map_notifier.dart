@@ -5,6 +5,7 @@ import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/content/domain/use_cases/react_to_post_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/Location/location_service.dart';
+import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/map/data/repository/dummy_emotions_zones_repository.dart';
 import 'package:narramap/map/domain/model/emotions_zone.dart';
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
@@ -47,6 +48,7 @@ class MapNotifier extends ChangeNotifier{
       _posts = postsRes;
     }
     notifyListeners();
+    print(SecureStorage.getToken());
   }
 
   Future<Post?> reactToPost(ReactionToPostDTO reactionDTO) async {

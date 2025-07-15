@@ -7,10 +7,13 @@ import 'package:narramap/shared/data/inteceptors/api_response_interceptor.dart';
 
 @Injectable()
 class EventRepositoryImpl extends IEventRepository {
+
+  final url = "https://narramapeventsapi-production.up.railway.app";
+
   @override
   Future<List<Event>?> getAllEvents(String? token) async {
     final events = await DioClient.get(
-      path: 'eventsapi-production.up.railway.app/events',
+      path: '$url/events',
       fromJsonT:
           (json) => ApiResponseInterceptor.fromJson(
             json,
@@ -31,7 +34,7 @@ class EventRepositoryImpl extends IEventRepository {
     final formData = await eventDto.toFormData();
 
     final event = await DioClient.postMultipart(
-      path: 'eventsapi-production.up.railway.app/events',
+      path: '$url/events',
       formData: formData,
       token: token!,
       fromJsonT:

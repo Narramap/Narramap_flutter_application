@@ -10,11 +10,13 @@ import 'package:narramap/shared/data/inteceptors/api_response_interceptor.dart';
 @Injectable()
 class PostsRepository implements IPostsRepository  {
 
+  final url = "https://narramappostsapi-production.up.railway.app";
+
   @override
   Future<Post?> register(NewPostDTO newPost) async {
 
     final post = await DioClient.post(
-      path: "3000/posts", 
+      path: "$url/posts", 
       body: newPost.toJsonMap(), 
       fromJsonT: (json) => ApiResponseInterceptor<Post>.fromJson(
         json, 
@@ -29,7 +31,7 @@ class PostsRepository implements IPostsRepository  {
   Future<List<Post>?> getAll() async {
     
     final posts = await DioClient.get(
-      path: "3000/posts", 
+      path: "$url/posts", 
       fromJsonT: (json) => ApiResponseInterceptor<List<Post>>.fromJson(
         json, 
         (data) => (data as List<dynamic>).map(
@@ -46,7 +48,7 @@ class PostsRepository implements IPostsRepository  {
   Future<Post?> reactByPostId(ReactionToPostDTO reactionDTO) async {
 
     final post = await DioClient.post(
-      path: "3000/posts/reactions", 
+      path: "$url/posts/reactions", 
       body: reactionDTO.toJsonMap(), 
       fromJsonT: (json) => ApiResponseInterceptor<Post>.fromJson(
         json, 
