@@ -5,17 +5,29 @@ class DioClient {
 
   static final DioClient _instance = DioClient._internal();
 
+  static String? authToken;
+
   late final Dio dio;
 
   DioClient._internal() {
 
     dio = Dio(BaseOptions(
-      baseUrl: "http://192.168.212.80:",
       connectTimeout: const Duration(seconds: 20),
       receiveTimeout: const Duration(seconds: 20),
       headers: {
         "Content-Type": "application/json"
       })
+    );
+
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) {
+          if (authToken != null) {
+            options.headers["Authorization"] = authToken;
+          }
+          return handler.next(options);
+        }
+      )
     );
 
     dio.interceptors.add(LogInterceptor(
@@ -29,6 +41,7 @@ class DioClient {
     required T Function(dynamic json) fromJsonT
   }) async {
     try {
+      
       final res = await _instance.dio.get(path);
 
       final json = jsonDecode(jsonEncode(res.data));

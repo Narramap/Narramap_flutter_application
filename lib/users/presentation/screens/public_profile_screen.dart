@@ -12,7 +12,6 @@ import 'package:narramap/users/presentation/notifiers/public_profile_notifier.da
 import 'package:narramap/users/presentation/widgets/conexions_container.dart';
 import 'package:narramap/users/presentation/widgets/events_container.dart';
 import 'package:narramap/users/presentation/widgets/phrases_container.dart';
-import 'package:narramap/users/presentation/widgets/posts_container.dart';
 import 'package:narramap/users/presentation/widgets/profile_photo_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -45,14 +44,14 @@ class PublicProfileScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 150),
                       children: [
                         ProfilePhotoPicker(
-                          defaultPhoto: currentProfile.user.imageUrl,
+                          defaultPhoto: currentProfile.profilePhoto,
                           onSelectImage: notifier.onChangeProfilePhoto
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              currentProfile.user.nickname,
+                              currentProfile.nickname,
                               style: TextStyle(
                                 color: TextColor.gray.textColor,
                                 fontSize: 25,
@@ -69,7 +68,7 @@ class PublicProfileScreen extends StatelessWidget {
                         ),
                         
                         Text(
-                          currentProfile.user.biography,
+                          currentProfile.biography!,
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             color: TextColor.gray.textColor
@@ -84,9 +83,9 @@ class PublicProfileScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 40),
 
-                        ConexionsContainer(conexions: currentProfile.conexions),
+                        // ConexionsContainer(conexions: currentProfile.conexions),
                         SizedBox(height: 20),
-                        PhrasesContainer(phrases: currentProfile.phrases),
+                        // PhrasesContainer(phrases: currentProfile.phrases),
                         !notifier.addingPhrase ?
                           CustomButton(
                             buttonColor: ButtonColors.gray,
@@ -121,7 +120,7 @@ class PublicProfileScreen extends StatelessWidget {
                         SizedBox(height: 40),
                         // PostsContainer(posts: currentProfile.posts),
                         SizedBox(height: 40),
-                        EventsContainer(events: currentProfile.events),
+                        // EventsContainer(events: currentProfile.events),
                         SizedBox(height: 40),
               
                       ],

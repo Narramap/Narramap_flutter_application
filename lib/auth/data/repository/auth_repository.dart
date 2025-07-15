@@ -9,11 +9,13 @@ import 'package:narramap/users/data/interceptors/user_interceptor.dart';
 @Injectable()
 class AuthRepository extends IAuthRepository {
 
+  final url = "https://narramapauthapi-production.up.railway.app";
+
   @override
   Future<LoginInterceptor?> login(LoginDto loginDto) async {
 
     final user = await DioClient.post(
-      path: "3001/auth/login", 
+      path: "$url/auth/login", 
       body: loginDto.toJsonMap(), 
       fromJsonT: (json) => LoginInterceptor.fromJson(json)
     );
@@ -25,7 +27,7 @@ class AuthRepository extends IAuthRepository {
   Future<UserInterceptor?> register(RegisterDto registerDto) async {
 
     final user = await DioClient.post<UserInterceptor>(
-      path: "3001/auth/register",
+      path: "$url/auth/register",
       body: registerDto.toJsonMap(), 
       fromJsonT: (json) => UserInterceptor.fromJson(json)
     );
