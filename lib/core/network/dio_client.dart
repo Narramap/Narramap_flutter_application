@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 
 class DioClient {
-
   static final DioClient _instance = DioClient._internal();
 
   static String? authToken;
@@ -36,9 +35,9 @@ class DioClient {
     ));
   }
 
-  static Future<T?> get<T> ({
+  static Future<T?> get<T>({
     required String path,
-    required T Function(dynamic json) fromJsonT
+    required T Function(dynamic json) fromJsonT,
   }) async {
     try {
       
@@ -48,28 +47,25 @@ class DioClient {
       final apiRes = fromJsonT(json);
 
       return apiRes;
-    } catch(e) {
+    } catch (e) {
       print("error en el get de dio: $e");
       return null;
     }
   }
 
   static Future<T?> post<T>({
-    required String path, 
+    required String path,
     required Map<String, dynamic> body,
-    required T Function(dynamic json) fromJsonT
+    required T Function(dynamic json) fromJsonT,
   }) async {
     try {
-      final res = await _instance.dio.post(
-        path,
-        data: body
-      );
+      final res = await _instance.dio.post(path, data: body);
 
       final json = jsonDecode(jsonEncode(res.data));
       final apiRes = fromJsonT(json);
 
       return apiRes;
-    } catch(e) {
+    } catch (e) {
       print("error en el post de dio: $e");
       return null;
     }
@@ -95,4 +91,34 @@ class DioClient {
       return null;
     }
   }
+
+  static Future<T?> postMultipart<T>({
+    required String path,
+    required FormData formData,
+    required String token,
+    required T Function(dynamic json) fromJsonT,
+  }) async {
+    try {
+      final res = await _instance.dio.post(
+        path,
+        data: formData,
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'multipart/form-data',
+          },
+        ),
+      );
+
+      final json = jsonDecode(jsonEncode(res.data));
+      final apiRes = fromJsonT(json);
+      return apiRes;
+    } catch (e) {
+      print("error en postMultipart de dio: $e");
+      return null;
+    }
+  }
+
+
+
 }

@@ -107,7 +107,7 @@ class AddEventScreen extends StatelessWidget {
             SizedBox(height: 20),
             CustomButton(
               text: "Guardar",
-              onPressed: () {}
+              onPressed: () => notifier.saveEvent(context.pop)
             )
           ]
         ),
