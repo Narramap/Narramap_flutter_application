@@ -44,7 +44,7 @@ class Event {
       date: DateTime.parse(json["date_event"]),
       initTime: json["start_time"],
       endTime: json["end_time"],
-      eventType: json["event_type"],
+      eventType: EventEnum.fromString(json["event_type"]),
       imageUrls:
           (json["images"] as List).map((url) => url as String).toList(),
     );

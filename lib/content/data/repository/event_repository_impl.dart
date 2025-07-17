@@ -14,19 +14,11 @@ class EventRepositoryImpl extends IEventRepository {
   Future<List<Event>?> getAllEvents(String? token) async {
     final events = await DioClient.get(
       path: '$url/events',
-      fromJsonT:
-          (json) => ApiResponseInterceptor.fromJson(
-            json,
-            (data) =>
-                (data as List<dynamic>)
-                    .map(
-                      (eventJson) =>
-                          Event.fromJson(eventJson as Map<String, dynamic>),
-                    )
-                    .toList(),
-          ),
+      fromJsonT: (data) => (data as List<dynamic>).map(
+          (eventJson) => Event.fromJson(eventJson as Map<String, dynamic>),
+        ).toList(),
     );
-    return events?.data;
+    return events;
   }
 
   @override
@@ -37,13 +29,9 @@ class EventRepositoryImpl extends IEventRepository {
       path: '$url/events',
       formData: formData,
       token: token!,
-      fromJsonT:
-          (json) => ApiResponseInterceptor.fromJson(
-            json,
-            (json) => Event.fromJson(json as Map<String, dynamic>),
-          ),
+      fromJsonT: (json) => Event.fromJson(json as Map<String, dynamic>),
     );
 
-    return event?.data;
+    return event;
   }
 }

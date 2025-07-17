@@ -76,7 +76,6 @@ class PublicProfileScreen extends StatelessWidget {
                           onChanged: notifier.toggleBussiness
                         ),
                         SizedBox(height: 40),
-
                         // ConexionsContainer(conexions: currentProfile.conexions),
                         SizedBox(height: 20),
                         PhrasesContainer(
@@ -87,37 +86,6 @@ class PublicProfileScreen extends StatelessWidget {
                           savePhrase: notifier.addPhrase,
                           toggleAddingPhrase: notifier.toggleAddingPhrase,
                         ),
-                        // !notifier.addingPhrase ?
-                        //   CustomButton(
-                        //     buttonColor: ButtonColors.gray,
-                        //     text: "Nueva Frase",
-                        //     onPressed: notifier.toggleAddingPhrase,
-                        //   )
-                        // :
-                        //   Column(
-                        //     spacing: 20,
-                        //     children: [
-                        //       CustomTextField(
-                        //         onChanged: notifier.onChangeTextPhrase,
-                        //         label: "Frase",
-                        //         textFieldColor: TextFieldColors.gray,
-                        //       ),
-                        //       CustomTextField(
-                        //         onChanged: notifier.onChangeAuthor,
-                        //         label: "Autor",
-                        //         textFieldColor: TextFieldColors.gray,
-                        //       ),
-                        //       CustomButton(
-                        //         buttonColor: ButtonColors.gray,
-                        //         text: "Cancelar",
-                        //         onPressed: notifier.toggleAddingPhrase,
-                        //       ),
-                        //       CustomButton(
-                        //         text: "Guardar",
-                        //         onPressed: notifier.addPhrase,
-                        //       )
-                        //     ],
-                        //   ),
                         SizedBox(height: 40),
                         PostsContainer(posts: notifier.userPosts),
                         SizedBox(height: 40),

@@ -13,7 +13,7 @@ class PhrasesContainer extends StatelessWidget {
   final String Function(String) onChangeAuthor;
   final void Function() savePhrase;
 
-  PhrasesContainer({
+  const PhrasesContainer({
     super.key,
     required this.addingPhrases,
     required this.phrases,

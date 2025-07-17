@@ -4,7 +4,9 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/content/presentation/notifiers/add_event_notifier.dart';
 import 'package:narramap/core/layout/white_container.dart';
+import 'package:narramap/shared/data/enum/events_enum.dart';
 import 'package:narramap/shared/presentation/widgets/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/custom_dropdown.dart';
 import 'package:narramap/shared/presentation/widgets/custom_image_picker.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
@@ -93,6 +95,9 @@ class AddEventScreen extends StatelessWidget {
               onTimeSelected: notifier.onSelectEndTime
             ),
             SizedBox(height: 20),
+            CustomDropdown(options: EventEnum.values.map((enumS) => enumS.label).toList()),
+            SizedBox(height: 20),
+            
             CustomImagePicker(
               title: "Añade una imagen", 
               onImagesSelected: notifier.onImagesSelected

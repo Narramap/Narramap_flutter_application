@@ -61,20 +61,20 @@ class _MapScreenState extends State<MapScreen> {
                       
                       MarkerLayer(
                         markers: [
-                            Marker(
-                              point: notifier.currentLocation!, 
-                              child: Icon(
-                                Icons.accessibility_sharp,
-                                color: Colors.white,
-                              )
-                            ),
-                            ...getPostsMarkers(
-                              context,
-                              notifier.posts,
-                              showPostModal,
-                              notifier.reactToPost
+                          Marker(
+                            point: notifier.currentLocation!, 
+                            child: Icon(
+                              Icons.accessibility_sharp,
+                              color: Colors.red,
                             )
-                          ]
+                          ),
+                          ...getPostsMarkers(
+                            context,
+                            notifier.posts,
+                            showPostModal,
+                            notifier.reactToPost
+                          )
+                        ]
                       ),
                     ],
                   )

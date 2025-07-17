@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 enum EventEnum {
   academic(label: "ACADÉMICO"),
   artistic(label: "ARTÍSTICO"),
@@ -11,4 +13,8 @@ enum EventEnum {
   final String label;
 
   const EventEnum({required this.label});
+
+  factory EventEnum.fromString(String value) {
+    return EventEnum.values.firstWhere((enumValue) => enumValue.label == value);
+  }
 }
