@@ -33,7 +33,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         case 1:
           context.push(Routes.aumentedReality.label);
           break;
-        case 3:
+        case 2:
+          context.push(Routes.addBussiness.label);
+          break;
+        case 4:
           context.push(Routes.publicProfile.label);
           break;
 
@@ -88,6 +91,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.camera),
                   label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.store),
+                  label: ""
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.switch_account),
