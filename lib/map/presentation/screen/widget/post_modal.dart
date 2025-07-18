@@ -2,11 +2,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
 import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/shared/presentation/widgets/post_card.dart';
 
-void showPostModal(BuildContext context, Post post, Future<Post?> Function(ReactionToPostDTO) react) {
+void showPostModal(BuildContext context, Post post) {
   showDialog(
     context: context, 
     barrierDismissible: true,
@@ -36,7 +35,7 @@ void showPostModal(BuildContext context, Post post, Future<Post?> Function(React
                       color: Colors.white.withAlpha(200),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: PostCard(post: post, react: react,),
+                    child: PostCard(post: post),
                   ),
                 ),
               ),

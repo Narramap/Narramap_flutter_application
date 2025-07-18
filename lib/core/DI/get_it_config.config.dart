@@ -14,8 +14,11 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:narramap/auth/data/repository/auth_repository.dart' as _i365;
 import 'package:narramap/auth/domain/use_cases/login_use_case.dart' as _i801;
 import 'package:narramap/auth/domain/use_cases/register_use_case.dart' as _i363;
+import 'package:narramap/content/data/repository/event_repository_impl.dart'
+    as _i150;
 import 'package:narramap/content/data/repository/posts_repository.dart'
     as _i1007;
+import 'package:narramap/content/domain/use_cases/event_use_case.dart' as _i531;
 import 'package:narramap/content/domain/use_cases/react_to_post_use_case.dart'
     as _i437;
 import 'package:narramap/content/domain/use_cases/register_use_case.dart'
@@ -27,6 +30,8 @@ import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart'
     as _i282;
 import 'package:narramap/users/domain/use_cases/get_phrases_use_case.dart'
     as _i385;
+import 'package:narramap/users/domain/use_cases/get_user_events_use_case.dart'
+    as _i353;
 import 'package:narramap/users/domain/use_cases/get_user_posts_use_case.dart'
     as _i204;
 import 'package:narramap/users/domain/use_cases/get_user_profile_use_case.dart'
@@ -54,10 +59,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1043.UpdateProfileUseCase>(
       () => _i1043.UpdateProfileUseCase(),
     );
+    gh.factory<_i353.GetUserEventsUseCase>(() => _i353.GetUserEventsUseCase());
     gh.factory<_i575.UserRepository>(() => _i575.UserRepository());
     gh.factory<_i102.RegisterUseCase>(() => _i102.RegisterUseCase());
     gh.factory<_i437.ReactToPostUseCase>(() => _i437.ReactToPostUseCase());
+    gh.factory<_i531.EventUseCase>(() => _i531.EventUseCase());
     gh.factory<_i1007.PostsRepository>(() => _i1007.PostsRepository());
+    gh.factory<_i150.EventRepositoryImpl>(() => _i150.EventRepositoryImpl());
     return this;
   }
 }

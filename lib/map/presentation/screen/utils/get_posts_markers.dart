@@ -8,14 +8,13 @@ import 'package:narramap/map/domain/model/emotion_enum.dart';
 List<Marker> getPostsMarkers(
   BuildContext context,
   List<Post> posts, 
-  void Function(BuildContext context, Post post, Future<Post?> Function(ReactionToPostDTO) react) showModal,
-  Future<Post?> Function(ReactionToPostDTO) react
+  void Function(BuildContext context, Post post) showModal,
 ) {
   return posts.map(
     (post) => Marker(
     point: post.location, 
     child: GestureDetector(
-      onTap: () => showModal(context, post, react),
+      onTap: () => showModal(context, post),
       child: Icon(
           Icons.circle,
           color: Emotions.happiness.color,

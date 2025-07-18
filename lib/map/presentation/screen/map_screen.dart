@@ -46,7 +46,7 @@ class _MapScreenState extends State<MapScreen> {
                     options: MapOptions(
                       initialCenter: LatLng(notifier.currentLocation!.latitude, notifier.currentLocation!.longitude),
                       initialZoom: 15.0,
-                      minZoom: 13.0
+                      minZoom: 13.0,
                     ),
                     children: [
                       TileLayer(
@@ -65,14 +65,13 @@ class _MapScreenState extends State<MapScreen> {
                             point: notifier.currentLocation!, 
                             child: Icon(
                               Icons.accessibility_sharp,
-                              color: Colors.red,
+                              color: Colors.blueAccent,
                             )
                           ),
                           ...getPostsMarkers(
                             context,
                             notifier.posts,
                             showPostModal,
-                            notifier.reactToPost
                           )
                         ]
                       ),

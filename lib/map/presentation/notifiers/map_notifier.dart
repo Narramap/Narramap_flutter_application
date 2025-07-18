@@ -8,12 +8,14 @@ import 'package:narramap/core/Location/location_service.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/map/data/repository/dummy_emotions_zones_repository.dart';
 import 'package:narramap/map/domain/model/emotions_zone.dart';
+import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart';
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
 
 class MapNotifier extends ChangeNotifier{
 
   final GetAllPostsUseCase getAllUseCase = getIt<GetAllPostsUseCase>();
   final ReactToPostUseCase reactUseCase = getIt<ReactToPostUseCase>();
+  final GetAllEventsUseCase getAllEvents = getIt<GetAllEventsUseCase>();
 
   LatLng? _currentLocation;
   LatLng? get currentLocation => _currentLocation;
@@ -49,11 +51,6 @@ class MapNotifier extends ChangeNotifier{
     }
     notifyListeners();
     print(SecureStorage.getToken());
-  }
-
-  Future<Post?> reactToPost(ReactionToPostDTO reactionDTO) async {
-
-    return await reactUseCase.run(reactionDTO);
   }
 
   Future<void> getEmotionsZones() async {

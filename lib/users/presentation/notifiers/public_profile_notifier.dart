@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
@@ -11,6 +12,7 @@ import 'package:narramap/users/domain/model/phrase.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_phrases_use_case.dart';
+import 'package:narramap/users/domain/use_cases/get_user_events_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_user_posts_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_user_profile_use_case.dart';
 import 'package:narramap/users/domain/use_cases/update_profile_use_case.dart';
@@ -22,6 +24,7 @@ class PublicProfileNotifier extends ChangeNotifier {
   final addPhraseUseCase = getIt<AddPhraseUseCase>();
   final getUserPostsUseCase = getIt<GetUserPostsUseCase>();
   final updateProfileUseCase = getIt<UpdateProfileUseCase>();
+  final getUserEventsUseCase = getIt<GetUserEventsUseCase>();
 
   File? _newProfilePhoto;
   File? get newProfilePhoto => _newProfilePhoto;
@@ -34,6 +37,9 @@ class PublicProfileNotifier extends ChangeNotifier {
 
   List<Post> _userPosts = [];
   List<Post> get userPosts => _userPosts;
+
+  List<Event> _userEvents = [];
+  List<Event> get userEvents => _userEvents;
 
   bool _addingPhrase = false;
   bool get addingPhrase => _addingPhrase;
@@ -113,7 +119,8 @@ class PublicProfileNotifier extends ChangeNotifier {
     await Future.wait([
       getUserProfile(),
       getPhrases(),
-      getPostsByUserId()
+      getPostsByUserId(),
+      getEventsByUserId()
     ]);
   }
 
@@ -168,6 +175,16 @@ class PublicProfileNotifier extends ChangeNotifier {
 
     if(userPosts != null) {
       _userPosts = userPosts;
+    }
+  }
+
+  Future<void> getEventsByUserId() async {
+
+    final token = await SecureStorage.getToken();
+    final events = await getUserEventsUseCase.run(token!);
+
+    if(events != null) {
+      _userEvents = events;
     }
   }
 

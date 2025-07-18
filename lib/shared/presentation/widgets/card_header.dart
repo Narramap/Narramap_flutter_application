@@ -1,25 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 
-class CardHeader extends StatelessWidget {
+class CardHeader extends StatefulWidget {
 
-  final String userImage;
+  final String? userImage;
   final String title;
   final DateTime date;
+  final String userId;
+  final bool searchImage;
+  final Future<String?> Function(String)? getImage;
+
   const CardHeader({
     super.key,
-    required this.userImage,
+    this.userImage,
     required this.title,
-    required this.date
+    required this.date,
+    required this.userId,
+    this.searchImage = false,
+    this.getImage
   });
+
+  @override
+  State<CardHeader> createState() => _CardHeaderState();
+}
+
+class _CardHeaderState extends State<CardHeader> {
+
+  String? _imageUrl;
+
+  @override
+  void initState() async {
+    super.initState();
+    if(widget.userImage == null && widget.searchImage && widget.getImage != null) {
+
+      final profilePhoto = await widget.getImage!(widget.userId);
+      if(profilePhoto != null){
+        setState(() {
+          _imageUrl = profilePhoto;
+        });
+      }
+
+    }
+  }
+   
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
-          backgroundImage: NetworkImage(userImage),
-          radius: 20,
+        GestureDetector(
+          onTap: () => context.push("pendiente de asginar"),
+          child: CircleAvatar(
+            radius: 20,
+            backgroundImage: _imageUrl != null ? 
+              NetworkImage(widget.userImage!) 
+            : 
+              AssetImage("assets/images/default_profile_photo.webp")
+          ),
         ),
         SizedBox(width: 10),
         Expanded(
@@ -28,7 +67,7 @@ class CardHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                widget.title,
                 style: TextStyle(
                   color: TextColor.gray.textColor,
                   overflow: TextOverflow.ellipsis
@@ -38,7 +77,7 @@ class CardHeader extends StatelessWidget {
                 
               ),
               Text(
-                "${ date.day.toString().padLeft(2, "0")} / ${date.month.toString().padLeft(2, "0")} / ${date.year}",
+                "${ widget.date.day.toString().padLeft(2, "0")} / ${widget.date.month.toString().padLeft(2, "0")} / ${widget.date.year}",
                 style: TextStyle(
                   color: TextColor.gray.textColor
                 ),

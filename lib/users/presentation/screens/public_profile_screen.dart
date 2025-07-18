@@ -87,9 +87,15 @@ class PublicProfileScreen extends StatelessWidget {
                           toggleAddingPhrase: notifier.toggleAddingPhrase,
                         ),
                         SizedBox(height: 40),
-                        PostsContainer(posts: notifier.userPosts),
+                        PostsContainer(
+                          posts: notifier.userPosts,
+                          user: currentProfile,
+                        ),
                         SizedBox(height: 40),
-                        // EventsContainer(events: currentProfile.events),
+                        EventsContainer(
+                          events: notifier.userEvents,
+                          user: currentProfile
+                        ),
                         SizedBox(height: 40),
               
                       ],
