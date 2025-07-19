@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 enum Emotions {
 
-    
   rage(
     label: "enojo",
     color: Color(0xFFFB4949)
