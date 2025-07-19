@@ -42,7 +42,7 @@ class NewEventDTO {
       MapEntry("date_event", date.toIso8601String()),
       MapEntry("start_time", _formatTime(initTime)),
       MapEntry("end_time", _formatTime(endTime)),
-      MapEntry("eventType", eventType.name.toUpperCase()),
+      MapEntry("eventType", eventType.label),
     ]);
 
     for (final image in imageUrls) {

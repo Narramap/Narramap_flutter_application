@@ -56,11 +56,11 @@ class UserRepository implements IUserRepository{
   @override
   Future<UserProfile?> updateUserProfile(String token, UpdateProfileDTO updateDTO) async {
     
-    DioClient.authToken = token;
 
-    final updatedProfile = await DioClient.patch(
+    final updatedProfile = await DioClient.patchMultipart(
       path: "$url/users/profile", 
-      body: updateDTO.toJsonMap(), 
+      body: updateDTO.toFormData(), 
+      token: token,
       fromJsonT: (json) => UserProfile.fromJson(json as Map<String, dynamic>)
     );
 

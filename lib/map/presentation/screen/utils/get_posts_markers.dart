@@ -18,7 +18,7 @@ List<Marker> getPostsMarkers(
       child: Icon(
           Icons.circle,
           color: Emotions.happiness.color,
-          size: 10,
+          size: 20,
         ),
     )
 

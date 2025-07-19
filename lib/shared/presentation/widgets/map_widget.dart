@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/core/Location/location_service.dart';
+import 'package:narramap/map/domain/model/layers_enum.dart';
 
 class MapWidget extends StatefulWidget {
   
@@ -64,7 +65,8 @@ class _MapWidgetState extends State<MapWidget> {
           ),
           children: [
             TileLayer(
-              urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+              urlTemplate: LayersEnum.labeledWhite.layerUrl,
+              subdomains: LayersEnum.labeledWhite.domains,
               userAgentPackageName: 'com.tuapp.nombre',
             ),
             CircleLayer(

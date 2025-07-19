@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/content/domain/model/post.dart';
@@ -188,14 +189,32 @@ class PublicProfileNotifier extends ChangeNotifier {
     }
   }
 
-  Future<void> updateProfile() async {
+  Future<void> updateProfile() async { 
+
+    MultipartFile? _photo;
+
+    if(_newProfilePhoto != null) { 
+      final fileName = _newProfilePhoto!.path.split('/').last;
+      _photo = await MultipartFile.fromFile(_newProfilePhoto!.path, filename: fileName);
+    }
+    
+
+    // for (final image in imageUrls) {
+    //   final fileName = image.path.split('/').last;
+    //   formData.files.add(
+    //     MapEntry(
+    //       "images_url",
+    //       await MultipartFile.fromFile(image.path, filename: fileName),
+    //     ),
+    //   );
+    // }
 
     final updateDTO = UpdateProfileDTO(
       profile: user!,
       age: user!.age,
       gender: user!.gender,
       biography: _biography,
-      imageBase64: _newProfilePhoto != null ? base64Encode(await _newProfilePhoto!.readAsBytes()) : null,
+      newProfilePhoto: _photo,
       nickname: _newNickname,
       public: _public
     );

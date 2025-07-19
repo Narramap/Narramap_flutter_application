@@ -1,4 +1,5 @@
 
+import 'package:dio/dio.dart';
 import 'package:narramap/users/data/interceptors/user_interceptor.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 
@@ -10,7 +11,7 @@ class UpdateProfileDTO {
   final int? age;
   final GenderInterceptorEnum? gender;
   final bool? public;
-  final String? imageBase64;
+  final MultipartFile? newProfilePhoto;
 
   UpdateProfileDTO({
     required this.profile,
@@ -19,7 +20,7 @@ class UpdateProfileDTO {
     this.age,
     this.gender,
     this.public,
-    this.imageBase64
+    this.newProfilePhoto
   });
 
   bool isNotNull () {
@@ -28,7 +29,7 @@ class UpdateProfileDTO {
       age != null || 
       gender != null || 
       public != null || 
-      imageBase64 != null;
+      newProfilePhoto != null;
   }
 
   bool isDifferent() {
@@ -37,7 +38,7 @@ class UpdateProfileDTO {
       || age != null && age != profile.age
       || gender != null && gender != profile.gender
       || public != null && public != profile.isPublic
-      || imageBase64 != null;
+      || newProfilePhoto != null;
   }
 
   bool isUpdateable() {
@@ -45,14 +46,50 @@ class UpdateProfileDTO {
   }
 
   Map<String, dynamic> toJsonMap() {
-    return {
+
+    Map<String, dynamic> initalJsonMap = {
       "nickname" : nickname,
       "biography": biography,
       "age" : age,
       "gender" : gender?.label,
       "public" : public,
-      "image_url" : imageBase64
     };
+
+    if(newProfilePhoto != null) {
+      initalJsonMap["image_url"] = newProfilePhoto;
+
+    }
+    return initalJsonMap;
+  }
+
+  FormData toFormData() {
+    final formData = FormData();
+
+    if(nickname != null) {
+      formData.fields.add(MapEntry("nickname", nickname!));
+    }
+
+    if(biography != null) {
+      formData.fields.add(MapEntry("biography", biography!));
+    }
+
+    if(age != null) {
+      formData.fields.add(MapEntry("age", age!.toString()));
+    }
+
+    if(gender != null) {
+      formData.fields.add(MapEntry("gender", gender!.label));
+    }
+
+    if(public != null) {
+      formData.fields.add(MapEntry("public", public.toString()));
+    }
+
+    if(newProfilePhoto !=null) {
+      formData.files.add(MapEntry<String, MultipartFile> ("image_url", newProfilePhoto!));
+    }
+
+    return formData;
   }
 
 }

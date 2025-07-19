@@ -35,6 +35,7 @@ class PostCard extends StatelessWidget {
               userId: post.userId,
               title: post.title,
               date: post.date,
+              searchImage: true,
               getImage: notifier.getUserPhoto,
             ),
             Text(

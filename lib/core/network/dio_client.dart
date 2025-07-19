@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:dio/dio.dart';
 
@@ -102,6 +103,33 @@ class DioClient {
       final res = await _instance.dio.post(
         path,
         data: formData,
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'multipart/form-data',
+          },
+        ),
+      );
+
+      final json = jsonDecode(jsonEncode(res.data));
+      final apiRes = fromJsonT(json);
+      return apiRes;
+    } catch (e) {
+      print("error en postMultipart de dio: $e");
+      return null;
+    }
+  }
+
+  static Future<T?> patchMultipart<T>({
+    required String path,
+    required FormData body,
+    required String token,
+    required T Function(dynamic json) fromJsonT
+  }) async {
+    try {
+      final res = await _instance.dio.patch(
+        path,
+        data: body,
         options: Options(
           headers: {
             'Authorization': 'Bearer $token',

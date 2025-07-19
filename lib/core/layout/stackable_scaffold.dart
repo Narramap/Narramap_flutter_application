@@ -7,9 +7,11 @@ import 'package:narramap/shared/presentation/widgets/custom_bottom_navigation_ba
 class StackableScaffold extends StatelessWidget {
 
   final Widget child;
+  final Widget? positionedStackableContent;
   const StackableScaffold({
     super.key,
-    required this.child
+    required this.child,
+    this.positionedStackableContent
   });
 
   @override
@@ -54,6 +56,16 @@ class StackableScaffold extends StatelessWidget {
               ),
             ),
           ),
+
+          if(positionedStackableContent != null)
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: positionedStackableContent!
+            ),
+
+
     
           Positioned(
             left: 0,

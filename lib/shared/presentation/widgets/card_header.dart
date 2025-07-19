@@ -30,21 +30,26 @@ class _CardHeaderState extends State<CardHeader> {
 
   String? _imageUrl;
 
-  @override
-  void initState() async {
-    super.initState();
+  void _fetchData() async {
     if(widget.userImage == null && widget.searchImage && widget.getImage != null) {
 
       final profilePhoto = await widget.getImage!(widget.userId);
+      print(profilePhoto);
       if(profilePhoto != null){
         setState(() {
           _imageUrl = profilePhoto;
         });
       }
-
+    } else if ( widget.userImage != null) {
+      _imageUrl = widget.userImage;
     }
   }
-   
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +60,7 @@ class _CardHeaderState extends State<CardHeader> {
           child: CircleAvatar(
             radius: 20,
             backgroundImage: _imageUrl != null ? 
-              NetworkImage(widget.userImage!) 
+              NetworkImage(_imageUrl!) 
             : 
               AssetImage("assets/images/default_profile_photo.webp")
           ),

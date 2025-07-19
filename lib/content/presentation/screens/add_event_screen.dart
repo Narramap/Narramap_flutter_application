@@ -95,7 +95,10 @@ class AddEventScreen extends StatelessWidget {
               onTimeSelected: notifier.onSelectEndTime
             ),
             SizedBox(height: 20),
-            CustomDropdown(options: EventEnum.values.map((enumS) => enumS.label).toList()),
+            CustomDropdown<EventEnum>(
+              options: EventEnum.values,
+              onChanged: notifier.onChangeType,
+            ),
             SizedBox(height: 20),
             
             CustomImagePicker(

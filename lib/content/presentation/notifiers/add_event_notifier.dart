@@ -89,11 +89,10 @@ class AddEventNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void onChangeType(EventEnum? eventType) {
-    if (eventType != null) {
-      _eventType = eventType;
-      notifyListeners();
-    }
+  void onChangeType(EventEnum eventType) {
+    _eventType = eventType;
+    notifyListeners();
+    
   }
 
   void onImagesSelected(List<File> images) {
@@ -118,7 +117,7 @@ class AddEventNotifier extends ChangeNotifier {
           date: _date!,
           initTime: _initTime!,
           endTime: _endTime!,
-          eventType: EventEnum.social,
+          eventType: _eventType!,
           imageUrls: _images,
         ),
       );

@@ -8,6 +8,7 @@ import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/map/presentation/notifiers/map_notifier.dart';
 import 'package:narramap/map/presentation/screen/utils/get_circle_layers.dart';
 import 'package:narramap/map/presentation/screen/utils/get_posts_markers.dart';
+import 'package:narramap/map/presentation/screen/widget/emotional_posts_info.dart';
 import 'package:narramap/map/presentation/screen/widget/post_modal.dart';
 import 'package:provider/provider.dart';
 
@@ -28,8 +29,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return StackableScaffold(
-      child: ChangeNotifierProvider(
+    return ChangeNotifierProvider(
         create: (context) => MapNotifier(),
         builder: (context, _) {
 
@@ -41,7 +41,9 @@ class _MapScreenState extends State<MapScreen> {
               if(snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
               } else {
-                return Consumer<MapNotifier>(
+                return StackableScaffold(
+                  positionedStackableContent: EmotionalPostsInfo(onChange: notifier.onChangeLayer),
+                  child: Consumer<MapNotifier>(
                   builder: (context, notifier, _) => FlutterMap(
                     options: MapOptions(
                       initialCenter: LatLng(notifier.currentLocation!.latitude, notifier.currentLocation!.longitude),
@@ -50,8 +52,8 @@ class _MapScreenState extends State<MapScreen> {
                     ),
                     children: [
                       TileLayer(
-                        urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-                        subdomains: ['a', 'b', 'c', 'd'],
+                        urlTemplate: notifier.layer.layerUrl,
+                        subdomains: notifier.layer.domains,
                         userAgentPackageName: 'com.tuapp.nombre',
                       ),
                       
@@ -63,9 +65,9 @@ class _MapScreenState extends State<MapScreen> {
                         markers: [
                           Marker(
                             point: notifier.currentLocation!, 
-                            child: Icon(
-                              Icons.accessibility_sharp,
-                              color: Colors.blueAccent,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: Text("TU"),
                             )
                           ),
                           ...getPostsMarkers(
@@ -77,12 +79,12 @@ class _MapScreenState extends State<MapScreen> {
                       ),
                     ],
                   )
+                )
                 );
               }
             },
           );
         }
-      )
     );
 
 

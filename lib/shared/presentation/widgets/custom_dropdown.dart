@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-class CustomDropdown extends StatefulWidget {
-  final List<String> options;
-  final String? initialValue;
-  final ValueChanged<String?>? onChanged;
+class CustomDropdown<T> extends StatefulWidget {
+  final List<T> options;
+  final T? initialValue;
+  final ValueChanged<T> onChanged;
 
   const CustomDropdown({
     super.key,
     required this.options,
     this.initialValue,
-    this.onChanged,
+    required this.onChanged,
   });
 
   @override
-  State<CustomDropdown> createState() => _CustomDropdownState();
+  State<CustomDropdown<T>> createState() => _CustomDropdownState<T>();
 }
 
-class _CustomDropdownState extends State<CustomDropdown> {
-  String? selectedValue;
+class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
+  T? selectedValue;
 
   @override
   void initState() {
@@ -27,20 +27,21 @@ class _CustomDropdownState extends State<CustomDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
+    return DropdownButton<T>(
       value: selectedValue,
-      items: widget.options.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
+      items: widget.options.map<DropdownMenuItem<T>>((value) {
+        return DropdownMenuItem<T>(
           value: value,
-          child: Text(value),
+          child: Text(value.toString()),
         );
       }).toList(),
-      onChanged: (String? newValue) {
+      onChanged: (newValue) {
+
         setState(() {
           selectedValue = newValue;
         });
-        if (widget.onChanged != null) {
-          widget.onChanged!(newValue);
+        if(newValue != null) {
+          widget.onChanged(newValue);
         }
       },
     );

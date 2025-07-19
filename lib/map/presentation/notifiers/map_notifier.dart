@@ -8,6 +8,7 @@ import 'package:narramap/core/Location/location_service.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/map/data/repository/dummy_emotions_zones_repository.dart';
 import 'package:narramap/map/domain/model/emotions_zone.dart';
+import 'package:narramap/map/domain/model/layers_enum.dart';
 import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart';
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
 
@@ -17,6 +18,9 @@ class MapNotifier extends ChangeNotifier{
   final ReactToPostUseCase reactUseCase = getIt<ReactToPostUseCase>();
   final GetAllEventsUseCase getAllEvents = getIt<GetAllEventsUseCase>();
 
+  LayersEnum _layer = LayersEnum.satelital;
+  LayersEnum get layer => _layer;
+
   LatLng? _currentLocation;
   LatLng? get currentLocation => _currentLocation;
 
@@ -25,6 +29,11 @@ class MapNotifier extends ChangeNotifier{
 
   List<EmotionsZone> _emotionsZones = [];
   List<EmotionsZone> get emotionsZones => _emotionsZones;
+
+  void onChangeLayer(LayersEnum layer) {
+    _layer = layer;
+    notifyListeners();
+  }
 
   Future<void> getAll() async {
     await Future.wait([
