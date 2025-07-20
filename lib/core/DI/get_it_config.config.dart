@@ -25,6 +25,8 @@ import 'package:narramap/content/domain/use_cases/register_use_case.dart'
     as _i102;
 import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart'
     as _i111;
+import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart'
+    as _i111;
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart'
     as _i107;
 import 'package:narramap/users/data/repository/user_repository.dart' as _i575;
@@ -48,16 +50,24 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
-    gh.factory<_i107.GetAllPostsUseCase>(() => _i107.GetAllPostsUseCase());
     gh.factory<_i365.AuthRepository>(() => _i365.AuthRepository());
     gh.factory<_i801.LoginUseCase>(() => _i801.LoginUseCase());
     gh.factory<_i363.RegisterUseCase>(() => _i363.RegisterUseCase());
+    gh.factory<_i150.EventRepositoryImpl>(() => _i150.EventRepositoryImpl());
+    gh.factory<_i1007.PostsRepository>(() => _i1007.PostsRepository());
+    gh.factory<_i531.EventUseCase>(() => _i531.EventUseCase());
+    gh.factory<_i437.ReactToPostUseCase>(() => _i437.ReactToPostUseCase());
+    gh.factory<_i102.RegisterUseCase>(() => _i102.RegisterUseCase());
+    gh.factory<_i111.GetAllEventsUseCase>(() => _i111.GetAllEventsUseCase());
+    gh.factory<_i107.GetAllPostsUseCase>(() => _i107.GetAllPostsUseCase());
+    gh.factory<_i575.UserRepository>(() => _i575.UserRepository());
+    gh.factory<_i282.AddPhraseUseCase>(() => _i282.AddPhraseUseCase());
+    gh.factory<_i385.GetPhrasesUseCase>(() => _i385.GetPhrasesUseCase());
+    gh.factory<_i353.GetUserEventsUseCase>(() => _i353.GetUserEventsUseCase());
+    gh.factory<_i204.GetUserPostsUseCase>(() => _i204.GetUserPostsUseCase());
     gh.factory<_i671.GetUserProfileUseCase>(
       () => _i671.GetUserProfileUseCase(),
     );
-    gh.factory<_i385.GetPhrasesUseCase>(() => _i385.GetPhrasesUseCase());
-    gh.factory<_i282.AddPhraseUseCase>(() => _i282.AddPhraseUseCase());
-    gh.factory<_i204.GetUserPostsUseCase>(() => _i204.GetUserPostsUseCase());
     gh.factory<_i1043.UpdateProfileUseCase>(
       () => _i1043.UpdateProfileUseCase(),
     );

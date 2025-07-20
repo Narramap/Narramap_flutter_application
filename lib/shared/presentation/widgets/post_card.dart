@@ -5,6 +5,7 @@ import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/shared/presentation/notifiers/post_card_notifier.dart';
 import 'package:narramap/shared/presentation/widgets/card_header.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/images_container.dart';
 import 'package:narramap/shared/presentation/widgets/reactions_container.dart';
 import 'package:narramap/users/domain/model/user.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
@@ -46,20 +47,21 @@ class PostCard extends StatelessWidget {
               ),
             ),
             if(post.images.isNotEmpty)
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: double.infinity,
-                  height: 300,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20)
-                  ),          
-                  child: Image.network(
-                    post.images[0],
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
+              ImagesContainer(images: post.images),
+              // ClipRRect(
+              //   borderRadius: BorderRadius.circular(10),
+              //   child: Container(
+              //     width: double.infinity,
+              //     height: 300,
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(20)
+              //     ),          
+              //     child: Image.network(
+              //       post.images[0],
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              // ),
             
             ReactionsContainer(
               post: post,
