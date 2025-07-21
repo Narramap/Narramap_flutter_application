@@ -67,6 +67,13 @@ dev_dependencies:
   build_runner: ^2.4.6
   injectable_generator: ^2.4.1
 
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/logo_hd.png"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
