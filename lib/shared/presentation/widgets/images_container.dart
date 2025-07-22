@@ -46,46 +46,51 @@ class _ImagesContainerState extends State<ImagesContainer> {
         ),
 
         // Botón izquierdo (atrás)
-        Positioned(
-          left: 10,
-          top: 0,
-          bottom: 0,
-          child: Center(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white.withAlpha(130),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back_ios),
-                onPressed: _decrementIndex,
-                color: Colors.black,
-                iconSize: 20,
+        if(widget.images.length > 1)
+          ...[
+            Positioned(
+            left: 10,
+            top: 0,
+            bottom: 0,
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white.withAlpha(130),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back_ios),
+                  onPressed: _decrementIndex,
+                  color: Colors.black,
+                  iconSize: 20,
+                ),
               ),
             ),
           ),
-        ),
 
-        // Botón derecho (adelante)
-        Positioned(
-          right: 10,
-          top: 0,
-          bottom: 0,
-          child: Center(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white.withAlpha(130),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: IconButton(
-                icon: const Icon(Icons.arrow_forward_ios),
-                onPressed: _incrementIndex,
-                color: Colors.black,
-                iconSize: 20,
+          // Botón derecho (adelante)
+          Positioned(
+            right: 10,
+            top: 0,
+            bottom: 0,
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white.withAlpha(130),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_forward_ios),
+                  onPressed: _incrementIndex,
+                  color: Colors.black,
+                  iconSize: 20,
+                ),
               ),
             ),
           ),
-        ),
+        ]
+        
+        
       ],
     );
   }

@@ -18,7 +18,11 @@ import 'package:narramap/content/data/repository/event_repository_impl.dart'
     as _i150;
 import 'package:narramap/content/data/repository/posts_repository.dart'
     as _i1007;
+import 'package:narramap/content/domain/use_cases/comment_post_use_case.dart'
+    as _i655;
 import 'package:narramap/content/domain/use_cases/event_use_case.dart' as _i531;
+import 'package:narramap/content/domain/use_cases/get_post_comments_use_case.dart'
+    as _i449;
 import 'package:narramap/content/domain/use_cases/react_to_post_use_case.dart'
     as _i437;
 import 'package:narramap/content/domain/use_cases/register_use_case.dart'
@@ -27,6 +31,8 @@ import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart'
     as _i111;
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart'
     as _i107;
+import 'package:narramap/shared/data/repository/comment_repository.dart'
+    as _i924;
 import 'package:narramap/users/data/repository/user_repository.dart' as _i575;
 import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart'
     as _i282;
@@ -53,11 +59,16 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i363.RegisterUseCase>(() => _i363.RegisterUseCase());
     gh.factory<_i150.EventRepositoryImpl>(() => _i150.EventRepositoryImpl());
     gh.factory<_i1007.PostsRepository>(() => _i1007.PostsRepository());
+    gh.factory<_i655.CommentPostUseCase>(() => _i655.CommentPostUseCase());
     gh.factory<_i531.EventUseCase>(() => _i531.EventUseCase());
+    gh.factory<_i449.GetPostCommentsUseCase>(
+      () => _i449.GetPostCommentsUseCase(),
+    );
     gh.factory<_i437.ReactToPostUseCase>(() => _i437.ReactToPostUseCase());
     gh.factory<_i102.RegisterUseCase>(() => _i102.RegisterUseCase());
     gh.factory<_i111.GetAllEventsUseCase>(() => _i111.GetAllEventsUseCase());
     gh.factory<_i107.GetAllPostsUseCase>(() => _i107.GetAllPostsUseCase());
+    gh.factory<_i924.CommentRepository>(() => _i924.CommentRepository());
     gh.factory<_i575.UserRepository>(() => _i575.UserRepository());
     gh.factory<_i282.AddPhraseUseCase>(() => _i282.AddPhraseUseCase());
     gh.factory<_i385.GetPhrasesUseCase>(() => _i385.GetPhrasesUseCase());
