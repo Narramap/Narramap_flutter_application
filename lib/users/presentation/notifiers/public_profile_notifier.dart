@@ -27,6 +27,8 @@ class PublicProfileNotifier extends ChangeNotifier {
   final updateProfileUseCase = getIt<UpdateProfileUseCase>();
   final getUserEventsUseCase = getIt<GetUserEventsUseCase>();
 
+  String? _specificUserId;
+
   File? _newProfilePhoto;
   File? get newProfilePhoto => _newProfilePhoto;
 
@@ -115,7 +117,13 @@ class PublicProfileNotifier extends ChangeNotifier {
     _newProfilePhoto = photo;
   }
 
-  Future<void> getAll() async {
+  Future<void> getAll({
+    String? userId
+  }) async {
+
+    if(userId != null) {
+      _specificUserId = userId;
+    }
 
     await Future.wait([
       getUserProfile(),
@@ -127,7 +135,8 @@ class PublicProfileNotifier extends ChangeNotifier {
 
   Future<void> getUserProfile() async {
 
-    final userId = await SecureStorage.getUserId();
+
+    final userId = _specificUserId ?? await SecureStorage.getUserId();
     final token = await SecureStorage.getToken();
 
     final userProfile = await getProfileUseCase.run(userId!, token!);
@@ -140,7 +149,7 @@ class PublicProfileNotifier extends ChangeNotifier {
   Future<void> getPhrases() async {
 
     final token = await SecureStorage.getToken();
-    final userId = await SecureStorage.getUserId();
+    final userId = _specificUserId ?? await SecureStorage.getUserId();
     final phrases = await getPhrasesUseCase.run(token!, userId!);
 
     if(phrases != null) {
@@ -171,7 +180,7 @@ class PublicProfileNotifier extends ChangeNotifier {
 
   Future<void> getPostsByUserId() async {
 
-    final userId = await SecureStorage.getUserId();
+    final userId = _specificUserId ?? await SecureStorage.getUserId();
     final userPosts = await getUserPostsUseCase.run(userId!);
 
     if(userPosts != null) {
@@ -197,17 +206,6 @@ class PublicProfileNotifier extends ChangeNotifier {
       final fileName = _newProfilePhoto!.path.split('/').last;
       _photo = await MultipartFile.fromFile(_newProfilePhoto!.path, filename: fileName);
     }
-    
-
-    // for (final image in imageUrls) {
-    //   final fileName = image.path.split('/').last;
-    //   formData.files.add(
-    //     MapEntry(
-    //       "images_url",
-    //       await MultipartFile.fromFile(image.path, filename: fileName),
-    //     ),
-    //   );
-    // }
 
     final updateDTO = UpdateProfileDTO(
       profile: user!,
@@ -236,7 +234,6 @@ class PublicProfileNotifier extends ChangeNotifier {
   }
 
   void resetEditingValues() {
-
     _public = null;
     _bussiness = null;
     _newNickname = user!.nickname;

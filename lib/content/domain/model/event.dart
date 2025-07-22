@@ -8,7 +8,7 @@ class Event {
   final String title;
   final String description;
   final LatLng location;
-  final int radius;
+  final double radius;
   final DateTime date;
   final String initTime;
   final String endTime;
@@ -30,6 +30,10 @@ class Event {
   });
 
   factory Event.fromJson(Map<String, dynamic> json) {
+
+    print((json['location_lat'] as num).toDouble());
+    print((json['location_lon'] as num).toDouble());
+    print((json['radius'] as num).toDouble());
     return Event(
       id: json["id"],
       userId: json["id_user"],
@@ -37,10 +41,10 @@ class Event {
       description: json["description"],
       location:
           LocationDTO(
-            latitude: json["location_lat"],
-            longitude: json["location_lon"],
+            latitude: (json['location_lat'] as num).toDouble(),
+            longitude: (json['location_lon'] as num).toDouble(),
           ).toLatLng(),
-      radius: json["radius"],
+      radius: (json['radius'] as num).toDouble(),
       date: DateTime.parse(json["date_event"]),
       initTime: json["start_time"],
       endTime: json["end_time"],

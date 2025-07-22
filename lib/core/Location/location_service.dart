@@ -32,8 +32,6 @@ Future<Position> getCurrentLocation() async {
     desiredAccuracy: LocationAccuracy.high,
   );
 
-  print('Ubicación actual: ${position.latitude}, ${position.longitude}');
-
   return position;
 }
 

@@ -32,7 +32,6 @@ class _MapWidgetState extends State<MapWidget> {
 
   void getLocation () async {
     var current = await LocationService().getCurrentLocation();
-    print("location obtenida $current");
     setState(() {
       location = current;
       locationGetted = true;
@@ -57,7 +56,7 @@ class _MapWidgetState extends State<MapWidget> {
         height: widget.heightMap,
         child: FlutterMap(
           options: MapOptions(
-            initialCenter: LatLng(location!.latitude, location!.longitude), // CDMX
+            initialCenter: LatLng(location!.latitude, location!.longitude),
             initialZoom: 15.0,
             minZoom: 13,
             onTap: widget.onSelectLocation != null ? 

@@ -30,30 +30,12 @@ class PostCard extends StatefulWidget {
 class _PostCardState extends State<PostCard> {
 
   @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final notifier = Provider.of<MapNotifier>(context, listen: false);
-      notifier.getAll();
-    });
-    // final notifier = Provider.of<PostCardNotifier>(context, listen: false);
-    // notifier.getComments(widget.post.id);
-  }
-
-  @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => PostCardNotifier(widget.post.id),
       child: Consumer<PostCardNotifier>(
         builder: (context, notifier, _) {
 
-        // FutureBuilder(
-        //   future: notifier.getComments(widget.post.id),
-        //   builder: (context, snapshot) {
-        //     if(snapshot.connectionState == ConnectionState.waiting) {
-        //       return CircularProgressIndicator();
-        //     } else {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 10,

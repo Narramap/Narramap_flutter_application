@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
+import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/content/domain/use_cases/react_to_post_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
@@ -27,6 +28,9 @@ class MapNotifier extends ChangeNotifier{
   List<Post> _posts = [];
   List<Post> get posts => _posts;
 
+  List<Event> _events = [];
+  List<Event> get events => _events;
+
   List<EmotionsZone> _emotionsZones = [];
   List<EmotionsZone> get emotionsZones => _emotionsZones;
 
@@ -39,6 +43,7 @@ class MapNotifier extends ChangeNotifier{
     await Future.wait([
       getCurrentLocation(),
       getPosts(),
+      getEvents(),
       getEmotionsZones(),
     ]);
     print("fetch obtenidos--------------------------");
@@ -59,7 +64,16 @@ class MapNotifier extends ChangeNotifier{
       _posts = postsRes;
     }
     notifyListeners();
-    print(SecureStorage.getToken());
+  }
+
+  Future<void> getEvents() async {
+
+    final token = await SecureStorage.getToken();
+    final eventRes = await getAllEvents.run(token!);
+    if(eventRes != null) {
+      _events = eventRes;
+    }
+    notifyListeners();
   }
 
   Future<void> getEmotionsZones() async {

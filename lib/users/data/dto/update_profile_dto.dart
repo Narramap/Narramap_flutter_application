@@ -64,6 +64,7 @@ class UpdateProfileDTO {
 
   FormData toFormData() {
     final formData = FormData();
+    print(public);
 
     if(nickname != null) {
       formData.fields.add(MapEntry("nickname", nickname!));
@@ -82,7 +83,7 @@ class UpdateProfileDTO {
     }
 
     if(public != null) {
-      formData.fields.add(MapEntry("public", public.toString()));
+      formData.fields.add(MapEntry("public", public!.toString()));
     }
 
     if(newProfilePhoto !=null) {

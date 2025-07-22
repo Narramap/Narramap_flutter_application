@@ -11,7 +11,7 @@ import 'package:narramap/shared/domain/repository/i_comment_repository.dart';
 @Injectable()
 class CommentRepository extends ICommentRepository {
 
-  final url = "http://192.168.100.93:3000/comments";
+  final url = "https://narramapcommentsapi-production.up.railway.app/comments";
 
   @override
   Future<List<CommentInterceptor>?> getPostComments(String postId) async {
@@ -35,8 +35,8 @@ class CommentRepository extends ICommentRepository {
       path: "$url/events/$eventId", 
       fromJsonT: (json) => ApiResponseInterceptor<List<CommentInterceptor>>.fromJson(
         json, 
-        (commentsJson) => (commentsJson as List<Map<String, dynamic>>).map(
-          (commentJson) => CommentInterceptor.fromJson(commentJson)
+        (commentsJson) => (commentsJson as List<dynamic>).map(
+          (commentJson) => CommentInterceptor.fromJson(commentJson as Map<String, dynamic>)
         ).toList()
       )
     );
@@ -51,8 +51,8 @@ class CommentRepository extends ICommentRepository {
       path: "$url/bussiness/$bussinessId", 
       fromJsonT: (json) => ApiResponseInterceptor<List<CommentInterceptor>>.fromJson(
         json, 
-        (commentsJson) => (commentsJson as List<Map<String, dynamic>>).map(
-          (commentJson) => CommentInterceptor.fromJson(commentJson)
+        (commentsJson) => (commentsJson as List<dynamic>).map(
+          (commentJson) => CommentInterceptor.fromJson(commentJson as Map<String, dynamic>)
         ).toList()
       )
     );

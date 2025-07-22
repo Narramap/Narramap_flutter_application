@@ -56,7 +56,7 @@ class _CardHeaderState extends State<CardHeader> {
     return Row(
       children: [
         GestureDetector(
-          onTap: () => context.push("pendiente de asginar"),
+          onTap: () => context.push(Routes.someonePublicProfile.getParametredRoute([widget.userId])),
           child: CircleAvatar(
             radius: 20,
             backgroundImage: _imageUrl != null ? 

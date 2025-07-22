@@ -37,16 +37,72 @@ class _ARViewScreenState extends State<ARViewScreen> {
   void initState() {
     super.initState();
 
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   final notifier = Provider.of<AumentedRealityNotifier>(context, listen: false);
-    //   notifier.getPosts().then((_) {
-    //     setState(() {
-    //       posts = notifier.posts;
-    //     });
-    //   });
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      // final notifier = Provider.of<AumentedRealityNotifier>(context, listen: false);
+      // await notifier.getPosts();
+      // posts = notifier.posts;
 
+      // Verifica cercanía y coloca modelos si es necesario
+      await placeNearbyModels();
+    });
   }
+
+  vector.Vector3 calculateRelativePosition(
+    double userLat,
+    double userLon,
+    double targetLat,
+    double targetLon,
+  ) {
+    // Escala ficticia para convertir grados a metros (solo para distancias pequeñas)
+    const double metersPerDegreeLat = 111_320; // aproximadamente
+    const double metersPerDegreeLon = 111_320;
+
+    final dx = (targetLon - userLon) * metersPerDegreeLon;
+    final dz = (targetLat - userLat) * metersPerDegreeLat;
+
+    // Convertimos metros a unidades del espacio AR (asume 1m = 1 unidad)
+    return vector.Vector3(dx.toDouble(), 0, dz.toDouble());
+  }
+
+
+  Future<void> placeNearbyModels() async {
+    Position userPosition = await Geolocator.getCurrentPosition();
+
+    for (final post in posts) {
+      double distance = Geolocator.distanceBetween(
+        userPosition.latitude,
+        userPosition.longitude,
+        post.location.latitude,
+        post.location.longitude,
+      );
+
+      print("Distancia al post ${post.id}: ${distance.toStringAsFixed(2)} m");
+
+      if (distance < 20) {
+        vector.Vector3 direction = calculateRelativePosition(
+          userPosition.latitude,
+          userPosition.longitude,
+          post.location.latitude,
+          post.location.longitude,
+        );
+
+        final node = ARNode(
+          type: NodeType.localGLTF2,
+          uri: "assets/models/enojo.glb", // O cambia según la emoción del post
+          scale: vector.Vector3(0.2, 0.2, 0.2),
+          position: direction, // Posición relativa a la cámara
+          rotation: vector.Vector4.zero(),
+        );
+
+        final didAdd = await arObjectManager.addNode(node);
+        if (didAdd == true) {
+          nodes.add(node);
+          print("Modelo colocado para post ${post.id}");
+        }
+      }
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {

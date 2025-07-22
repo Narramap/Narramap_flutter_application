@@ -6,9 +6,12 @@ import 'package:latlong2/latlong.dart';
 import 'package:narramap/core/layout/stackable_scaffold.dart';
 import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/map/presentation/notifiers/map_notifier.dart';
+import 'package:narramap/map/presentation/screen/utils/get_circle_events.dart';
 import 'package:narramap/map/presentation/screen/utils/get_circle_layers.dart';
+import 'package:narramap/map/presentation/screen/utils/get_events_markers.dart';
 import 'package:narramap/map/presentation/screen/utils/get_posts_markers.dart';
 import 'package:narramap/map/presentation/screen/widget/emotional_posts_info.dart';
+import 'package:narramap/map/presentation/screen/widget/event_modal.dart';
 import 'package:narramap/map/presentation/screen/widget/post_modal.dart';
 import 'package:provider/provider.dart';
 
@@ -54,12 +57,12 @@ class _MapScreenState extends State<MapScreen> {
                       TileLayer(
                         urlTemplate: notifier.layer.layerUrl,
                         subdomains: notifier.layer.domains,
-                        userAgentPackageName: 'com.tuapp.nombre',
+                        userAgentPackageName: 'com.narramap.app',
                       ),
                       
-                      // CircleLayer(
-                      //   circles: getCircleLayers(notifier.emotionsZones)
-                      // ),
+                      CircleLayer(
+                        circles: getCircleEvents(notifier.events)
+                      ),
                       
                       MarkerLayer(
                         markers: [
@@ -74,6 +77,11 @@ class _MapScreenState extends State<MapScreen> {
                             context,
                             notifier.posts,
                             showPostModal,
+                          ),
+                          ...getEventsMarkers(
+                            context, 
+                            notifier.events, 
+                            showEventModal
                           )
                         ]
                       ),

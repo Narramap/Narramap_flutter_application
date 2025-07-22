@@ -44,6 +44,13 @@ GoRouter goRouter = GoRouter(
     GoRoute(
       path: Routes.addBussiness.label,
       builder: (context, state) => AddBussiness(),
+    ),
+    GoRoute(
+      path: Routes.someonePublicProfile.label,
+      builder: (context, state) {
+        final userId = state.pathParameters["id"];
+        return PublicProfileScreen(userId: userId);
+      }
     )
   ]
 );

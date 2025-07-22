@@ -8,6 +8,7 @@ class PhrasesContainer extends StatelessWidget {
 
   final List<Phrase> phrases;
   final bool addingPhrases;
+  final String? userId;
   final void Function() toggleAddingPhrase;
   final String Function(String) onChangeTextPhrase;
   final String Function(String) onChangeAuthor;
@@ -15,6 +16,7 @@ class PhrasesContainer extends StatelessWidget {
 
   const PhrasesContainer({
     super.key,
+    required this.userId,
     required this.addingPhrases,
     required this.phrases,
     required this.toggleAddingPhrase,
@@ -68,37 +70,38 @@ class PhrasesContainer extends StatelessWidget {
             children: childrenContent,
           ),
         ),
-        !addingPhrases ?
-          CustomButton(
-            buttonColor: ButtonColors.gray,
-            text: "Nueva Frase",
-            onPressed: toggleAddingPhrase,
-          )
-        :
-          Column(
-            spacing: 20,
-            children: [
-              CustomTextField(
-                onChanged: onChangeTextPhrase,
-                label: "Frase",
-                textFieldColor: TextFieldColors.gray,
-              ),
-              CustomTextField(
-                onChanged: onChangeAuthor,
-                label: "Autor",
-                textFieldColor: TextFieldColors.gray,
-              ),
-              CustomButton(
-                buttonColor: ButtonColors.gray,
-                text: "Cancelar",
-                onPressed: toggleAddingPhrase,
-              ),
-              CustomButton(
-                text: "Guardar",
-                onPressed: savePhrase,
-              )
-            ],
-          ),
+        if(userId == null)
+          !addingPhrases ?
+            CustomButton(
+              buttonColor: ButtonColors.gray,
+              text: "Nueva Frase",
+              onPressed: toggleAddingPhrase,
+            )
+          :
+            Column(
+              spacing: 20,
+              children: [
+                CustomTextField(
+                  onChanged: onChangeTextPhrase,
+                  label: "Frase",
+                  textFieldColor: TextFieldColors.gray,
+                ),
+                CustomTextField(
+                  onChanged: onChangeAuthor,
+                  label: "Autor",
+                  textFieldColor: TextFieldColors.gray,
+                ),
+                CustomButton(
+                  buttonColor: ButtonColors.gray,
+                  text: "Cancelar",
+                  onPressed: toggleAddingPhrase,
+                ),
+                CustomButton(
+                  text: "Guardar",
+                  onPressed: savePhrase,
+                )
+              ],
+            ),
       ]
     );
   }
