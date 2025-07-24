@@ -33,6 +33,13 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        ndk {
+            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
+        }
+        packagingOptions {
+            resources.pickFirsts.add("lib/**/libarcore_sdk_c.so")
+            resources.pickFirsts.add("lib/**/libfilament-jni.so")
+        }
     }
 
     signingConfigs {

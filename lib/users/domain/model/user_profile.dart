@@ -28,7 +28,7 @@ class UserProfile {
       "id": id,
       "nickname": nickname,
       "age": age,
-      "gender": gender,
+      "gender": gender.label,
       "isPublic": isPublic,
       "bussiness": bussiness,
       "biography": biography,

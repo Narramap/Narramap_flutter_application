@@ -47,6 +47,7 @@ class EventCard extends StatelessWidget {
             if(event.imageUrls.isNotEmpty)
               ImagesContainer(images: event.imageUrls),
             UbicationSelector(
+              initialCenter: event.location,
               heightMap: 250,
               label: "", 
               onSelectLocation: (point) {}, 

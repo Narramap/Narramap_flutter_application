@@ -5,6 +5,8 @@ import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/shared/presentation/widgets/post_card.dart';
 
 void showPostModal(BuildContext context, Post post) {
+
+
   showDialog(
     context: context,
     barrierDismissible: true,

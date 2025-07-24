@@ -9,12 +9,16 @@ List<Marker> getPostsMarkers(
   BuildContext context,
   List<Post> posts, 
   void Function(BuildContext context, Post post) showModal,
+  Future<void> Function(String postId) onTapPostMarker
 ) {
   return posts.map(
     (post) => Marker(
     point: post.location, 
     child: GestureDetector(
-      onTap: () => showModal(context, post),
+      onTap: () {
+        onTapPostMarker(post.id);
+        showModal(context, post);
+      },
       child: Icon(
           Icons.circle,
           color: Emotions.happiness.color,

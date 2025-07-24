@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/layout/gradient_container.dart';
 import 'package:narramap/core/navigation/routes.dart';
+import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/shared/presentation/widgets/custom_button.dart';
 import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
 import 'package:narramap/shared/presentation/widgets/password_text_field.dart';
@@ -18,51 +19,56 @@ class LoginScreen extends StatelessWidget {
       child: GradientContainer(
         children: [
           Consumer<LoginNotifier>(
-            builder: (context, notifier, _) => Column(
-              children: [
-                CustomTextField(
-                  onChanged: notifier.onUpdateEmail,
-                  label: "Correo electronico",
-                  spacerHeight: 40,
-                ),
-                
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    PasswordTextField(
-                      onChanged: notifier.onUpdatePassword, 
-                      changeShowPassword: notifier.changeShowPassword, 
-                      showPassword: notifier.showPassword,
-                      spacerHeight: 10,
-                    ),
-                    GestureDetector(
-                      child: Text(
-                        "Registrate aqui",
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.white,
-                        ),
-                      ),
-                      onTap: () => context.push(Routes.register.label),
-                    )
-                  ],
-                ),
-                SizedBox(height: 20),
-                if(notifier.error) 
-                  Text(
-                    notifier.errorMessage,
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 156, 156, 156)
-                    ),
+            builder: (context, notifier, _) {
+
+              // notifier.getUserIdAndToken(() => context.push(Routes.home.label));
+              return Column(
+                children: [
+                  CustomTextField(
+                    onChanged: notifier.onUpdateEmail,
+                    label: "Correo electronico",
+                    spacerHeight: 40,
                   ),
-                SizedBox(height: 60),
-                
-                CustomButton(
-                  text: "Iniciar Sesion", 
-                  onPressed: () => notifier.onLogin(() => context.push(Routes.home.label))
-                )
-              ],
-            )
+                  
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      PasswordTextField(
+                        onChanged: notifier.onUpdatePassword, 
+                        changeShowPassword: notifier.changeShowPassword, 
+                        showPassword: notifier.showPassword,
+                        spacerHeight: 10,
+                      ),
+                      GestureDetector(
+                        child: Text(
+                          "Registrate aqui",
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.white,
+                          ),
+                        ),
+                        onTap: () => context.push(Routes.register.label),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  if(notifier.error) 
+                    Text(
+                      notifier.errorMessage,
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 241, 241, 241)
+                      ),
+                    ),
+                  SizedBox(height: 60),
+                  
+                  CustomButton(
+                    text: "Iniciar Sesion", 
+                    onPressed: () => notifier.onLogin(() => context.push(Routes.home.label))
+                  )
+                ],
+              );
+            }
+            
           )
           
         ]

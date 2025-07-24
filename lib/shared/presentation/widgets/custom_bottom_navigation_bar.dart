@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/navigation/routes.dart';
+import 'package:narramap/core/storage/secure_storage.dart';
+import 'package:narramap/users/domain/model/user_profile.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   int currentIndex;
@@ -23,28 +25,71 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+
+  bool business = false;
+
+  Future<void> _getUserProfile() async {
+
+    final userProfile = await SecureStorage.getUserProfile();
+    setState(() {
+      business = userProfile!.bussiness;
+    });
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserProfile();
+
+  }
+
   @override
   Widget build(BuildContext context) {
     void changeIndex(int index) {
-      switch (index) {
-        case 0:
-          context.push(Routes.home.label);
-          break;
-        case 1:
-          context.push(Routes.aumentedReality.label);
-          break;
-        case 2:
-          context.push(Routes.addBussiness.label);
-          break;
-        case 4:
-          context.push(Routes.publicProfile.label);
-          break;
 
+      if(business) {
+        switch (index) {
+          case 0:
+            context.go(Routes.home.label);
+            break;
+          case 1:
+            context.go(Routes.aumentedReality.label);
+            break;
+          case 2:
+            context.go(Routes.addBussiness.label);
+            break;
+          case 4:
+            context.go(Routes.publicProfile.label);
+            break;
+
+            
+          default:
+            print("No existe una ruta para este index");
           
-        default:
-          print("No existe una ruta para este index");
-        
+        }
+      } else { 
+
+        switch (index) {
+          case 0:
+            context.go(Routes.home.label);
+            break;
+          case 1:
+            context.go(Routes.aumentedReality.label);
+            break;
+          
+          case 3:
+            context.go(Routes.publicProfile.label);
+            break;
+
+            
+          default:
+            print("No existe una ruta para este index");
+          
+        }
+
       }
+      
 
       setState(() {
         widget.currentIndex = index;
@@ -83,7 +128,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               unselectedItemColor: const Color(0xFFA9A9A9),
               showSelectedLabels: false,
               showUnselectedLabels: false,
-              items: const [
+              items: [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.location_pin),
                   label: "",
@@ -92,10 +137,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   icon: Icon(Icons.camera),
                   label: "",
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.store),
-                  label: ""
-                ),
+                if(business)
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.store),
+                    label: ""
+                  ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.switch_account),
                   label: "",

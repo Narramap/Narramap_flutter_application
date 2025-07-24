@@ -10,13 +10,16 @@ class UbicationSelector extends StatefulWidget {
   final List<Marker> markers;
   final List<CircleMarker> circleMarkers;
   final String label;
+  final LatLng? initialCenter;
+
   const UbicationSelector({
     super.key,
     required this.heightMap,
     required this.label,
     required this.onSelectLocation,
     required this.markers,
-    required this.circleMarkers
+    required this.circleMarkers,
+    this.initialCenter,
   });
 
   @override
@@ -39,6 +42,7 @@ class _UbicationSelectorState extends State<UbicationSelector> {
         ),
         SizedBox(height: 10),
         MapWidget(
+          intialCenter: widget.initialCenter,
           heightMap: widget.heightMap,
           markers: widget.markers,
           circleMarkers: widget.circleMarkers,

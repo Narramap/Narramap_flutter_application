@@ -39,7 +39,7 @@ GoRouter goRouter = GoRouter(
     ),
     GoRoute(
       path: Routes.aumentedReality.label,
-      builder: (context, state) => ARViewScreen(),
+      builder: (context, state) => AumentedRealityPage(),
     ),
     GoRoute(
       path: Routes.addBussiness.label,

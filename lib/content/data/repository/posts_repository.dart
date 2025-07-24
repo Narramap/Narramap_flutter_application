@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:narramap/content/data/dto/new_post_dto.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
+import 'package:narramap/content/data/interceptors/post_view_interceptor.dart';
 import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/content/domain/repository/i_posts_repository.dart';
 import 'package:narramap/core/network/dio_client.dart';
@@ -72,5 +73,20 @@ class PostsRepository implements IPostsRepository  {
     );
 
     return posts?.data;
+  }
+
+  @override
+  Future<PostViewInterceptor?> registerPostView(String postId, String userId) async {
+
+    final postView = await DioClient.post(
+      path: "$url/posts/$postId/views/$userId", 
+      body: {}, 
+      fromJsonT: (json) => ApiResponseInterceptor<PostViewInterceptor>.fromJson(
+        json, 
+        (viewJson) => PostViewInterceptor.fromJson(viewJson as Map<String, dynamic>)
+      )
+    );
+
+    return postView?.data;
   }
 }

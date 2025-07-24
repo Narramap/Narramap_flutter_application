@@ -12,12 +12,13 @@ import 'package:narramap/map/domain/model/emotions_zone.dart';
 import 'package:narramap/map/domain/model/layers_enum.dart';
 import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart';
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
+import 'package:narramap/map/domain/use_cases/register_view_use_case.dart';
 
 class MapNotifier extends ChangeNotifier{
 
-  final GetAllPostsUseCase getAllUseCase = getIt<GetAllPostsUseCase>();
-  final ReactToPostUseCase reactUseCase = getIt<ReactToPostUseCase>();
-  final GetAllEventsUseCase getAllEvents = getIt<GetAllEventsUseCase>();
+  final GetAllPostsUseCase _getAllUseCase = getIt<GetAllPostsUseCase>();
+  final GetAllEventsUseCase _getAllEvents = getIt<GetAllEventsUseCase>();
+  final RegisterViewUseCase _registerPostViewUseCase = getIt<RegisterViewUseCase>();
 
   LayersEnum _layer = LayersEnum.satelital;
   LayersEnum get layer => _layer;
@@ -59,17 +60,16 @@ class MapNotifier extends ChangeNotifier{
 
   Future<void> getPosts() async {
     // _posts = await DummyPostRepository().getPosts();
-    final postsRes = await getAllUseCase.run();
+    final postsRes = await _getAllUseCase.run();
     if(postsRes != null) {
       _posts = postsRes;
     }
-    notifyListeners();
   }
 
   Future<void> getEvents() async {
 
     final token = await SecureStorage.getToken();
-    final eventRes = await getAllEvents.run(token!);
+    final eventRes = await _getAllEvents.run(token!);
     if(eventRes != null) {
       _events = eventRes;
     }
@@ -79,5 +79,10 @@ class MapNotifier extends ChangeNotifier{
   Future<void> getEmotionsZones() async {
     _emotionsZones = await DummyEmotionsZonesRepository().getAll();
     notifyListeners();
+  }
+
+  Future<void> registerPostView(String postId) async {
+    final userId = await SecureStorage.getUserId();
+    _registerPostViewUseCase.run(postId, userId!);
   }
 }

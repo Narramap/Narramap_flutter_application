@@ -35,6 +35,8 @@ import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart'
     as _i111;
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart'
     as _i107;
+import 'package:narramap/map/domain/use_cases/register_view_use_case.dart'
+    as _i406;
 import 'package:narramap/shared/data/repository/comment_repository.dart'
     as _i924;
 import 'package:narramap/users/data/repository/user_repository.dart' as _i575;
@@ -88,6 +90,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i63.CommentEventUseCase>(() => _i63.CommentEventUseCase());
     gh.factory<_i150.EventRepositoryImpl>(() => _i150.EventRepositoryImpl());
     gh.factory<_i1007.PostsRepository>(() => _i1007.PostsRepository());
+    gh.factory<_i406.RegisterViewUseCase>(() => _i406.RegisterViewUseCase());
     return this;
   }
 }

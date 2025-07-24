@@ -12,13 +12,15 @@ class MapWidget extends StatefulWidget {
   final List<Marker> markers;
   final List<CircleMarker> circleMarkers;
   final double borderRadius;
+  final LatLng? intialCenter;
   const MapWidget({
     super.key,
     required this.heightMap,
     this.markers = const [],
     this.circleMarkers = const [],
     this.onSelectLocation,
-    this.borderRadius = 0
+    this.borderRadius = 0,
+    this.intialCenter
   });
 
   @override
@@ -56,7 +58,7 @@ class _MapWidgetState extends State<MapWidget> {
         height: widget.heightMap,
         child: FlutterMap(
           options: MapOptions(
-            initialCenter: LatLng(location!.latitude, location!.longitude),
+            initialCenter: widget.intialCenter ?? LatLng(location!.latitude, location!.longitude),
             initialZoom: 15.0,
             minZoom: 13,
             onTap: widget.onSelectLocation != null ? 
