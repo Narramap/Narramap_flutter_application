@@ -16,11 +16,13 @@ class PostCard extends StatefulWidget {
 
   final Post post;
   final UserProfile? user;
+  final Future<void> Function()? deletePost;
   
   const PostCard({
     super.key,
     required this.post,
-    this.user
+    this.user,
+    this.deletePost,
   });
 
   @override
@@ -40,14 +42,24 @@ class _PostCardState extends State<PostCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 10,
                 children: [
-                  CardHeader(
-                    userImage: widget.user?.profilePhoto,
-                    userId: widget.post.userId,
-                    title: widget.post.title,
-                    date: widget.post.date,
-                    searchImage: true,
-                    getImage: notifier.getUserPhoto,
+                  Row(
+                    children: [
+                      CardHeader(
+                        userImage: widget.user?.profilePhoto,
+                        userId: widget.post.userId,
+                        title: widget.post.title,
+                        date: widget.post.date,
+                        searchImage: true,
+                        getImage: notifier.getUserPhoto,
+                      ),
+                      if(widget.deletePost != null)
+                        IconButton(
+                          onPressed: widget.deletePost, 
+                          icon: Icon(Icons.delete)
+                        )
+                    ],
                   ),
+                  
                   Text(
                     widget.post.content,
                     textAlign: TextAlign.justify,

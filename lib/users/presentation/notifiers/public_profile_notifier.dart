@@ -12,6 +12,7 @@ import 'package:narramap/users/data/dto/update_profile_dto.dart';
 import 'package:narramap/users/domain/model/phrase.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart';
+import 'package:narramap/users/domain/use_cases/delete_post_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_phrases_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_user_events_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_user_posts_use_case.dart';
@@ -26,6 +27,7 @@ class PublicProfileNotifier extends ChangeNotifier {
   final getUserPostsUseCase = getIt<GetUserPostsUseCase>();
   final updateProfileUseCase = getIt<UpdateProfileUseCase>();
   final getUserEventsUseCase = getIt<GetUserEventsUseCase>();
+  final deletePostUseCase = getIt<DeletePostUseCase>();
 
   String? _specificUserId;
 
@@ -231,6 +233,17 @@ class PublicProfileNotifier extends ChangeNotifier {
       print("no hay cambios en el perfil");
     }
     
+  }
+
+  Future<void> deletePost(String postId) async {
+    
+    final deletedPostId = await deletePostUseCase.run(postId);
+
+    if(deletedPostId != null) {
+      final filtered = userPosts.where((post) => post.id != deletedPostId).toList();
+      _userPosts = filtered;
+      notifyListeners();
+    }
   }
 
   void resetEditingValues() {

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:injectable/injectable.dart';
 import 'package:narramap/content/data/dto/new_post_dto.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
@@ -88,5 +90,21 @@ class PostsRepository implements IPostsRepository  {
     );
 
     return postView?.data;
+  }
+
+  @override
+  Future<String?> deletePost(String postId) async {
+
+
+    final deletedPostId = await DioClient.delete(
+      path: "$url/posts/$postId", 
+      fromJsonT: (json) => ApiResponseInterceptor<String>.fromJson(
+        json, 
+        (data) => data as String
+      )
+    );
+
+    return deletedPostId?.data;
+
   }
 }

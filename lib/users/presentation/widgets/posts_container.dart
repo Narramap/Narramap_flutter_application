@@ -9,11 +9,13 @@ class PostsContainer extends StatelessWidget {
 
   final List<Post> posts;
   final UserProfile user;
+  final Future<void> Function(String postId)? deletePost;
 
   const PostsContainer({
     super.key,
     required this.posts,
-    required this.user
+    required this.user,
+    this.deletePost
   });
 
   @override
@@ -29,7 +31,10 @@ class PostsContainer extends StatelessWidget {
             color: TextColor.gray.textColor
           ),
         ),
-        ...posts.map((post) => PostCard(post: post, user: user,))
+        ...posts.map((post) => PostCard(
+          post: post, 
+          user: user, 
+          deletePost: deletePost != null ? () => deletePost!(post.id) : null))
       ],
     );
   }

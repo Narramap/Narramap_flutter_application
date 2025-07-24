@@ -93,6 +93,24 @@ class DioClient {
     }
   }
 
+  static Future<T?> delete<T>({
+    required String path,
+    required T Function(dynamic json) fromJsonT,
+  }) async {
+    try {
+      final res = await _instance.dio.delete(
+        path,
+      );
+
+      final json = jsonDecode(jsonEncode(res.data));
+      final apiRes = fromJsonT(json);
+      return apiRes;
+    } catch (e) {
+      print("error en el delete de dio: $e");
+      return null;
+    }
+  }
+
   static Future<T?> postMultipart<T>({
     required String path,
     required FormData formData,

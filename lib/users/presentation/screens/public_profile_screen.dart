@@ -99,6 +99,7 @@ class PublicProfileScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 40),
                             PostsContainer(
+                              deletePost: userId != null ? null : notifier.deletePost,
                               posts: notifier.userPosts,
                               user: currentProfile,
                             ),

@@ -11,4 +11,5 @@ abstract class IPostsRepository {
   Future<Post?> reactByPostId(ReactionToPostDTO reactionDTO);
   Future<List<Post>?> getAllByUserId(String userId);
   Future<PostViewInterceptor?> registerPostView(String postId, String userId);
+  Future<String?> deletePost(String postId);  
 }
