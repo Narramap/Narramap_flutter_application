@@ -17,6 +17,7 @@ List<Marker> getPostsMarkers(
     child: GestureDetector(
       onTap: () {
         showModal(context, post);
+        onTapPostMarker(post.id);
       },
       child: Icon(
           Icons.circle,

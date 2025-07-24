@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:narramap/content/domain/use_cases/delete_comment_use_case.dart';
 import 'package:narramap/content/domain/use_cases/get_event_comments_use_case.dart';
 import 'package:narramap/content/domain/use_cases/get_post_comments_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
@@ -14,6 +15,7 @@ class CommentContainerNotifier extends ChangeNotifier {
   final GetUserProfileUseCase _getProfileUseCase = getIt<GetUserProfileUseCase>();
   final GetPostCommentsUseCase _getPostCommentsUseCase = getIt<GetPostCommentsUseCase>();
   final GetEventCommentsUseCase _getEventCommentsUseCase = getIt<GetEventCommentsUseCase>();
+  final DeleteCommentUseCase _deleteCommentUseCase = getIt<DeleteCommentUseCase>();
 
   List<CommentInterceptor> _comments = [];
   List<CommentInterceptor> get comments => _comments;
@@ -24,6 +26,9 @@ class CommentContainerNotifier extends ChangeNotifier {
   UserProfile? _userProfile;
   UserProfile? get userProfile => _userProfile;
 
+  bool _showComments = false;
+  bool get showComments => _showComments;
+
   Future<void> getAll(CommentSource source, String sourceId) async {
 
     await Future.wait([
@@ -31,7 +36,6 @@ class CommentContainerNotifier extends ChangeNotifier {
       getComments(source, sourceId)
     ]);
 
-    notifyListeners();
   }
 
   Future<void> getCurrentUserId() async {
@@ -66,7 +70,14 @@ class CommentContainerNotifier extends ChangeNotifier {
   }
 
   Future<void> deleteComment(String commentId) async {
-    
+    final deletedId = await _deleteCommentUseCase.run(commentId);
   }
+
+  void toggleShowComments() {
+    _showComments = !_showComments;
+    notifyListeners();
+  }
+
+
 
 }

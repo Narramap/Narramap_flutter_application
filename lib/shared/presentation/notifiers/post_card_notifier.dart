@@ -14,7 +14,7 @@ import 'package:narramap/users/domain/use_cases/get_user_profile_use_case.dart';
 class PostCardNotifier extends ChangeNotifier {
 
   PostCardNotifier(String postId) {
-    getComments(postId);
+    // getComments(postId);
   }
 
   final _getUserProfileUsecase = getIt<GetUserProfileUseCase>();

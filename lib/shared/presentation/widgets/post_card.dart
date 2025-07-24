@@ -42,16 +42,17 @@ class _PostCardState extends State<PostCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 10,
                 children: [
+                  CardHeader(
+                    userImage: widget.user?.profilePhoto,
+                    userId: widget.post.userId,
+                    title: widget.post.title,
+                    date: widget.post.date,
+                    searchImage: true,
+                    getImage: notifier.getUserPhoto,
+                  ),
                   Row(
                     children: [
-                      CardHeader(
-                        userImage: widget.user?.profilePhoto,
-                        userId: widget.post.userId,
-                        title: widget.post.title,
-                        date: widget.post.date,
-                        searchImage: true,
-                        getImage: notifier.getUserPhoto,
-                      ),
+                      
                       if(widget.deletePost != null)
                         IconButton(
                           onPressed: widget.deletePost, 
@@ -71,19 +72,16 @@ class _PostCardState extends State<PostCard> {
                     ImagesContainer(images: widget.post.images),
                   
                   ReactionsContainer(
-                    nComments: notifier.nComments,
-                    onTapComments: notifier.toggleShowComments,
                     post: widget.post,
                     onTapReaction: notifier.reactToPost,
                   ),
 
-                  // if(notifier.showComments)
-                  //   CommentsContainer(
-                  //     source: CommentSource.posts,
-                  //     sourceId: widget.post.id,
-                  //     saveComment: () => notifier.saveComment(widget.post.id),
-                  //     onChangeComment: notifier.onChangeCommentContent,
-                  //   )
+                  CommentsContainer(
+                    source: CommentSource.posts,
+                    sourceId: widget.post.id,
+                    saveComment: () => notifier.saveComment(widget.post.id),
+                    onChangeComment: notifier.onChangeCommentContent,
+                  )
                 ],
               );
               }

@@ -11,15 +11,11 @@ class ReactionsContainer extends StatefulWidget {
 
 
   final Post post;
-  final int nComments;
-  final void Function() onTapComments;
   final Future<Post?> Function(ReactionToPostDTO) onTapReaction;
 
   const ReactionsContainer({
     super.key,
     required this.post,
-    required this.nComments,
-    required this.onTapComments,
     required this.onTapReaction
   });
 
@@ -46,38 +42,7 @@ class _ReactionsContainerState extends State<ReactionsContainer> {
       runSpacing: 5,
       spacing: 5,
       children: [
-        GestureDetector(
-          onTap: widget.onTapComments,
-
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            decoration: BoxDecoration(
-              color: ButtonColors.gray.backgroundColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  widget.nComments.toString(),
-                  style: TextStyle(
-                    color: TextColor.gray.textColor,
-                  ),
-                ),
-                const SizedBox(width: 5),
-                Icon(
-                  Icons.comment,
-                  size: 16,
-                )
-                // Image.asset(
-                //   "assets/icons/",
-                //   width: 16,
-                //   height: 16,
-                // ),
-              ],
-            ),
-          ),
-        ),
+        
         ..._reactions.map((reaction) {
           return GestureDetector(
             onTap: () async {

@@ -43,33 +43,41 @@ class CommentsContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 20,
               children: [
-                Text(
-                  "Comentarios",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: TextColor.gray.textColor
-                  ),
-                ),
-            
-                CustomTextField(
-                  onChanged: onChangeComment, 
-                  label: "Nuevo comentario",
-                  textFieldColor: TextFieldColors.gray,
-                ),
-            
                 CustomButton(
-                  text: "Comentar", 
-                  onPressed: saveComment
+                  text: notifier.comments.length.toString(),
+                  icon: Icons.comment, 
+                  onPressed: notifier.toggleShowComments
                 ),
-            
-                ...notifier.comments.map(
-                  (comment) => CommentCard(
-                    comment: comment,
-                    currentUserId: notifier.currentUserId,
-                    getUserPhoto: notifier.getUserPhoto,
-                    deleteComment: notifier.deleteComment,
+                if(notifier.showComments)
+                ...[
+                  Text(
+                    "Comentarios",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: TextColor.gray.textColor
+                    ),
+                  ),
+              
+                  CustomTextField(
+                    onChanged: onChangeComment, 
+                    label: "Nuevo comentario",
+                    textFieldColor: TextFieldColors.gray,
+                  ),
+              
+                  CustomButton(
+                    text: "Comentar", 
+                    onPressed: saveComment
+                  ),
+              
+                  ...notifier.comments.map(
+                    (comment) => CommentCard(
+                      comment: comment,
+                      currentUserId: notifier.currentUserId,
+                      getUserPhoto: notifier.getUserPhoto,
+                      deleteComment: notifier.deleteComment,
+                    )
                   )
-                )
+                ],
             
                 
               ],
