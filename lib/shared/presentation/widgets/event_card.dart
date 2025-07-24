@@ -79,8 +79,9 @@ class EventCard extends StatelessWidget {
 
             if(notifier.showComments)
               CommentsContainer(
+                source: CommentSource.event,
+                sourceId: event.id,
                 saveComment: () => notifier.saveComment(event.id),
-                comments: notifier.comments,
                 onChangeComment: notifier.onChangeCommentContent,
               )
         

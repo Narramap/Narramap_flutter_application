@@ -29,7 +29,7 @@ Future<Position> getCurrentLocation() async {
 
   // Obtener la posición actual
   Position position = await Geolocator.getCurrentPosition(
-    desiredAccuracy: LocationAccuracy.best,
+    desiredAccuracy: LocationAccuracy.high,
   );
 
   return position;

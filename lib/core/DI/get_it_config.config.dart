@@ -22,6 +22,8 @@ import 'package:narramap/content/domain/use_cases/comment_event_use_case.dart'
     as _i63;
 import 'package:narramap/content/domain/use_cases/comment_post_use_case.dart'
     as _i655;
+import 'package:narramap/content/domain/use_cases/delete_comment_use_case.dart'
+    as _i678;
 import 'package:narramap/content/domain/use_cases/event_use_case.dart' as _i531;
 import 'package:narramap/content/domain/use_cases/get_event_comments_use_case.dart'
     as _i626;
@@ -42,6 +44,8 @@ import 'package:narramap/shared/data/repository/comment_repository.dart'
 import 'package:narramap/users/data/repository/user_repository.dart' as _i575;
 import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart'
     as _i282;
+import 'package:narramap/users/domain/use_cases/delete_post_use_case.dart'
+    as _i744;
 import 'package:narramap/users/domain/use_cases/get_phrases_use_case.dart'
     as _i385;
 import 'package:narramap/users/domain/use_cases/get_user_events_use_case.dart'
@@ -91,6 +95,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i150.EventRepositoryImpl>(() => _i150.EventRepositoryImpl());
     gh.factory<_i1007.PostsRepository>(() => _i1007.PostsRepository());
     gh.factory<_i406.RegisterViewUseCase>(() => _i406.RegisterViewUseCase());
+    gh.factory<_i744.DeletePostUseCase>(() => _i744.DeletePostUseCase());
+    gh.factory<_i678.DeleteCommentUseCase>(() => _i678.DeleteCommentUseCase());
     return this;
   }
 }

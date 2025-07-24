@@ -108,5 +108,19 @@ class CommentRepository extends ICommentRepository {
     
   }
 
+  @override
+  Future<String?> deleteCommentById(String commentId) async {
+    
+    final deletedId = await DioClient.delete(
+      path: "$url/posts/$commentId", 
+      fromJsonT: (json) => ApiResponseInterceptor<String>.fromJson(
+        json, 
+        (data) => data
+      )
+    );
+
+    return deletedId?.data;
+  }
+
 
 }

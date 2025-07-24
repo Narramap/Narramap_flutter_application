@@ -54,7 +54,6 @@ class MapNotifier extends ChangeNotifier{
 
     final location = await LocationService().getCurrentLocation();
     _currentLocation = LatLng(location.latitude, location.longitude);
-    print("Ubicacion obtenida notifier $_currentLocation");
     notifyListeners();
   }
 

@@ -15,4 +15,6 @@ abstract class ICommentRepository {
   Future<EventCommentInterceptor?> registerEventComment(CommentDto comment, String eventId);
   Future<BussinessCommentInterceptor?> registerBussinessComment(CommentDto comment, String bussinessId);
 
+  Future<String?> deleteCommentById(String commentId);
+
 }

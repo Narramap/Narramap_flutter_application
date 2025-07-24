@@ -16,7 +16,6 @@ List<Marker> getPostsMarkers(
     point: post.location, 
     child: GestureDetector(
       onTap: () {
-        onTapPostMarker(post.id);
         showModal(context, post);
       },
       child: Icon(

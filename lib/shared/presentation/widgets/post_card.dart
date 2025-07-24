@@ -77,61 +77,18 @@ class _PostCardState extends State<PostCard> {
                     onTapReaction: notifier.reactToPost,
                   ),
 
-                  if(notifier.showComments)
-                    CommentsContainer(
-                      saveComment: () => notifier.saveComment(widget.post.id),
-                      comments: notifier.comments,
-                      onChangeComment: notifier.onChangeCommentContent,
-                    )
+                  // if(notifier.showComments)
+                  //   CommentsContainer(
+                  //     source: CommentSource.posts,
+                  //     sourceId: widget.post.id,
+                  //     saveComment: () => notifier.saveComment(widget.post.id),
+                  //     onChangeComment: notifier.onChangeCommentContent,
+                  //   )
                 ],
               );
               }
             ) 
           );
-          // child: Column(
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          //   spacing: 10,
-          //   children: [
-          //     CardHeader(
-          //       userImage: user?.profilePhoto,
-          //       userId: post.userId,
-          //       title: post.title,
-          //       date: post.date,
-          //       searchImage: true,
-          //       getImage: notifier.getUserPhoto,
-          //     ),
-          //     Text(
-          //       post.content,
-          //       textAlign: TextAlign.justify,
-          //       style: TextStyle(
-          //         color: TextColor.gray.textColor
-          //       ),
-          //     ),
-          //     if(post.images.isNotEmpty)
-          //       ImagesContainer(images: post.images),
-          //       // ClipRRect(
-          //       //   borderRadius: BorderRadius.circular(10),
-          //       //   child: Container(
-          //       //     width: double.infinity,
-          //       //     height: 300,
-          //       //     decoration: BoxDecoration(
-          //       //       borderRadius: BorderRadius.circular(20)
-          //       //     ),          
-          //       //     child: Image.network(
-          //       //       post.images[0],
-          //       //       fit: BoxFit.fill,
-          //       //     ),
-          //       //   ),
-          //       // ),
-              
-          //     ReactionsContainer(
-          //       nComments: notifier.nComments,
-          //       onTapComments: notifier.toggleShowComments,
-          //       post: post,
-          //       onTapReaction: notifier.reactToPost,
-          //     )
-          //   ],
-          // ),
-
+          
   }
 }

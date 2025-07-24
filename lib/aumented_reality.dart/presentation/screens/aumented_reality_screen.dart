@@ -36,6 +36,7 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
   Position? userLocation;
   bool arInitialized = false;
   Post? selectedPost;
+  bool showPostsPanel = true;
   
   // Configuración
   final double scaleFactor = 1.0;
@@ -246,6 +247,7 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
   Future<void> _initializeAR() async {
     try {
       await arSessionManager.onInitialize(
+        showAnimatedGuide: false,
         showFeaturePoints: false,
         showPlanes: false,
         showWorldOrigin: false,
@@ -296,10 +298,25 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
                 child: Stack(
                   children: [
                     ARView(onARViewCreated: _onARViewCreated),
+
+                    Positioned(
+                      bottom: 100,
+                      left: 100,
+                      child: FloatingActionButton(
+                        onPressed: () => setState(() => showPostsPanel = !showPostsPanel),
+                        backgroundColor: Colors.black.withOpacity(0.7),
+                        mini: true,
+                        child: Icon(
+                          showPostsPanel ? Icons.visibility_off : Icons.visibility,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                     
                     // Panel superior con información
+                    if(showPostsPanel)
                     Positioned(
-                      top: 100,
+                      top: 120,
                       left: 20,
                       right: 20,
                       child: Container(
@@ -375,7 +392,7 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
                     
                     // Botón para limpiar todos los posts
                     Positioned(
-                      bottom: 200,
+                      bottom: 100,
                       left: 20,
                       child: FloatingActionButton(
                         onPressed: _removeAllPosts,
