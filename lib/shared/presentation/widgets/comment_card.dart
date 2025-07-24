@@ -20,7 +20,7 @@ class CommentCard extends StatelessWidget {
     required this.comment,
     required this.currentUserId,
     required this.deleteComment,
-    this.getUserPhoto
+    this.getUserPhoto,
   });
 
   @override
@@ -35,29 +35,15 @@ class CommentCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 10,
         children: [
-          Row(
-            children: [
-              CardHeader(
-                searchImage: true,
-                getImage: getUserPhoto,
-                title: "" , 
-                date: DateTime.fromMillisecondsSinceEpoch(comment.timestamp), 
-                userId: comment.userId
-              ),
-              if(comment.userId == currentUserId)
-                IconButton(
-                  onPressed: () => deleteComment(comment.id), 
-                  icon: Icon(Icons.delete)
-                )
-            ],
+          CardHeader(
+            searchImage: true,
+            getImage: getUserPhoto,
+            title: "comentario" , 
+            date: DateTime.fromMillisecondsSinceEpoch(comment.timestamp), 
+            userId: comment.userId,
+            deleteItem: comment.userId == currentUserId ? () => deleteComment(comment.id) : null ,
           ),
           
-          // Text(
-          //   comment.userId,
-          //   style: TextStyle(
-          //     color: TextColor.gray.textColor
-          //   ),
-          // ),
           Text(
             comment.content,
             style: TextStyle(

@@ -62,7 +62,10 @@ class CustomButton extends StatelessWidget {
                 fontFamily: "Comfortaa"
               ),
             ),
-            if (icon != null) Icon(icon)
+            if (icon != null) Icon(
+              icon,
+              color: buttonColor.textColor,
+            )
           ],
         ),
       )

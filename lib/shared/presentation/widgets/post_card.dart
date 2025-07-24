@@ -6,6 +6,7 @@ import 'package:narramap/map/presentation/notifiers/map_notifier.dart';
 import 'package:narramap/shared/presentation/notifiers/post_card_notifier.dart';
 import 'package:narramap/shared/presentation/widgets/card_header.dart';
 import 'package:narramap/shared/presentation/widgets/comments_container.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/shared/presentation/widgets/images_container.dart';
 import 'package:narramap/shared/presentation/widgets/reactions_container.dart';
@@ -79,8 +80,6 @@ class _PostCardState extends State<PostCard> {
                   CommentsContainer(
                     source: CommentSource.posts,
                     sourceId: widget.post.id,
-                    saveComment: () => notifier.saveComment(widget.post.id),
-                    onChangeComment: notifier.onChangeCommentContent,
                   )
                 ],
               );

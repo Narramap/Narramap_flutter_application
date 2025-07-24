@@ -6,6 +6,7 @@ import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 class CardHeader extends StatefulWidget {
 
   final String? userImage;
+  final Future<void> Function()? deleteItem;
   final String title;
   final DateTime date;
   final String userId;
@@ -19,7 +20,8 @@ class CardHeader extends StatefulWidget {
     required this.date,
     required this.userId,
     this.searchImage = false,
-    this.getImage
+    this.getImage,
+    this.deleteItem
   });
 
   @override
@@ -54,6 +56,7 @@ class _CardHeaderState extends State<CardHeader> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
           onTap: () => context.push(Routes.someonePublicProfile.getParametredRoute([widget.userId])),
@@ -89,7 +92,16 @@ class _CardHeaderState extends State<CardHeader> {
               )
             ],
           ),
-        )
+        ),
+        if(widget.deleteItem != null)
+          IconButton(
+            onPressed: widget.deleteItem,
+            icon: Icon(
+              Icons.delete,
+              size: 16,
+              color: TextColor.gray.textColor,
+            ),
+          )
       ],
     );
   }

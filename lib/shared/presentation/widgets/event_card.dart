@@ -77,13 +77,10 @@ class EventCard extends StatelessWidget {
               buttonColor: ButtonColors.gray,
             ),
 
-            if(notifier.showComments)
-              CommentsContainer(
-                source: CommentSource.event,
-                sourceId: event.id,
-                saveComment: () => notifier.saveComment(event.id),
-                onChangeComment: notifier.onChangeCommentContent,
-              )
+            CommentsContainer(
+              source: CommentSource.event,
+              sourceId: event.id,
+            )
         
           ],
         ),

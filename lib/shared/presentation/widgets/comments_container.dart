@@ -14,28 +14,43 @@ enum CommentSource  {
   bussiness
 }
 
-class CommentsContainer extends StatelessWidget {
-  
+class CommentsContainer extends StatefulWidget {
+
   final CommentSource source;
   final String sourceId;
-  final void Function(String) onChangeComment;
-  final void Function() saveComment;
   
   const CommentsContainer({
     required this.source,
     required this.sourceId,
-    required this.saveComment,
-    required this.onChangeComment,
     super.key
   });
 
   @override
+  State<CommentsContainer> createState() => _CommentsContainerState();
+}
+
+class _CommentsContainerState extends State<CommentsContainer> {
+
+  bool showComments = false;
+  late Future<void> _future;
+  late CommentContainerNotifier notifier;
+
+  @override
+  void initState() {
+    super.initState();
+
+    notifier = CommentContainerNotifier();
+    _future = notifier.getAll(widget.source, widget.sourceId);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CommentContainerNotifier(),
+    return 
+    ChangeNotifierProvider.value(
+      value: notifier,
       child: Consumer<CommentContainerNotifier>(
         builder: (context, notifier, _) => FutureBuilder(
-          future: notifier.getAll(source, sourceId), 
+          future: _future, 
           builder: (context, snapshot) => snapshot.connectionState == ConnectionState.waiting ? 
             CircularProgressIndicator()
             :
@@ -45,42 +60,57 @@ class CommentsContainer extends StatelessWidget {
               children: [
                 CustomButton(
                   text: notifier.comments.length.toString(),
-                  icon: Icons.comment, 
+                  icon: Icons.comment,
                   onPressed: notifier.toggleShowComments
                 ),
-                if(notifier.showComments)
-                ...[
-                  Text(
-                    "Comentarios",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: TextColor.gray.textColor
-                    ),
-                  ),
-              
-                  CustomTextField(
-                    onChanged: onChangeComment, 
-                    label: "Nuevo comentario",
-                    textFieldColor: TextFieldColors.gray,
-                  ),
-              
-                  CustomButton(
-                    text: "Comentar", 
-                    onPressed: saveComment
-                  ),
-              
-                  ...notifier.comments.map(
-                    (comment) => CommentCard(
-                      comment: comment,
-                      currentUserId: notifier.currentUserId,
-                      getUserPhoto: notifier.getUserPhoto,
-                      deleteComment: notifier.deleteComment,
-                    )
-                  )
-                ],
-            
                 
-              ],
+                if(notifier.showComments)
+                  ...[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Comentarios",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: TextColor.gray.textColor
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            notifier.showAddComment ? Icons.cancel : Icons.add_circle_outline,
+                            size: 16,
+                            color: TextColor.gray.textColor,
+                          ),
+                          onPressed: notifier.toggleShowAddComment,
+                        )
+                      ],
+                    ),
+
+                    if(notifier.showAddComment) 
+                      ...[
+                        CustomTextField(
+                          onChanged: notifier.onChangeCommentContent,
+                          label: "Nuevo comentario",
+                          textFieldColor: TextFieldColors.gray,
+                        ),
+                        CustomButton(
+                          text: "Comentar",
+                          onPressed: () => notifier.saveComment(widget.sourceId)
+                        ),
+                      ],
+
+                    ...notifier.comments.map(
+                      (comment) => CommentCard(
+                        comment: comment,
+                        currentUserId: notifier.currentUserId,
+                        getUserPhoto: notifier.getUserPhoto,
+                        deleteComment: notifier.deleteComment,
+                      )
+                    )
+                  ]
+                  
+                ],
             ),
         ),
       ),
