@@ -3,8 +3,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:narramap/bussiness/data/dto/register_bussiness_dto.dart';
+import 'package:narramap/bussiness/domain/use_cases/register_bussiness_use_case.dart';
+import 'package:narramap/core/DI/get_it_config.dart';
+import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
+import 'package:narramap/shared/utils/get_base64_images.dart';
 
 class AddBussinessNotifier extends ChangeNotifier {
+
+  final _registerUseCase = getIt<RegisterBussinessUseCase>();
 
   String _name = "";
   String get name => _name;
@@ -12,8 +19,8 @@ class AddBussinessNotifier extends ChangeNotifier {
   String _description = "";
   String get description => _description;
 
-  String? _bussinessType;
-  String? get bussinessType => _bussinessType;
+  BussinessTypeEnum? _bussinessType;
+  BussinessTypeEnum? get bussinessType => _bussinessType;
 
   LatLng? _location;
   LatLng? get location => _location;
@@ -38,8 +45,8 @@ class AddBussinessNotifier extends ChangeNotifier {
     return _description = value;
   }
 
-  void onSelectBussinessType(String? value){
-    _bussinessType = value;
+  void onSelectBussinessType(BussinessTypeEnum value){
+    _bussinessType =  value;
   }
 
   void onSelectLocation(LatLng value) {
@@ -65,5 +72,39 @@ class AddBussinessNotifier extends ChangeNotifier {
     _activesDays = values;
     notifyListeners();
   }
+
+  Future<void> register() async {
+
+    if(!validateFields()){
+      return;
+    }
+
+    final registerDTO = RegisterBussinessDTO(
+      name: name, 
+      description: description, 
+      openTime: openTime!, 
+      closeTime: closeTime!, 
+      location: location!, 
+      type: bussinessType!, 
+      workDays: activeDays, 
+      images: await getBase64Images(images ?? [])
+    );
+
+    final res = await _registerUseCase.run(registerDTO);
+
+    if(res != null) {
+      print("exito");
+    }
+  }
+
+
+  bool validateFields() => 
+  name != "" 
+  && description != "" 
+  && openTime != null 
+  && closeTime != null
+  && location != null
+  && activeDays.isNotEmpty;
+
 
 }

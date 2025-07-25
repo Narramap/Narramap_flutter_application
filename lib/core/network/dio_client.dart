@@ -88,10 +88,33 @@ class DioClient {
 
       return apiRes;
     } catch(e) {
+      print("error en el patch de dio: $e");
+      return null;
+    }
+  }
+
+  static Future<T?> put<T>({
+    required String path,
+    required Map<String, dynamic> body,
+    required T Function(dynamic json) fromJsonT
+  }) async {
+    try {
+      final res = await _instance.dio.put(
+        path,
+        data: body
+      );
+
+      final json = jsonDecode(jsonEncode(res.data));
+      final apiRes = fromJsonT(json);
+
+      return apiRes;
+    } catch(e) {
       print("error en el post de dio: $e");
       return null;
     }
   }
+
+  
 
   static Future<T?> delete<T>({
     required String path,

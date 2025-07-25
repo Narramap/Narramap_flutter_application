@@ -10,6 +10,7 @@ import 'package:narramap/shared/presentation/widgets/custom_checklist.dart';
 import 'package:narramap/shared/presentation/widgets/custom_dropdown.dart';
 import 'package:narramap/shared/presentation/widgets/custom_image_picker.dart';
 import 'package:narramap/shared/presentation/widgets/custom_multiple_selector.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
 import 'package:narramap/shared/presentation/widgets/time_picker.dart';
 import 'package:narramap/shared/presentation/widgets/ubication_selector.dart';
@@ -28,6 +29,12 @@ class AddBussiness extends StatelessWidget {
           lazyload: false,
           spacing: 20,
           children: [
+            Text(
+              "No tienes ningun negocio registrado, registra uno para comenzar",
+              style: TextStyle(
+                color: TextColor.gray.textColor
+              ),
+            ),
             CustomTextField(
               onChanged: notifier.onChangeName, 
               label: "Nombre",
@@ -38,9 +45,9 @@ class AddBussiness extends StatelessWidget {
               label: "Descripcion",
               textFieldColor: TextFieldColors.gray,
             ),
-            CustomDropdown(
+            CustomDropdown<BussinessTypeEnum>(
               onChanged: notifier.onSelectBussinessType,
-              options: BussinessTypeEnum.values.map((enumValue) => enumValue.label).toList()
+              options: BussinessTypeEnum.values
             ),
             UbicationSelector(
               heightMap: 300, 
@@ -71,13 +78,13 @@ class AddBussiness extends StatelessWidget {
             CustomMultipleSelector(
               label: "Dias de apertura", 
               options: [
-                Option(label: "L", value: "L"),
-                Option(label: "M", value: "M"),
-                Option(label: "M", value: "M"),
-                Option(label: "J", value: "J"),
-                Option(label: "V", value: "V"),
-                Option(label: "S", value: "S"),
-                Option(label: "D", value: "D"),
+                Option(label: "L", value: "LUNES"),
+                Option(label: "M", value: "MARTES"),
+                Option(label: "M", value: "MIERCOLES"),
+                Option(label: "J", value: "JUEVES"),
+                Option(label: "V", value: "VIERNES"),
+                Option(label: "S", value: "SABADO"),
+                Option(label: "D", value: "DOMINGO"),
               ], 
               selectedValues: notifier.activeDays, 
               onChanged: notifier.onSelectActiveDays
