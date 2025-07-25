@@ -1,9 +1,15 @@
+import 'dart:async';
 import 'dart:math';
+import 'package:ar_flutter_plugin_2/ar_flutter_plugin.dart';
+import 'package:ar_flutter_plugin_2/datatypes/config_planedetection.dart';
 import 'package:ar_flutter_plugin_2/datatypes/node_types.dart';
+import 'package:ar_flutter_plugin_2/datatypes/hittest_result_types.dart';
 import 'package:ar_flutter_plugin_2/managers/ar_anchor_manager.dart';
 import 'package:ar_flutter_plugin_2/managers/ar_location_manager.dart';
 import 'package:ar_flutter_plugin_2/managers/ar_object_manager.dart';
 import 'package:ar_flutter_plugin_2/managers/ar_session_manager.dart';
+import 'package:ar_flutter_plugin_2/models/ar_anchor.dart';
+import 'package:ar_flutter_plugin_2/models/ar_hittest_result.dart';
 import 'package:ar_flutter_plugin_2/models/ar_node.dart';
 import 'package:ar_flutter_plugin_2/widgets/ar_view.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +34,8 @@ class AumentedRealityPage extends StatefulWidget {
 class _AumentedRealityPageState extends State<AumentedRealityPage> {
   late ARSessionManager arSessionManager;
   late ARObjectManager arObjectManager;
+  late ARLocationManager arLocationManager;
+  late ARAnchorManager arAnchorManager;
   
   List<Post> posts = [];
   List<Post> nearbyPosts = [];
@@ -37,6 +45,9 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
   bool arInitialized = false;
   Post? selectedPost;
   bool showPostsPanel = true;
+
+  ARAnchor? currentAnchor;
+  vector.Matrix4? cameraPose;
   
   // Configuración
   final double scaleFactor = 1.0;
@@ -113,126 +124,45 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
     // await _updateARPosts();
   }
 
-  Future<void> _updateARPosts() async {
-    try {
-      // Colocar/actualizar todos los posts cercanos
-      for (final post in nearbyPosts) {
-        await _placePostInWorld(post);
-      }
-    } catch (e) {
-      debugPrint('Error actualizando posts AR: $e');
-    }
-  }
 
-  Future<void> _placePostInWorld(Post post) async {
-    try {
-      if (userLocation == null) return;
 
-      final position = _calculateARPosition(
-        userLat: userLocation!.latitude,
-        userLon: userLocation!.longitude,
-        targetLat: post.location.latitude,
-        targetLon: post.location.longitude,
-      );
 
-      final existingNode = postNodes[post.id];
-      
-      if (existingNode != null) {
-        if (existingNode.position != position) {
-          await arObjectManager.removeNode(existingNode);
-          existingNode.position = position;
-          await arObjectManager.addNode(existingNode);
-        }
-      } else {
-        final node = ARNode(
-          name: 'post_${post.id}_world',
-          type: NodeType.localGLTF2,
-          uri: "assets/models/shiba.glb",
-          position: position,
-          scale: vector.Vector3(0.3, 0.3, 0.3),
-        );
-        
-        final didAdd = await arObjectManager.addNode(node);
-        if (didAdd != null && didAdd) {
-          postNodes[post.id] = node;
-        }
-      }
-    } catch (e) {
-      debugPrint('Error colocando post en mundo: $e');
-    }
-  }
 
   Future<void> _placePostInFront(Post post) async {
-    try {
-      final existingNode = postNodes[post.id];
-      final frontPosition = vector.Vector3(0, 0, 0); // 1.5m frente a cámara
-
-      if (existingNode != null) {
-        await arObjectManager.removeNode(existingNode);
-        existingNode.position = frontPosition;
-        await arObjectManager.addNode(existingNode);
-      } else {
-        final node = ARNode(
-          name: 'post_${post.id}_front',
-          type: NodeType.localGLTF2,
-          uri: "assets/models/shiba.glb",
-          position: frontPosition,
-          scale: vector.Vector3(0.5, 0.5, 0.5),
-        );
-        
-        final didAdd = await arObjectManager.addNode(node);
-        if (didAdd != null && didAdd) {
-          postNodes[post.id] = node;
-        }
-      }
-
-      setState(() => selectedPost = post);
-    } catch (e) {
-      debugPrint('Error colocando post frente: $e');
+    setState(() => selectedPost = post);
+    
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Toque en una superficie plana para colocar el modelo'),
+          duration: Duration(seconds: 2),
+        ),
+      );
     }
   }
+
 
   Future<void> _removeAllPosts() async {
     try {
-      for (final node in postNodes.values) {
-        await arObjectManager.removeNode(node);
+      // Crear una copia de las keys para evitar modificaciones durante la iteración
+      final keys = postNodes.keys.toList();
+      for (final key in keys) {
+        try {
+          await arObjectManager.removeNode(postNodes[key]!);
+          postNodes.remove(key);
+        } catch (e) {
+          debugPrint('Error al remover nodo $key: $e');
+        }
       }
-      postNodes.clear();
       setState(() => selectedPost = null);
-    } catch (e) {
-      debugPrint('Error removiendo posts: $e');
+      debugPrint('Todos los modelos removidos exitosamente');
+    } catch (e, stack) {
+      debugPrint('Error en _removeAllPosts: $e');
+      debugPrint('Stack trace: $stack');
     }
   }
 
   double _degToRad(double deg) => deg * math.pi / 180.0;
-  
-  vector.Vector3 _calculateARPosition({
-    required double userLat,
-    required double userLon,
-    required double targetLat,
-    required double targetLon,
-  }) {
-    const earthRadius = 6371000.0;
-    final dLat = _degToRad(targetLat - userLat);
-    final dLon = _degToRad(targetLon - userLon);
-    final lat1 = _degToRad(userLat);
-    final lat2 = _degToRad(targetLat);
-
-    final a = math.sin(dLat/2) * math.sin(dLat/2) +
-              math.cos(lat1) * math.cos(lat2) * math.sin(dLon/2) * math.sin(dLon/2);
-    final c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a));
-    final distance = earthRadius * c;
-
-    final y = math.sin(dLon) * math.cos(lat2);
-    final x = math.cos(lat1)*math.sin(lat2) - math.sin(lat1)*math.cos(lat2)*math.cos(dLon);
-    final bearing = math.atan2(y, x);
-
-    return vector.Vector3(
-      distance * math.sin(bearing) * scaleFactor,
-      0.0,
-      -distance * math.cos(bearing) * scaleFactor
-    );
-  }
   
   double _calculateDistance(double lat1, double lon1, double lat2, double lon2) {
     const earthRadius = 6371000;
@@ -244,40 +174,91 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
     return earthRadius * c;
   }
 
-  Future<void> _initializeAR() async {
+
+  Future<void> _onPlaneTapped(List<ARHitTestResult> hitTestResults) async {
+    if (hitTestResults.isEmpty || selectedPost == null) return;
+
     try {
-      await arSessionManager.onInitialize(
-        showAnimatedGuide: false,
-        showFeaturePoints: false,
-        showPlanes: false,
-        showWorldOrigin: false,
-        handleTaps: false,
+      // 1. Obtener el primer plano detectado
+      final hit = hitTestResults.firstWhere(
+        (result) => result.type == ARHitTestResultType.plane,
       );
 
-      arObjectManager.onInitialize();
-      await Future.delayed(const Duration(seconds: 1));
-      
-      setState(() => arInitialized = true);
-      await _updateUserLocation();
-    } catch (e) {
-      debugPrint('AR Initialization failed: $e');
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error inicializando AR: ${e.toString()}')),
+      final newAnchor = ARPlaneAnchor(transformation: hit.worldTransform);
+
+      bool? didAddAnchor = await arAnchorManager.addAnchor(newAnchor);
+
+      if(didAddAnchor!) {
+        currentAnchor = newAnchor;
+
+        final node = ARNode(
+          type: NodeType.localGLTF2,
+          uri: "assets/models/enojo.glb",
+          position: vector.Vector3(0, 0, 0),
+          rotation: vector.Vector4(1, 0, 0, 0),
+          scale: vector.Vector3(0.5, 0.5, 0.5),
+        );
+
+        if (postNodes.containsKey(selectedPost!.id)) {
+          await arObjectManager.removeNode(postNodes[selectedPost!.id]!);
+        }
+
+        final didAdd = await arObjectManager.addNode(node, planeAnchor: newAnchor);
+        if (didAdd != null && didAdd) {
+          postNodes[selectedPost!.id] = node;
+        } else {
+          AlertDialog(
+            title: Text("Error"),
+            content: Text("no se pudo anadir el nodo al plano"),
+          );
+        } 
+
+      } else {
+        AlertDialog(
+          title: Text("error"),
+          content: Text("no se pudo anadir el nodo al plano"),
         );
       }
+
+      
+
+      // 3. Eliminar modelo anterior si existe
+      
+
+      // 4. Añadir nuevo nodo
+      
+
+    } catch (e) {
+      debugPrint('Error colocando modelo en plano: $e');
     }
   }
+  
 
   void _onARViewCreated(
     ARSessionManager arSessionManager,
     ARObjectManager arObjectManager,
     ARAnchorManager arAnchorManager,
     ARLocationManager arLocationManager,
-  ) {
+  ) async {
     this.arSessionManager = arSessionManager;
     this.arObjectManager = arObjectManager;
-    _initializeAR();
+    this.arAnchorManager = arAnchorManager;
+
+    await arSessionManager.onInitialize(
+      showFeaturePoints: false,
+      showPlanes: true, // Habilitar detección de planos
+      showWorldOrigin: true,
+      // handleTaps: true, // Habilitar taps para colocar modelos
+      showAnimatedGuide: false,
+      customPlaneTexturePath: "Triangle.png"
+    );
+
+    arObjectManager.onInitialize();
+    
+    // Manejar taps en planos
+    arSessionManager.onPlaneOrPointTap = _onPlaneTapped;
+    
+    setState(() => arInitialized = true);
   }
 
   @override
@@ -297,7 +278,10 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
               return StackableScaffold(
                 child: Stack(
                   children: [
-                    ARView(onARViewCreated: _onARViewCreated),
+                    ARView(
+                      onARViewCreated: _onARViewCreated,
+                      planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
+                    ),
 
                     Positioned(
                       bottom: 100,
