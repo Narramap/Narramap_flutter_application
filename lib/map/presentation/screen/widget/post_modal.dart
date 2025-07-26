@@ -2,9 +2,16 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:narramap/content/domain/model/post.dart';
+import 'package:narramap/map/presentation/screen/widget/report_modal.dart';
+import 'package:narramap/shared/presentation/widgets/card_header.dart';
 import 'package:narramap/shared/presentation/widgets/post_card.dart';
 
-void showPostModal(BuildContext context, Post post) {
+void showPostModal(
+  BuildContext context, 
+  Post post,
+  Future<void> Function() reportPost,
+  String Function(String) onChangeReason,
+) {
 
 
   showDialog(
@@ -35,7 +42,18 @@ void showPostModal(BuildContext context, Post post) {
                       color: Colors.white.withAlpha(200),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: PostCard(post: post),
+                    child: PostCard(
+                      post: post,
+                      cornerAction: CornerAction<void>(
+                        icon: Icons.warning, 
+                        action: () => showReportModal(
+                            context,
+                            post.id,
+                            onChangeReason,
+                            reportPost
+                          ),
+                      ),
+                    ),
                   ),
                 ),
               ),

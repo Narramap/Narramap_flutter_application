@@ -13,17 +13,19 @@ import 'package:narramap/shared/presentation/widgets/reactions_container.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:provider/provider.dart';
 
+
+
 class PostCard extends StatefulWidget {
 
   final Post post;
   final UserProfile? user;
-  final Future<void> Function()? deletePost;
+  final CornerAction? cornerAction;
   
   const PostCard({
     super.key,
     required this.post,
     this.user,
-    this.deletePost,
+    this.cornerAction,
   });
 
   @override
@@ -50,17 +52,9 @@ class _PostCardState extends State<PostCard> {
                     date: widget.post.date,
                     searchImage: true,
                     getImage: notifier.getUserPhoto,
+                    cornerAction: widget.cornerAction,
                   ),
-                  Row(
-                    children: [
-                      
-                      if(widget.deletePost != null)
-                        IconButton(
-                          onPressed: widget.deletePost, 
-                          icon: Icon(Icons.delete)
-                        )
-                    ],
-                  ),
+                  
                   
                   Text(
                     widget.post.content,

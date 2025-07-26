@@ -9,6 +9,7 @@ import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/users/data/dto/update_profile_dto.dart';
+import 'package:narramap/users/data/dto/user_report_dto.dart';
 import 'package:narramap/users/domain/model/phrase.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart';
@@ -17,6 +18,7 @@ import 'package:narramap/users/domain/use_cases/get_phrases_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_user_events_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_user_posts_use_case.dart';
 import 'package:narramap/users/domain/use_cases/get_user_profile_use_case.dart';
+import 'package:narramap/users/domain/use_cases/report_user_use_case.dart';
 import 'package:narramap/users/domain/use_cases/update_profile_use_case.dart';
 
 class PublicProfileNotifier extends ChangeNotifier {
@@ -28,6 +30,7 @@ class PublicProfileNotifier extends ChangeNotifier {
   final updateProfileUseCase = getIt<UpdateProfileUseCase>();
   final getUserEventsUseCase = getIt<GetUserEventsUseCase>();
   final deletePostUseCase = getIt<DeletePostUseCase>();
+  final _reportUserUseCase = getIt<ReportUserUseCase>();
 
   String? _specificUserId;
 
@@ -252,6 +255,39 @@ class PublicProfileNotifier extends ChangeNotifier {
     _newNickname = user!.nickname;
     _biography = user!.biography;
     _newProfilePhoto = null;
+  }
+
+
+  String _reason = "";
+
+  bool _reported = false;
+  bool get reported => _reported;
+
+  String _message = "";
+  String get message => _message;
+
+  String onChangeReason(String value) {
+    return _reason = value;
+  }
+
+  Future<void> registerUserReport(String reportedUserId, void Function() navigateBack) async {
+
+    print("jfsdlkfslk ");
+
+    final res = await _reportUserUseCase.run(UserReportDto(
+      reason: _reason, 
+      reportedUserId: reportedUserId
+    ));
+
+    _reported = true;
+
+    if(res != null) {
+      _message = "Reporte realizado con exito";
+      navigateBack();
+    } else {
+      _message = "No se pudo realizar el reporte con exito";
+    }
+
   }
 
   

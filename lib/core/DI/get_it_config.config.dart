@@ -14,6 +14,10 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:narramap/auth/data/repository/auth_repository.dart' as _i365;
 import 'package:narramap/auth/domain/use_cases/login_use_case.dart' as _i801;
 import 'package:narramap/auth/domain/use_cases/register_use_case.dart' as _i363;
+import 'package:narramap/bussiness/data/repository/bussiness_repository.dart'
+    as _i119;
+import 'package:narramap/bussiness/domain/use_cases/register_bussiness_use_case.dart'
+    as _i900;
 import 'package:narramap/content/data/repository/event_repository_impl.dart'
     as _i150;
 import 'package:narramap/content/data/repository/posts_repository.dart'
@@ -39,6 +43,8 @@ import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart'
     as _i107;
 import 'package:narramap/map/domain/use_cases/register_view_use_case.dart'
     as _i406;
+import 'package:narramap/map/domain/use_cases/report_post_use_case.dart'
+    as _i269;
 import 'package:narramap/shared/data/repository/comment_repository.dart'
     as _i924;
 import 'package:narramap/users/data/repository/user_repository.dart' as _i575;
@@ -54,6 +60,8 @@ import 'package:narramap/users/domain/use_cases/get_user_posts_use_case.dart'
     as _i204;
 import 'package:narramap/users/domain/use_cases/get_user_profile_use_case.dart'
     as _i671;
+import 'package:narramap/users/domain/use_cases/report_user_use_case.dart'
+    as _i1011;
 import 'package:narramap/users/domain/use_cases/update_profile_use_case.dart'
     as _i1043;
 
@@ -66,6 +74,8 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     gh.factory<_i107.GetAllPostsUseCase>(() => _i107.GetAllPostsUseCase());
     gh.factory<_i111.GetAllEventsUseCase>(() => _i111.GetAllEventsUseCase());
+    gh.factory<_i406.RegisterViewUseCase>(() => _i406.RegisterViewUseCase());
+    gh.factory<_i269.ReportPostUseCase>(() => _i269.ReportPostUseCase());
     gh.factory<_i365.AuthRepository>(() => _i365.AuthRepository());
     gh.factory<_i801.LoginUseCase>(() => _i801.LoginUseCase());
     gh.factory<_i363.RegisterUseCase>(() => _i363.RegisterUseCase());
@@ -79,6 +89,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i1043.UpdateProfileUseCase(),
     );
     gh.factory<_i353.GetUserEventsUseCase>(() => _i353.GetUserEventsUseCase());
+    gh.factory<_i744.DeletePostUseCase>(() => _i744.DeletePostUseCase());
     gh.factory<_i575.UserRepository>(() => _i575.UserRepository());
     gh.factory<_i924.CommentRepository>(() => _i924.CommentRepository());
     gh.factory<_i102.RegisterUseCase>(() => _i102.RegisterUseCase());
@@ -92,11 +103,14 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i626.GetEventCommentsUseCase(),
     );
     gh.factory<_i63.CommentEventUseCase>(() => _i63.CommentEventUseCase());
+    gh.factory<_i678.DeleteCommentUseCase>(() => _i678.DeleteCommentUseCase());
     gh.factory<_i150.EventRepositoryImpl>(() => _i150.EventRepositoryImpl());
     gh.factory<_i1007.PostsRepository>(() => _i1007.PostsRepository());
-    gh.factory<_i406.RegisterViewUseCase>(() => _i406.RegisterViewUseCase());
-    gh.factory<_i744.DeletePostUseCase>(() => _i744.DeletePostUseCase());
-    gh.factory<_i678.DeleteCommentUseCase>(() => _i678.DeleteCommentUseCase());
+    gh.factory<_i900.RegisterBussinessUseCase>(
+      () => _i900.RegisterBussinessUseCase(),
+    );
+    gh.factory<_i119.BussinessRepository>(() => _i119.BussinessRepository());
+    gh.factory<_i1011.ReportUserUseCase>(() => _i1011.ReportUserUseCase());
     return this;
   }
 }

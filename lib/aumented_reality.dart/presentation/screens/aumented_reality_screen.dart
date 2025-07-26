@@ -220,14 +220,6 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
         );
       }
 
-      
-
-      // 3. Eliminar modelo anterior si existe
-      
-
-      // 4. Añadir nuevo nodo
-      
-
     } catch (e) {
       debugPrint('Error colocando modelo en plano: $e');
     }

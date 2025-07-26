@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:narramap/core/network/dio_client.dart';
 import 'package:narramap/users/data/dto/update_profile_dto.dart';
+import 'package:narramap/users/data/dto/user_report_dto.dart';
+import 'package:narramap/users/data/interceptors/user_report_interceptor.dart';
 import 'package:narramap/users/domain/model/phrase.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/domain/repository/i_user_repository.dart';
@@ -66,5 +68,17 @@ class UserRepository implements IUserRepository{
     );
 
     return updatedProfile;
+  }
+
+  @override
+  Future<UserReportInterceptor?> reportUserById(UserReportDto userReportDTO) async {
+    
+    final res = await DioClient.post(
+      path: "$url/users/reports", 
+      body: userReportDTO.toJsonMap(), 
+      fromJsonT: (json) => UserReportInterceptor.fromJson(json as Map<String, dynamic>)
+    );
+
+    return res;
   }
 }

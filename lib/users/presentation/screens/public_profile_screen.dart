@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:narramap/core/layout/stackable_scaffold.dart';
 import 'package:narramap/core/layout/white_container.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/presentation/notifiers/public_profile_notifier.dart';
@@ -9,6 +11,7 @@ import 'package:narramap/users/presentation/widgets/nickname_biography_container
 import 'package:narramap/users/presentation/widgets/phrases_container.dart';
 import 'package:narramap/users/presentation/widgets/posts_container.dart';
 import 'package:narramap/users/presentation/widgets/profile_photo_picker.dart';
+import 'package:narramap/users/presentation/widgets/user_report_,modal.dart';
 import 'package:provider/provider.dart';
 
 class PublicProfileScreen extends StatelessWidget {
@@ -41,6 +44,7 @@ class PublicProfileScreen extends StatelessWidget {
               return Consumer<PublicProfileNotifier>(
                 builder: (context, notifier, _) {
                   UserProfile currentProfile = notifier.user!;
+                  bool isUsersProfile = userId == null;
                   return StackableScaffold(
                     child: ListView(
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 150),
@@ -55,6 +59,8 @@ class PublicProfileScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 20),
 
+                            
+
                             NicknameBiographyContainer(
                               userId: userId,
                               defaultNickname: currentProfile.nickname,
@@ -67,6 +73,19 @@ class PublicProfileScreen extends StatelessWidget {
                             ),
 
                             SizedBox(height: 20),
+
+                            if(!isUsersProfile)
+                              CustomButton(
+                                text: "Reportar este usuario", 
+                                onPressed: () => showUserReportModal(
+                                  context: context, 
+                                  onChangeReason: notifier.onChangeReason,
+                                  registerReport: () => notifier.registerUserReport(currentProfile.id, context.pop)
+                                )
+                              ),
+
+                            SizedBox(height: 20),
+                            
 
                             if(userId == null)
                               ...[

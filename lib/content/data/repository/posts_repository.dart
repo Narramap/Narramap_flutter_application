@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
+import 'package:narramap/content/data/dto/create_report_dto.dart';
 import 'package:narramap/content/data/dto/new_post_dto.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
 import 'package:narramap/content/data/interceptors/post_view_interceptor.dart';
 import 'package:narramap/content/domain/model/post.dart';
+import 'package:narramap/content/domain/model/report.dart';
 import 'package:narramap/content/domain/repository/i_posts_repository.dart';
 import 'package:narramap/core/network/dio_client.dart';
 import 'package:narramap/shared/data/inteceptors/api_response_interceptor.dart';
@@ -105,6 +107,19 @@ class PostsRepository implements IPostsRepository  {
     );
 
     return deletedPostId?.data;
-
   }
+
+  @override
+  Future<ReportEntity?> reportPost(String postId, CreateReportDto report) async {
+    final res = await DioClient.post(
+      path: "$url/posts/$postId/report", 
+      body: report.toJsonMap(), 
+      fromJsonT: (json) => ApiResponseInterceptor.fromJson(
+        json, 
+        (reportJson) => ReportEntity.fromJson(reportJson as Map<String, dynamic>)
+      )
+    );
+
+    return res?.data;
+  }  
 }

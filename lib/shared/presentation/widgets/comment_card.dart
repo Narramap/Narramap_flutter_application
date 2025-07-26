@@ -41,7 +41,11 @@ class CommentCard extends StatelessWidget {
             title: "comentario" , 
             date: DateTime.fromMillisecondsSinceEpoch(comment.timestamp), 
             userId: comment.userId,
-            deleteItem: comment.userId == currentUserId ? () => deleteComment(comment.id) : null ,
+            cornerAction: comment.userId == currentUserId ? CornerAction(
+              icon: Icons.delete, 
+              action: () => deleteComment(comment.id)
+            ) 
+            : null ,
           ),
           
           Text(

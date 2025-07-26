@@ -1,18 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/core/layout/stackable_scaffold.dart';
-import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/map/presentation/notifiers/map_notifier.dart';
 import 'package:narramap/map/presentation/screen/utils/get_circle_events.dart';
-import 'package:narramap/map/presentation/screen/utils/get_circle_layers.dart';
 import 'package:narramap/map/presentation/screen/utils/get_events_markers.dart';
 import 'package:narramap/map/presentation/screen/utils/get_posts_markers.dart';
 import 'package:narramap/map/presentation/screen/widget/emotional_posts_info.dart';
 import 'package:narramap/map/presentation/screen/widget/event_modal.dart';
-import 'package:narramap/map/presentation/screen/widget/post_modal.dart';
 import 'package:provider/provider.dart';
 
 class MapScreen extends StatefulWidget {
@@ -74,10 +70,11 @@ class _MapScreenState extends State<MapScreen> {
                             )
                           ),
                           ...getPostsMarkers(
-                            context,
-                            notifier.posts,
-                            showPostModal,
-                            notifier.registerPostView
+                            context: context,
+                            posts: notifier.posts,
+                            onTapPostMarker: notifier.registerPostView,
+                            reportPost: notifier.reportPost,
+                            onChangeReason: notifier.onChangeReason
                           ),
                           ...getEventsMarkers(
                             context, 

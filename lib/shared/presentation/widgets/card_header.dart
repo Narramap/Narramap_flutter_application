@@ -3,10 +3,20 @@ import 'package:go_router/go_router.dart';
 import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 
+class CornerAction<T> {
+  final IconData icon;
+  final T Function() action;
+
+  CornerAction({
+    required this.icon,
+    required this.action
+  });
+}
+
 class CardHeader extends StatefulWidget {
 
   final String? userImage;
-  final Future<void> Function()? deleteItem;
+  final CornerAction? cornerAction;
   final String title;
   final DateTime date;
   final String userId;
@@ -21,7 +31,7 @@ class CardHeader extends StatefulWidget {
     required this.userId,
     this.searchImage = false,
     this.getImage,
-    this.deleteItem
+    this.cornerAction
   });
 
   @override
@@ -93,11 +103,11 @@ class _CardHeaderState extends State<CardHeader> {
             ],
           ),
         ),
-        if(widget.deleteItem != null)
+        if(widget.cornerAction != null)
           IconButton(
-            onPressed: widget.deleteItem,
+            onPressed: widget.cornerAction!.action,
             icon: Icon(
-              Icons.delete,
+              widget.cornerAction!.icon,
               size: 16,
               color: TextColor.gray.textColor,
             ),
