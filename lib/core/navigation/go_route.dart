@@ -1,7 +1,9 @@
 
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/aumented_reality.dart/presentation/screens/aumented_reality_screen.dart';
 import 'package:narramap/bussiness/presentation/screens/add_bussiness.dart';
+import 'package:narramap/bussiness/presentation/screens/redirection_bussiness.dart';
 import 'package:narramap/content/presentation/screens/add_eco_screen.dart';
 import 'package:narramap/content/presentation/screens/add_event_screen.dart';
 import 'package:narramap/core/navigation/routes.dart';
@@ -51,6 +53,14 @@ GoRouter goRouter = GoRouter(
         final userId = state.pathParameters["id"];
         return PublicProfileScreen(userId: userId);
       }
-    )
+    ),
+    GoRoute(
+      path: Routes.redirectionBussiness.label,
+      builder: (context, state) => RedirectionBussiness(),
+    ),
+    // GoRoute(
+    //   path: Routes.bussiness.label,
+    //   builder: 
+    // )
   ]
 );

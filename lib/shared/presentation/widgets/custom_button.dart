@@ -32,6 +32,8 @@ class CustomButton extends StatelessWidget {
   final bool maxSize;
   final IconData? icon;
   final double padding;
+  final double spacingWithIcon;
+
   const CustomButton({
     super.key,
     required this.text,
@@ -39,7 +41,8 @@ class CustomButton extends StatelessWidget {
     this.maxSize = false,
     this.padding = 15,
     this.buttonColor = ButtonColors.white,
-    this.icon
+    this.icon,
+    this.spacingWithIcon = 10
   });
 
   @override
@@ -62,6 +65,7 @@ class CustomButton extends StatelessWidget {
                 fontFamily: "Comfortaa"
               ),
             ),
+            SizedBox(width: spacingWithIcon),
             if (icon != null) Icon(
               icon,
               color: buttonColor.textColor,

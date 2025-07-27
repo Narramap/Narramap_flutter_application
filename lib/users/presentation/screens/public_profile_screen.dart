@@ -50,7 +50,7 @@ class PublicProfileScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 150),
                       children: [
 
-                        if( currentProfile.isPublic) 
+                        if( currentProfile.isPublic || isUsersProfile) 
                           ...[
                             ProfilePhotoPicker(
                               editing: notifier.editing,
@@ -133,18 +133,25 @@ class PublicProfileScreen extends StatelessWidget {
 
                         else 
                           ...[
-                            Icon(
-                              Icons.info,
-                              color: TextColor.gray.textColor,                                       
-                              size: 100,
-                            ),
-                            Text(
-                              "Este usuario ha marcado su perfil como privado",
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                color: TextColor.gray.textColor
+                            Center(
+                              child: Column(
+                                children: [
+                                  Icon(
+                                    Icons.info,
+                                    color: TextColor.gray.textColor,                                       
+                                    size: 100,
+                                  ),
+                                  Text(
+                                    "Este usuario ha marcado su perfil como privado",
+                                    textAlign: TextAlign.justify,
+                                    style: TextStyle(
+                                      color: TextColor.gray.textColor
+                                    ),
+                                  )
+                                ],
                               ),
                             )
+                            
                           ]
 
                           

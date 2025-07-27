@@ -43,6 +43,7 @@ class CustomMultipleSelector<T> extends StatelessWidget {
             label,
             textAlign: TextAlign.left,
             style: TextStyle(
+              fontSize: 17,
               color: MultipleSelectorColors.gray.selectedColor
             ),
           ),

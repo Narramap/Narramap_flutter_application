@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:narramap/auth/data/dto/login_dto.dart';
 import 'package:narramap/auth/domain/use_cases/login_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
+import 'package:narramap/core/network/dio_client.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/shared/utils/validations.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
@@ -78,6 +79,7 @@ class LoginNotifier extends ChangeNotifier {
       SecureStorage.init();
       await SecureStorage.saveAuthData(loginResponse.token, loginResponse.userId);
       await SecureStorage.saveUserProfile(userProfile!);
+      DioClient.authToken = loginResponse.token;
 
       navigateToHome();
     } else {

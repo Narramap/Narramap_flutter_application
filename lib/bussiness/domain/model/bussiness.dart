@@ -1,4 +1,5 @@
 
+import 'package:narramap/bussiness/domain/enum/week_days_enum.dart';
 import 'package:narramap/content/data/dto/new_post_dto.dart';
 import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
 
@@ -8,11 +9,11 @@ class Bussiness {
   final String userId;
   final String name;
   final String description;
-  final DateTime openTime;
-  final DateTime closeTime;
+  final String openTime;
+  final String closeTime;
   final LocationDTO location;
   final BussinessTypeEnum type;
-  final List<String> workDays;
+  final List<WeekDaysEnum> workDays;
   final List<String> images;
 
   Bussiness({
@@ -41,8 +42,8 @@ class Bussiness {
         longitude: json["location_lon"]
       ), 
       type: BussinessTypeEnum.fromString(json["buss_type"]), 
-      workDays: json["days"], 
-      images: json["image_urls"]
+      workDays: (json["days"] as List<dynamic>).map((day) => WeekDaysEnum.fromString(day as String)).toList(), 
+      images: (json["image_urls"] as List<dynamic>).map((image) => image as String).toList()
     );
   }
 }

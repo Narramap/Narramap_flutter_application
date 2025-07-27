@@ -100,14 +100,22 @@ class _CommentsContainerState extends State<CommentsContainer> {
                         ),
                       ],
 
-                    ...notifier.comments.map(
-                      (comment) => CommentCard(
-                        comment: comment,
-                        currentUserId: notifier.currentUserId,
-                        getUserPhoto: notifier.getUserPhoto,
-                        deleteComment: notifier.deleteComment,
+                    if(notifier.comments.isNotEmpty)
+                      ...notifier.comments.map(
+                        (comment) => CommentCard(
+                          comment: comment,
+                          currentUserId: notifier.currentUserId,
+                          getUserPhoto: notifier.getUserPhoto,
+                          deleteComment: notifier.deleteComment,
+                        )
                       )
-                    )
+                    else 
+                      Text(
+                        "Aun no hay ningun comentario",
+                        style: TextStyle(
+                          color: TextColor.gray.textColor
+                        ),
+                      )
                   ]
                   
                 ],

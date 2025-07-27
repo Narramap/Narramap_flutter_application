@@ -5,7 +5,6 @@ import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/shared/presentation/notifiers/event_card_notifier.dart';
 import 'package:narramap/shared/presentation/widgets/card_header.dart';
 import 'package:narramap/shared/presentation/widgets/comments_container.dart';
-import 'package:narramap/shared/presentation/widgets/custom_button.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/shared/presentation/widgets/images_container.dart';
 import 'package:narramap/shared/presentation/widgets/ubication_selector.dart';
@@ -68,13 +67,6 @@ class EventCard extends StatelessWidget {
                   color: Colors.red.withAlpha(120)
                 )
               ]
-            ),
-
-            CustomButton(
-              text: notifier.nComments.toString(),
-              onPressed: notifier.toggleShowComments,
-              icon: Icons.comment,
-              buttonColor: ButtonColors.gray,
             ),
 
             CommentsContainer(

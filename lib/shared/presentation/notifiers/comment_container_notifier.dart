@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:narramap/bussiness/domain/use_cases/get_bussiness_comments_use_case.dart';
 import 'package:narramap/content/domain/use_cases/comment_post_use_case.dart';
 import 'package:narramap/content/domain/use_cases/delete_comment_use_case.dart';
 import 'package:narramap/content/domain/use_cases/get_event_comments_use_case.dart';
@@ -17,6 +18,7 @@ class CommentContainerNotifier extends ChangeNotifier {
   final GetUserProfileUseCase _getProfileUseCase = getIt<GetUserProfileUseCase>();
   final GetPostCommentsUseCase _getPostCommentsUseCase = getIt<GetPostCommentsUseCase>();
   final GetEventCommentsUseCase _getEventCommentsUseCase = getIt<GetEventCommentsUseCase>();
+  final GetBussinessCommentsUseCase _getBussinessCommentsUseCase = getIt<GetBussinessCommentsUseCase>();
   final DeleteCommentUseCase _deleteCommentUseCase = getIt<DeleteCommentUseCase>();
   final _commentPostUseCase = getIt<CommentPostUseCase>();
 
@@ -67,7 +69,7 @@ class CommentContainerNotifier extends ChangeNotifier {
       case CommentSource.event:
         commentsG = await _getEventCommentsUseCase.run(sourceId);
       case CommentSource.bussiness:
-        commentsG = [];
+        commentsG = await _getBussinessCommentsUseCase.run(sourceId);
     }
     
     if(commentsG != null) {

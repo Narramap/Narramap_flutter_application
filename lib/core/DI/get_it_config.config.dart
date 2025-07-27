@@ -16,8 +16,20 @@ import 'package:narramap/auth/domain/use_cases/login_use_case.dart' as _i801;
 import 'package:narramap/auth/domain/use_cases/register_use_case.dart' as _i363;
 import 'package:narramap/bussiness/data/repository/bussiness_repository.dart'
     as _i119;
+import 'package:narramap/bussiness/domain/use_cases/get_average_rating_use_case.dart'
+    as _i97;
+import 'package:narramap/bussiness/domain/use_cases/get_bussiness_by_id_use_case.dart'
+    as _i197;
+import 'package:narramap/bussiness/domain/use_cases/get_bussiness_comments_use_case.dart'
+    as _i743;
+import 'package:narramap/bussiness/domain/use_cases/get_bussiness_use_case.dart'
+    as _i2;
+import 'package:narramap/bussiness/domain/use_cases/get_ratings_use_case.dart'
+    as _i56;
 import 'package:narramap/bussiness/domain/use_cases/register_bussiness_use_case.dart'
     as _i900;
+import 'package:narramap/bussiness/domain/use_cases/update_bussiness_use_case.dart'
+    as _i638;
 import 'package:narramap/content/data/repository/event_repository_impl.dart'
     as _i150;
 import 'package:narramap/content/data/repository/posts_repository.dart'
@@ -90,6 +102,7 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i353.GetUserEventsUseCase>(() => _i353.GetUserEventsUseCase());
     gh.factory<_i744.DeletePostUseCase>(() => _i744.DeletePostUseCase());
+    gh.factory<_i1011.ReportUserUseCase>(() => _i1011.ReportUserUseCase());
     gh.factory<_i575.UserRepository>(() => _i575.UserRepository());
     gh.factory<_i924.CommentRepository>(() => _i924.CommentRepository());
     gh.factory<_i102.RegisterUseCase>(() => _i102.RegisterUseCase());
@@ -109,8 +122,21 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i900.RegisterBussinessUseCase>(
       () => _i900.RegisterBussinessUseCase(),
     );
+    gh.factory<_i2.GetBussinessUseCase>(() => _i2.GetBussinessUseCase());
+    gh.factory<_i97.GetAverageRatingUseCase>(
+      () => _i97.GetAverageRatingUseCase(),
+    );
     gh.factory<_i119.BussinessRepository>(() => _i119.BussinessRepository());
-    gh.factory<_i1011.ReportUserUseCase>(() => _i1011.ReportUserUseCase());
+    gh.factory<_i743.GetBussinessCommentsUseCase>(
+      () => _i743.GetBussinessCommentsUseCase(),
+    );
+    gh.factory<_i56.GetRatingsUseCase>(() => _i56.GetRatingsUseCase());
+    gh.factory<_i197.GetBussinessByIdUseCase>(
+      () => _i197.GetBussinessByIdUseCase(),
+    );
+    gh.factory<_i638.UpdateBussinessUseCase>(
+      () => _i638.UpdateBussinessUseCase(),
+    );
     return this;
   }
 }

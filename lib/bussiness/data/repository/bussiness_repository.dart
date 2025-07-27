@@ -53,9 +53,9 @@ class BussinessRepository implements IBussinessRepository {
   Future<Bussiness?> getByUserId() async {
     
     final res = await DioClient.get(
-      path: url,
+      path: "$url/profile",
       fromJsonT: (json) => (json as List<dynamic>).map(
-        (bussJson) => Bussiness.fromJson(json as Map<String, dynamic>)
+        (bussJson) => Bussiness.fromJson(bussJson as Map<String, dynamic>)
       ).toList()
     );
 
@@ -111,12 +111,13 @@ class BussinessRepository implements IBussinessRepository {
   }
 
   @override
-  Future<int?> getAverageRate(String bussinessId) async {
-    final res = await DioClient.get(
+  Future<double?> getAverageRate(String bussinessId) async {
+    final res = await DioClient.get<double>(
       path: "$url/rating/avg/$bussinessId",
-      fromJsonT: (json) => json as int
+      fromJsonT: (json) => double.parse(json)
     );
-
+    
+    print(res);
     return res;
   }
 

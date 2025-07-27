@@ -57,7 +57,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             context.go(Routes.aumentedReality.label);
             break;
           case 2:
-            context.go(Routes.addBussiness.label);
+            context.go(Routes.redirectionBussiness.label);
             break;
           case 4:
             context.go(Routes.publicProfile.label);

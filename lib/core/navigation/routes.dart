@@ -5,7 +5,9 @@ enum Routes {
   register(label: "/register"),
   addEco(label: "/new-eco"),
   addEvent(label: "/new-event"),
+  redirectionBussiness(label: "/redirect-bussiness"),
   addBussiness(label: "/new-bussines"),
+  bussiness(label: "/bussiness"),
   publicProfile(label: "/public-profile"),
   aumentedReality(label: "/aumented_reality"),
   someonePublicProfile(label: "/public-profile/:id")

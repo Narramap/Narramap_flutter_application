@@ -3,7 +3,7 @@ import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
 
 class UpdateBussinessDTO {
 
-  final String title;
+  final String name;
   final String description;
   final String openTime;
   final String closeTime;
@@ -13,7 +13,7 @@ class UpdateBussinessDTO {
   final List<String> imageUrls;
 
   UpdateBussinessDTO({
-    required this.title,
+    required this.name,
     required this.description,
     required this.openTime,
     required this.closeTime,
@@ -25,13 +25,13 @@ class UpdateBussinessDTO {
 
   Map<String, dynamic> toJsonMap() {
     return {
-      "title": title,
+      "name": name,
       "description": description,
       "open_time": openTime,
       "close_time": closeTime,
       "location_lat": location.latitude,
       "location_lon": location.longitude,
-      "buss_type": bussType.label,
+      "buss_type": bussType.apiValue,
       "days": days,
       "image_urls": imageUrls,
     };
