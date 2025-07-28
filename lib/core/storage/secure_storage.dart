@@ -40,6 +40,6 @@ class SecureStorage {
   }
 
 
-  Future<void> clearAuthData() async => await _secureStorage!.deleteAll();
+  static Future<void> clearAuthData() async => await _secureStorage!.deleteAll();
 
 }

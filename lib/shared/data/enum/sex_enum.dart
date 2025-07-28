@@ -11,7 +11,7 @@ enum SexEnum {
   ),
   nonBinary(
     label: "NB",
-    valueForAPI: "NOBINARIO"
+    valueForAPI: "NO_BINARIO"
   ),
   other(
     label: "O",

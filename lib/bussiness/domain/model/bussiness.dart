@@ -38,8 +38,8 @@ class Bussiness {
       openTime: json["open_time"], 
       closeTime: json["close_time"], 
       location: LocationDTO(
-        latitude: json["location_lat"], 
-        longitude: json["location_lon"]
+        latitude: (json["location_lat"] as num).toDouble(), 
+        longitude: (json["location_lon"] as num).toDouble() 
       ), 
       type: BussinessTypeEnum.fromString(json["buss_type"]), 
       workDays: (json["days"] as List<dynamic>).map((day) => WeekDaysEnum.fromString(day as String)).toList(), 

@@ -97,6 +97,7 @@ class CommentContainerNotifier extends ChangeNotifier {
     if(postComment != null) {
       _commentContent = "";
       getComments(CommentSource.posts, postId);
+      _showAddComment = false;
       notifyListeners();
     }
     

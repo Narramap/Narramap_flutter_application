@@ -134,7 +134,7 @@ class RegisterNotifier extends ChangeNotifier{
       navigateToLogin();
     } else {
       _error = true;
-      _errorMessage = "No se pudo registrar el usuario";
+      _errorMessage = "Este correo ya existe";
       notifyListeners();
     }
   }

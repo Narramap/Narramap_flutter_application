@@ -1,28 +1,21 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:narramap/bussiness/domain/enum/week_days_enum.dart';
 import 'package:narramap/bussiness/domain/model/bussiness.dart';
 import 'package:narramap/bussiness/presentation/notifiers/bussiness_notifier.dart';
 import 'package:narramap/bussiness/presentation/widgets/bussines_no_editable_content.dart';
 import 'package:narramap/bussiness/presentation/widgets/bussiness_editable_info.dart';
-import 'package:narramap/bussiness/presentation/widgets/rating_card.dart';
-import 'package:narramap/core/layout/stackable_scaffold.dart';
-import 'package:narramap/shared/presentation/widgets/comments_container.dart';
-import 'package:narramap/shared/presentation/widgets/custom_checklist.dart';
-import 'package:narramap/shared/presentation/widgets/custom_multiple_selector.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
-import 'package:narramap/shared/presentation/widgets/images_container.dart';
 import 'package:provider/provider.dart';
 
 class BussinessCard extends StatelessWidget {
 
   Bussiness? bussiness;
   String bussinessId;
+  final bool editable;
   BussinessCard({
     super.key,
     this.bussiness,
+    this.editable = true,
     required this.bussinessId
   });
 
@@ -39,31 +32,30 @@ class BussinessCard extends StatelessWidget {
             Center(child: CircularProgressIndicator())
           : 
             Consumer<BussinessNotifier>(
-              builder: (context, notifier, _) => StackableScaffold(
-                child: notifier.bussiness != null ? 
-                  ListView(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 150),
+              builder: (context, notifier, _) => notifier.bussiness != null ? 
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    spacing: 20,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        spacing: 20,
-                        children: [
-                          BussinessEditableInfo(
-                            setBussiness: notifier.setBusssiness,
-                            bussiness: notifier.bussiness!,
-                            editable: bussiness != null, 
-                            ownerProfile: notifier.ownerProfile!
-                          ),
-
-                          BussinesNoEditableContent(
-                            averageRate: notifier.averageRate, 
-                            bussinessId: bussinessId, 
-                            ratings: notifier.ratings
-                          )
-                      
-                        ],
+                      BussinessEditableInfo(
+                        setBussiness: notifier.setBusssiness,
+                        bussiness: notifier.bussiness!,
+                        editable: editable, 
+                        ownerProfile: notifier.ownerProfile!
+                      ),
+                  
+                      BussinesNoEditableContent(
+                        showAddRating: notifier.showAddRating,
+                        toggleShowAddRating: notifier.toggleAddRating,
+                        rating: notifier.newRating,
+                        averageRate: notifier.averageRate, 
+                        bussinessId: bussinessId, 
+                        ratings: notifier.ratings,
+                        changeRating: notifier.ChangeRating,
+                        saveRating: notifier.saveRating,
                       )
-                    ]
+                  
+                    ],
                   )
                 : 
                   Text(
@@ -73,9 +65,7 @@ class BussinessCard extends StatelessWidget {
                     ),
                   ) 
               ),
-            ),
-
-        );
+            );
       },
       
     );

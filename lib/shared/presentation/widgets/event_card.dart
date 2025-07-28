@@ -73,7 +73,7 @@ class EventCard extends StatelessWidget {
               ],
             ),
             
-            
+
             if(event.imageUrls.isNotEmpty)
               ImagesContainer(images: event.imageUrls),
             UbicationSelector(
@@ -104,6 +104,10 @@ class EventCard extends StatelessWidget {
               source: CommentSource.event,
               sourceId: event.id,
             )
+
+            
+
+            
         
           ],
         ),

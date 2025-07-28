@@ -15,10 +15,12 @@ import 'package:ar_flutter_plugin_2/widgets/ar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:narramap/aumented_reality.dart/presentation/notifiers/aumented_reality_notifier.dart';
+import 'package:narramap/content/domain/model/emotional_post.dart';
 import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/Location/location_service.dart';
 import 'package:narramap/core/layout/stackable_scaffold.dart';
+import 'package:narramap/map/domain/use_cases/get_all_emotional_posts_use_case.dart';
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
 import 'package:provider/provider.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
@@ -37,13 +39,13 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
   late ARLocationManager arLocationManager;
   late ARAnchorManager arAnchorManager;
   
-  List<Post> posts = [];
-  List<Post> nearbyPosts = [];
+  List<EmotionalPost> posts = [];
+  List<EmotionalPost> nearbyPosts = [];
   Map<String, double> postDistances = {};
   Map<String, ARNode> postNodes = {};
   Position? userLocation;
   bool arInitialized = false;
-  Post? selectedPost;
+  EmotionalPost? selectedPost;
   bool showPostsPanel = true;
 
   ARAnchor? currentAnchor;
@@ -56,12 +58,14 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
 
   Future<void> _getPosts() async {
 
-    final getUseCase = getIt<GetAllPostsUseCase>();
+    final getUseCase = getIt<GetAllEmotionalPostsUseCase>();
 
     final postG = await getUseCase.run();
 
     if(postG != null) {
-      posts = postG;
+      setState(() {
+        posts = postG;
+      });
     }
   }
 
@@ -98,7 +102,7 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
     if (userLocation == null) return;
 
     final newDistances = <String, double>{};
-    final newNearbyPosts = <Post>[];
+    final newNearbyPosts = <EmotionalPost>[];
     
     for (final post in posts) {
       final distance = _calculateDistance(
@@ -125,10 +129,7 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
   }
 
 
-
-
-
-  Future<void> _placePostInFront(Post post) async {
+  Future<void> _placePostInFront(EmotionalPost post) async {
     setState(() => selectedPost = post);
     
     if (mounted) {
@@ -193,7 +194,7 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
 
         final node = ARNode(
           type: NodeType.localGLTF2,
-          uri: "assets/models/enojo.glb",
+          uri: selectedPost!.emotion.assetUrl,
           position: vector.Vector3(0, 0, 0),
           rotation: vector.Vector4(1, 0, 0, 0),
           scale: vector.Vector3(0.5, 0.5, 0.5),

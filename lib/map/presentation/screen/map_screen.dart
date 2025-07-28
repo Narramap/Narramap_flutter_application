@@ -7,6 +7,7 @@ import 'package:narramap/map/presentation/notifiers/map_notifier.dart';
 import 'package:narramap/map/presentation/screen/utils/get_circle_events.dart';
 import 'package:narramap/map/presentation/screen/utils/get_events_markers.dart';
 import 'package:narramap/map/presentation/screen/utils/get_posts_markers.dart';
+import 'package:narramap/map/presentation/screen/widget/bussiness_modal.dart';
 import 'package:narramap/map/presentation/screen/widget/emotional_posts_info.dart';
 import 'package:narramap/map/presentation/screen/widget/event_modal.dart';
 import 'package:provider/provider.dart';
@@ -80,6 +81,18 @@ class _MapScreenState extends State<MapScreen> {
                             context, 
                             notifier.events, 
                             showEventModal
+                          ),
+                          ...notifier.bussiness.map(
+                            (bussiness) => Marker(
+                              point: bussiness.location.toLatLng(),
+                              child: GestureDetector(
+                                onTap: () => showBussinessModal(context, bussiness),
+                                child: Icon(
+                                  Icons.store,
+                                  size: 25,
+                                  color: Colors.deepOrangeAccent,
+                                ),
+                            ))
                           )
                         ]
                       ),

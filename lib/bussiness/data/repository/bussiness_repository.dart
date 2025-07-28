@@ -32,7 +32,7 @@ class BussinessRepository implements IBussinessRepository {
     final res = await DioClient.get(
       path: "$url/all",
       fromJsonT: (json) => (json as List<dynamic>).map(
-        (bussJson) => Bussiness.fromJson(json as Map<String, dynamic>)
+        (bussJson) => Bussiness.fromJson(bussJson as Map<String, dynamic>)
       ).toList()
     );
 

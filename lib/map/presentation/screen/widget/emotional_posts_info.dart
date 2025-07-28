@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:narramap/shared/data/enum/emotion_enum.dart';
 import 'package:narramap/map/domain/model/layers_enum.dart';
-import 'package:narramap/shared/presentation/widgets/custom_checklist.dart';
 import 'package:narramap/shared/presentation/widgets/custom_dropdown.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 
@@ -48,7 +47,7 @@ class _EmotionalPostsInfoState extends State<EmotionalPostsInfo> {
             !_showInfo ? 
             Container(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 218, 218, 218), // Fondo blanco
+                color: const Color.fromARGB(255, 255, 255, 255), // Fondo blanco
                 borderRadius: BorderRadius.circular(5),
               ),
               child: IconButton(
@@ -60,7 +59,7 @@ class _EmotionalPostsInfoState extends State<EmotionalPostsInfo> {
             :
             Container(
               decoration: BoxDecoration(
-                color:Colors.white,
+                color:const Color.fromARGB(255, 236, 236, 236),
                 borderRadius: BorderRadius.circular(10)
               ),
               child: Padding(
@@ -106,19 +105,19 @@ class _EmotionalPostsInfoState extends State<EmotionalPostsInfo> {
         
             Container(
               decoration: BoxDecoration(
-                color: Colors.white, // Fondo blanco
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
               ),
               child: IconButton(
                 icon: Icon(Icons.layers),
-                color: TextColor.gray.textColor, // Color del ícono
+                color: TextColor.gray.textColor, 
                 onPressed: toggleShowLayers,
               ),
             )
             :
             Container(
               decoration: BoxDecoration(
-                color: Colors.white, // Fondo blanco
+                color: Colors.white, 
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Padding(

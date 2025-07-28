@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:narramap/bussiness/domain/model/bussiness.dart';
 import 'package:narramap/bussiness/presentation/widgets/bussiness_card.dart';
+import 'package:narramap/core/layout/stackable_scaffold.dart';
 
 
 class BussinessScreen extends StatelessWidget {
@@ -15,6 +16,13 @@ class BussinessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BussinessCard(bussiness: bussiness, bussinessId: bussiness.id);
+    return StackableScaffold(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 150, horizontal: 20),
+          child: BussinessCard(bussiness: bussiness, bussinessId: bussiness.id),
+        )
+      )
+    );
   }
 }

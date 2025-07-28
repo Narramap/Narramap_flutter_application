@@ -51,7 +51,7 @@ class UserInterceptor {
       age: json["age"], 
       gender: GenderInterceptorEnum.fromString(json["gender"]), 
       isPublic: json["isPublic"], 
-      bussiness: json["business"]
+      bussiness: json["bussiness"]
     );
   }
 }

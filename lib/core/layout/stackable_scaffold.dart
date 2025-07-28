@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/core/navigation/routes.dart';
+import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/shared/presentation/widgets/custom_bottom_navigation_bar.dart';
+import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 
 
 class StackableScaffold extends StatelessWidget {
@@ -50,9 +52,32 @@ class StackableScaffold extends StatelessWidget {
             right: 20,
             child: Container(
               alignment: Alignment.center,
-              child: Image.asset(
-                "assets/images/logo_narramap.png",
-                width: 70,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(width: 30),
+                  Image.asset(
+                    "assets/images/logo_narramap.png",
+                    width: 70,
+                  ),
+
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: IconButton(
+                      onPressed: () async {
+                        SecureStorage.clearAuthData();
+                        context.go(Routes.login.label);
+                      }, 
+                      icon: Icon(
+                        Icons.logout,
+                        color: TextColor.gray.textColor,
+                      )
+                    ),
+                  )
+                ],
               ),
             ),
           ),

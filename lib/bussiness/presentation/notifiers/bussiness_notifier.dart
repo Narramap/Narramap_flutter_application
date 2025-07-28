@@ -6,6 +6,7 @@ import 'package:narramap/bussiness/domain/use_cases/get_average_rating_use_case.
 import 'package:narramap/bussiness/domain/use_cases/get_bussiness_by_id_use_case.dart';
 import 'package:narramap/bussiness/domain/use_cases/get_bussiness_use_case.dart';
 import 'package:narramap/bussiness/domain/use_cases/get_ratings_use_case.dart';
+import 'package:narramap/bussiness/domain/use_cases/rate_bussiness_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
@@ -18,7 +19,7 @@ class BussinessNotifier extends ChangeNotifier {
   final _getRatesUseCase = getIt<GetRatingsUseCase>();
   final _getUserBussinessUseCase = getIt<GetBussinessUseCase>();
   final _getBussinessById = getIt<GetBussinessByIdUseCase>();
-
+  final _rateBussinessUseCase = getIt<RateBussinessUseCase>();
 
   Bussiness? _bussiness;
   Bussiness? get bussiness => _bussiness;
@@ -92,6 +93,35 @@ class BussinessNotifier extends ChangeNotifier {
   void setBusssiness(Bussiness value) {
     _bussiness = value;
     notifyListeners();
+  }
+
+  double _newRating = 0;
+  double get newRating => _newRating;
+
+  bool _showAddRating = false;
+  bool get showAddRating => _showAddRating;
+
+  void toggleAddRating() {
+    _showAddRating = !_showAddRating;
+    notifyListeners();
+  }
+
+  void ChangeRating(double value) {
+    _newRating = value;
+    notifyListeners();
+  }
+
+  Future<void> saveRating() async {
+
+    final res = await _rateBussinessUseCase.run(bussiness!.id, newRating.toInt());
+    if(res != null) {
+      _showAddRating = false;
+      final ratings = _ratings;
+      ratings.add(res);
+      _ratings = ratings;
+      notifyListeners();
+    }
+
   }
 
 

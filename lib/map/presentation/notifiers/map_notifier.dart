@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:narramap/bussiness/domain/model/bussiness.dart';
+import 'package:narramap/bussiness/domain/use_cases/get_all_bussiness_use_case.dart';
+import 'package:narramap/bussiness/domain/use_cases/get_bussiness_use_case.dart';
 import 'package:narramap/content/data/dto/create_report_dto.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
 import 'package:narramap/content/domain/model/emotional_post.dart';
@@ -25,6 +28,7 @@ class MapNotifier extends ChangeNotifier{
   final RegisterViewUseCase _registerPostViewUseCase = getIt<RegisterViewUseCase>();
   final ReportPostUseCase _reportUseCase = getIt<ReportPostUseCase>();
   final GetAllEmotionalPostsUseCase _getEmotinalPostsUseCase = getIt<GetAllEmotionalPostsUseCase>();
+  final GetAllBussinessUseCase _getAllBussinessUseCase = getIt<GetAllBussinessUseCase>();
 
   LayersEnum _layer = LayersEnum.satelital;
   LayersEnum get layer => _layer;
@@ -44,6 +48,9 @@ class MapNotifier extends ChangeNotifier{
   List<EmotionsZone> _emotionsZones = [];
   List<EmotionsZone> get emotionsZones => _emotionsZones;
 
+  List<Bussiness> _bussiness = [];
+  List<Bussiness> get bussiness => _bussiness;
+
   void onChangeLayer(LayersEnum layer) {
     _layer = layer;
     notifyListeners();
@@ -54,6 +61,8 @@ class MapNotifier extends ChangeNotifier{
       getCurrentLocation(),
       getEmotionalPosts(),
       getEvents(),
+      getAllBussiness(),
+      
       // getEmotionsZones(),
     ]);
     print("fetch obtenidos--------------------------");
@@ -119,6 +128,13 @@ class MapNotifier extends ChangeNotifier{
 
     if(report != null){
       navigateBack();
+    }
+  }
+
+  Future<void> getAllBussiness() async {
+    final res = await _getAllBussinessUseCase.run();
+    if(res != null) {
+      _bussiness = res;
     }
   }
 }

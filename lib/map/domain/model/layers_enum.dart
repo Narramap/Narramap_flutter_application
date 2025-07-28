@@ -9,7 +9,7 @@ enum LayersEnum {
   labeledWhite(
     layerUrl: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
     domains: ['a', 'b', 'c', 'd'],
-    label: "Blanco con etiquetas"
+    label: "Blanco etiquetado"
   ),
   topographic(
     layerUrl: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
