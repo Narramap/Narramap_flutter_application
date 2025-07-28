@@ -49,6 +49,8 @@ import 'package:narramap/content/domain/use_cases/react_to_post_use_case.dart'
     as _i437;
 import 'package:narramap/content/domain/use_cases/register_use_case.dart'
     as _i102;
+import 'package:narramap/map/domain/use_cases/get_all_emotional_posts_use_case.dart'
+    as _i27;
 import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart'
     as _i111;
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart'
@@ -136,6 +138,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i638.UpdateBussinessUseCase>(
       () => _i638.UpdateBussinessUseCase(),
+    );
+    gh.factory<_i27.GetAllEmotionalPostsUseCase>(
+      () => _i27.GetAllEmotionalPostsUseCase(),
     );
     return this;
   }

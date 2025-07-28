@@ -9,18 +9,12 @@ class SecureStorage {
   static FlutterSecureStorage? _secureStorage;
 
   static FlutterSecureStorage getInstance() {
-
-    if(_secureStorage == null) {
-      _secureStorage = FlutterSecureStorage();
-    }
-
+    init();
     return _secureStorage!;
   }
 
   static void init(){
-    if(_secureStorage == null){
-      _secureStorage = FlutterSecureStorage();
-    }
+    _secureStorage = _secureStorage ?? FlutterSecureStorage();
   }
 
   static Future<void> saveAuthData(String token, String userId) async {

@@ -1,10 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
 import 'package:narramap/content/domain/model/event.dart';
-import 'package:narramap/content/domain/model/post.dart';
-import 'package:narramap/map/domain/model/emotion_enum.dart';
 
 List<Marker> getEventsMarkers(
   BuildContext context,
@@ -17,8 +14,8 @@ List<Marker> getEventsMarkers(
     child: GestureDetector(
       onTap: () => showModal(context, event),
       child: Icon(
-          Icons.circle,
-          color: Colors.white,
+          Icons.flag,
+          color: Colors.redAccent,
           size: 20,
         ),
     )

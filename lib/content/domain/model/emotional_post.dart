@@ -2,11 +2,13 @@
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/content/data/dto/new_post_dto.dart';
 import 'package:narramap/content/data/interceptors/reaction_interceptor.dart';
+import 'package:narramap/shared/data/enum/emotion_enum.dart';
 
-class Post {
+class EmotionalPost {
 
   final String id;
   final String userId;
+  final Emotions emotion;
   final DateTime date;
   final String title;
   final String content;
@@ -15,9 +17,10 @@ class Post {
   final List<String> images;
   final List<ReactionInterceptor> reactions;
 
-  Post({
+  EmotionalPost({
     required this.id,
     required this.userId,
+    required this.emotion,
     required this.title, 
     required this.date,
     required this.content, 
@@ -27,11 +30,12 @@ class Post {
     required this.reactions
   });
 
-  factory Post.fromJson(Map<String, dynamic> json) {
+  factory EmotionalPost.fromJson(Map<String, dynamic> json) {
 
-    return Post(
+    return EmotionalPost(
       id: json["id"], 
       userId: json["userId"], 
+      emotion: Emotions.fromId(json["emotionId"]),
       date: DateTime.parse(json["date"]),
       title: json["title"], 
       content: json["content"], 

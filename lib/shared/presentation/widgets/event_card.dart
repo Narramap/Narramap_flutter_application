@@ -43,6 +43,37 @@ class EventCard extends StatelessWidget {
                 color: TextColor.gray.textColor
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  event.initTime,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: TextColor.gray.textColor
+                  ),
+                ),
+                Text(
+                  "-",
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: TextColor.gray.textColor
+                  ),
+                ),
+                Text(
+                  event.endTime,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: TextColor.gray.textColor
+                  ),
+                ),
+              ],
+            ),
+            
+            
             if(event.imageUrls.isNotEmpty)
               ImagesContainer(images: event.imageUrls),
             UbicationSelector(

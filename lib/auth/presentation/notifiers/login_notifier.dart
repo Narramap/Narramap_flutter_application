@@ -6,13 +6,16 @@ import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/network/dio_client.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/shared/utils/validations.dart';
-import 'package:narramap/users/domain/model/user_profile.dart';
 import 'package:narramap/users/domain/use_cases/get_user_profile_use_case.dart';
 
 class LoginNotifier extends ChangeNotifier {
 
   LoginUseCase loginUseCase = getIt<LoginUseCase>();
   GetUserProfileUseCase getProfileUseCase = getIt<GetUserProfileUseCase>();
+
+  LoginNotifier(void Function() navigateToHome) {
+    getUserIdAndToken(navigateToHome);
+  }
 
   bool _showPassword = false;
   bool get showPassword => _showPassword;
@@ -29,16 +32,18 @@ class LoginNotifier extends ChangeNotifier {
   String _errorMessage = "";
   String get errorMessage => _errorMessage;
 
-  void getUserIdAndToken(void Function() navigateToHome) async {
+  Future<void> getUserIdAndToken(void Function() navigateToHome) async {
+
+    SecureStorage.init();
 
     final userId = await SecureStorage.getUserId();
     final token = await SecureStorage.getToken();
 
     if(userId != null && token != null) {
-      print("dentro del if");
+      DioClient.authToken = token;
+
       navigateToHome();
     } else {
-      print("fuera del if");
     }
   }
 

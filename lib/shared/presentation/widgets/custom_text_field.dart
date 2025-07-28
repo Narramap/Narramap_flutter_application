@@ -32,6 +32,7 @@ class CustomTextField extends StatefulWidget {
   final TextFieldColors textFieldColor;
   final double borderRadius;
   final String? defaultValue;
+  final bool disableAutoComplete;
 
   const CustomTextField({
     super.key,
@@ -43,7 +44,8 @@ class CustomTextField extends StatefulWidget {
     this.spacerHeight,
     this.textFieldColor = TextFieldColors.white,
     this.borderRadius = 50,
-    this.defaultValue
+    this.defaultValue,
+    this.disableAutoComplete = false
   });
 
   @override
@@ -83,6 +85,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         SizedBox(height: 10),
         TextField(
+          enableSuggestions: !widget.disableAutoComplete,
+          autocorrect: !widget.disableAutoComplete,
+          autofillHints: widget.disableAutoComplete ? null : [],
           controller: controller,
           maxLines: widget.lines,
           obscureText: widget.obscureText,

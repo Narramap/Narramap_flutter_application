@@ -31,9 +31,6 @@ class Event {
 
   factory Event.fromJson(Map<String, dynamic> json) {
 
-    print((json['location_lat'] as num).toDouble());
-    print((json['location_lon'] as num).toDouble());
-    print((json['radius'] as num).toDouble());
     return Event(
       id: json["id"],
       userId: json["id_user"],

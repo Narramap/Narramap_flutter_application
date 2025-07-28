@@ -18,6 +18,7 @@ class PasswordTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      disableAutoComplete: true,
       onChanged: onChanged,
       label: "Contrasena",
       obscureText: !showPassword,

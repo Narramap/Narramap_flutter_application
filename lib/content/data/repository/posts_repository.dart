@@ -5,6 +5,7 @@ import 'package:narramap/content/data/dto/create_report_dto.dart';
 import 'package:narramap/content/data/dto/new_post_dto.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
 import 'package:narramap/content/data/interceptors/post_view_interceptor.dart';
+import 'package:narramap/content/domain/model/emotional_post.dart';
 import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/content/domain/model/report.dart';
 import 'package:narramap/content/domain/repository/i_posts_repository.dart';
@@ -40,6 +41,23 @@ class PostsRepository implements IPostsRepository  {
         json, 
         (data) => (data as List<dynamic>).map(
           (postJson) => Post.fromJson(postJson as Map<String, dynamic>)
+        ).toList(),
+        
+      )
+    );
+
+    return posts?.data;
+  }
+
+  @override
+  Future<List<EmotionalPost>?> getEmotionalPosts() async {
+    
+    final posts = await DioClient.get(
+      path: "$url/posts/emotional", 
+      fromJsonT: (json) => ApiResponseInterceptor<List<EmotionalPost>>.fromJson(
+        json, 
+        (data) => (data as List<dynamic>).map(
+          (postJson) => EmotionalPost.fromJson(postJson as Map<String, dynamic>)
         ).toList(),
         
       )

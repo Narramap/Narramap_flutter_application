@@ -2,13 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
+import 'package:narramap/content/domain/model/emotional_post.dart';
 import 'package:narramap/content/domain/model/post.dart';
-import 'package:narramap/map/domain/model/emotion_enum.dart';
+import 'package:narramap/shared/data/enum/emotion_enum.dart';
 import 'package:narramap/map/presentation/screen/widget/post_modal.dart';
 
 List<Marker> getPostsMarkers({
   required BuildContext context,
-  required List<Post> posts, 
+  required List<EmotionalPost> posts, 
   // required void Function(BuildContext context, Post post, void Function() showReportModal, Future<void> Function() reportPost, String Function(String) onChangeReason,) showModal,
   // required void Function(BuildContext context, String postId, String Function(String) onChangeReason,Future<void> Function() onSaveReport,) showReportModal,
   required Future<void> Function(String, void Function()) reportPost,
@@ -22,7 +23,17 @@ List<Marker> getPostsMarkers({
       onTap: () {
         showPostModal(
           context, 
-          post, 
+          Post(
+            id: post.id, 
+            userId: post.userId, 
+            title: post.title, 
+            date: post.date, 
+            content: post.content, 
+            isPublic: post.isPublic, 
+            location: post.location, 
+            images: post.images, 
+            reactions: post.reactions
+          ), 
           () => reportPost(post.id, context.pop), 
           onChangeReason
         );
@@ -37,7 +48,7 @@ List<Marker> getPostsMarkers({
       },
       child: Icon(
           Icons.circle,
-          color: Emotions.happiness.color,
+          color: post.emotion.color,
           size: 20,
         ),
     )

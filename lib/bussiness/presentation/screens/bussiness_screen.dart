@@ -7,8 +7,8 @@ import 'package:narramap/bussiness/presentation/widgets/bussiness_card.dart';
 
 class BussinessScreen extends StatelessWidget {
 
-  Bussiness bussiness;
-  BussinessScreen({
+  final Bussiness bussiness;
+  const BussinessScreen({
     super.key,
     required this.bussiness
   });

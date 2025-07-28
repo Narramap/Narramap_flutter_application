@@ -1,6 +1,6 @@
 
 import 'package:latlong2/latlong.dart';
-import 'package:narramap/map/domain/model/emotion_enum.dart';
+import 'package:narramap/shared/data/enum/emotion_enum.dart';
 import 'package:narramap/shared/domain/model/reaction.dart';
 
 class Post {

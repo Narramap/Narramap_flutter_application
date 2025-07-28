@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/content/data/dto/create_report_dto.dart';
 import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
+import 'package:narramap/content/domain/model/emotional_post.dart';
 import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/content/domain/model/post.dart';
 import 'package:narramap/content/domain/use_cases/react_to_post_use_case.dart';
@@ -11,6 +12,7 @@ import 'package:narramap/core/storage/secure_storage.dart';
 import 'package:narramap/map/data/repository/dummy_emotions_zones_repository.dart';
 import 'package:narramap/map/domain/model/emotions_zone.dart';
 import 'package:narramap/map/domain/model/layers_enum.dart';
+import 'package:narramap/map/domain/use_cases/get_all_emotional_posts_use_case.dart';
 import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart';
 import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
 import 'package:narramap/map/domain/use_cases/register_view_use_case.dart';
@@ -22,6 +24,7 @@ class MapNotifier extends ChangeNotifier{
   final GetAllEventsUseCase _getAllEvents = getIt<GetAllEventsUseCase>();
   final RegisterViewUseCase _registerPostViewUseCase = getIt<RegisterViewUseCase>();
   final ReportPostUseCase _reportUseCase = getIt<ReportPostUseCase>();
+  final GetAllEmotionalPostsUseCase _getEmotinalPostsUseCase = getIt<GetAllEmotionalPostsUseCase>();
 
   LayersEnum _layer = LayersEnum.satelital;
   LayersEnum get layer => _layer;
@@ -31,6 +34,9 @@ class MapNotifier extends ChangeNotifier{
 
   List<Post> _posts = [];
   List<Post> get posts => _posts;
+
+  List<EmotionalPost> _emotionalPosts = [];
+  List<EmotionalPost> get emotionalPosts => _emotionalPosts;
 
   List<Event> _events = [];
   List<Event> get events => _events;
@@ -46,9 +52,9 @@ class MapNotifier extends ChangeNotifier{
   Future<void> getAll() async {
     await Future.wait([
       getCurrentLocation(),
-      getPosts(),
+      getEmotionalPosts(),
       getEvents(),
-      getEmotionsZones(),
+      // getEmotionsZones(),
     ]);
     print("fetch obtenidos--------------------------");
   }
@@ -57,7 +63,6 @@ class MapNotifier extends ChangeNotifier{
 
     final location = await LocationService().getCurrentLocation();
     _currentLocation = LatLng(location.latitude, location.longitude);
-    notifyListeners();
   }
 
   Future<void> getPosts() async {
@@ -68,6 +73,13 @@ class MapNotifier extends ChangeNotifier{
     }
   }
 
+  Future<void> getEmotionalPosts() async {
+    final emotionalPosts = await _getEmotinalPostsUseCase.run();
+    if(emotionalPosts != null){
+      _emotionalPosts = emotionalPosts;
+    }
+  }
+
   Future<void> getEvents() async {
 
     final token = await SecureStorage.getToken();
@@ -75,7 +87,6 @@ class MapNotifier extends ChangeNotifier{
     if(eventRes != null) {
       _events = eventRes;
     }
-    notifyListeners();
   }
 
   Future<void> getEmotionsZones() async {

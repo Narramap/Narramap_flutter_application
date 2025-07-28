@@ -43,14 +43,42 @@ class PublicProfileScreen extends StatelessWidget {
 
               return Consumer<PublicProfileNotifier>(
                 builder: (context, notifier, _) {
-                  UserProfile currentProfile = notifier.user!;
+                  UserProfile? currentProfile = notifier.user;
                   bool isUsersProfile = userId == null;
                   return StackableScaffold(
                     child: ListView(
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 150),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 130),
                       children: [
-
-                        if( currentProfile.isPublic || isUsersProfile) 
+                        if(currentProfile == null) ...[
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 170),
+                                child: Column(
+                                  spacing: 20,
+                                  children: [
+                                    Icon(
+                                      Icons.info,
+                                      color: TextColor.gray.textColor,                                       
+                                      size: 100,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                                      child: Text(
+                                        "Este usuario ha marcado su perfil como privado",
+                                        textAlign: TextAlign.justify,
+                                        style: TextStyle(
+                                          color: TextColor.gray.textColor
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                            
+                          ]
+                        
+                        else if( currentProfile.isPublic || isUsersProfile) 
                           ...[
                             ProfilePhotoPicker(
                               editing: notifier.editing,
@@ -131,28 +159,7 @@ class PublicProfileScreen extends StatelessWidget {
                             SizedBox(height: 40)
                           ]
 
-                        else 
-                          ...[
-                            Center(
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.info,
-                                    color: TextColor.gray.textColor,                                       
-                                    size: 100,
-                                  ),
-                                  Text(
-                                    "Este usuario ha marcado su perfil como privado",
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                      color: TextColor.gray.textColor
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                            
-                          ]
+                        
 
                           
                       ],

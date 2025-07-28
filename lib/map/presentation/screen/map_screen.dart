@@ -71,7 +71,7 @@ class _MapScreenState extends State<MapScreen> {
                           ),
                           ...getPostsMarkers(
                             context: context,
-                            posts: notifier.posts,
+                            posts: notifier.emotionalPosts,
                             onTapPostMarker: notifier.registerPostView,
                             reportPost: notifier.reportPost,
                             onChangeReason: notifier.onChangeReason

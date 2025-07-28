@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:narramap/map/domain/model/emotion_enum.dart';
+import 'package:narramap/shared/data/enum/emotion_enum.dart';
 import 'package:narramap/map/domain/model/layers_enum.dart';
 import 'package:narramap/shared/presentation/widgets/custom_checklist.dart';
 import 'package:narramap/shared/presentation/widgets/custom_dropdown.dart';
@@ -48,7 +48,7 @@ class _EmotionalPostsInfoState extends State<EmotionalPostsInfo> {
             !_showInfo ? 
             Container(
               decoration: BoxDecoration(
-                color: Colors.white, // Fondo blanco
+                color: const Color.fromARGB(255, 218, 218, 218), // Fondo blanco
                 borderRadius: BorderRadius.circular(5),
               ),
               child: IconButton(
