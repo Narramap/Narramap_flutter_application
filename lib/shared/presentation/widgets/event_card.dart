@@ -5,6 +5,7 @@ import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/shared/presentation/notifiers/event_card_notifier.dart';
 import 'package:narramap/shared/presentation/widgets/card_header.dart';
 import 'package:narramap/shared/presentation/widgets/comments_container.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/shared/presentation/widgets/images_container.dart';
 import 'package:narramap/shared/presentation/widgets/ubication_selector.dart';
@@ -100,15 +101,22 @@ class EventCard extends StatelessWidget {
               ]
             ),
 
+            Text(
+              "${notifier.assistancies.length} Asistencias",
+              style: TextStyle(
+                color: TextColor.gray.textColor
+              ),
+            ),
+
+            CustomButton(
+              text: !notifier.userAsisted ? "Asisti / Asistire a este evento" : "Ya has asistido a este evento", 
+              onPressed: !notifier.userAsisted ? () => notifier.registerAssistency(event.id) : () {}
+            ),
+
             CommentsContainer(
               source: CommentSource.event,
               sourceId: event.id,
-            )
-
-            
-
-            
-        
+            ),
           ],
         ),
       ),

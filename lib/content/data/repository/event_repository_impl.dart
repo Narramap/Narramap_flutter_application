@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:injectable/injectable.dart';
+import 'package:narramap/bussiness/data/interceptors/event_assistance_interceptor.dart';
 import 'package:narramap/content/data/dto/new_event_dto.dart';
 import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/content/domain/repository/i_event_repository.dart';
@@ -49,5 +53,28 @@ class EventRepositoryImpl extends IEventRepository {
     );
 
     return events;
+  }
+
+  @override
+  Future<EventAssistanceInterceptor?> registerEventAssistency(String eventId) async {
+    
+    final eventAssistency = await DioClient.post(
+      path: "$url/events/assistances/$eventId", 
+      body: {}, 
+      fromJsonT: (json) => EventAssistanceInterceptor.fromJson(json as Map<String, dynamic>)
+    );
+
+    return eventAssistency;
+  }
+
+  @override
+  Future<List<EventAssistanceInterceptor>?> getEventAssistency(String eventId) async {
+    final eventAssitencies = await DioClient.get(
+      path: "$url/events/assistances/$eventId", 
+      fromJsonT: (json) => (json as List<dynamic>).map(
+        (assistencyJson) => EventAssistanceInterceptor.fromJson(assistencyJson as Map<String, dynamic>)
+      ).toList()
+    );
+    return eventAssitencies;
   }
 }

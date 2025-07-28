@@ -42,9 +42,13 @@ import 'package:narramap/content/domain/use_cases/comment_event_use_case.dart'
     as _i63;
 import 'package:narramap/content/domain/use_cases/comment_post_use_case.dart'
     as _i655;
+import 'package:narramap/content/domain/use_cases/confirm_event_assistency_use_case.dart'
+    as _i75;
 import 'package:narramap/content/domain/use_cases/delete_comment_use_case.dart'
     as _i678;
 import 'package:narramap/content/domain/use_cases/event_use_case.dart' as _i531;
+import 'package:narramap/content/domain/use_cases/get_event_assistencies_use_case.dart'
+    as _i70;
 import 'package:narramap/content/domain/use_cases/get_event_comments_use_case.dart'
     as _i626;
 import 'package:narramap/content/domain/use_cases/get_post_comments_use_case.dart'
@@ -150,6 +154,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i119.BussinessRepository>(() => _i119.BussinessRepository());
     gh.factory<_i963.RateBussinessUseCase>(() => _i963.RateBussinessUseCase());
+    gh.factory<_i75.ConfirmEventAssistencyUseCase>(
+      () => _i75.ConfirmEventAssistencyUseCase(),
+    );
+    gh.factory<_i70.GetEventAssistenciesUseCase>(
+      () => _i70.GetEventAssistenciesUseCase(),
+    );
     return this;
   }
 }

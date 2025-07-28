@@ -15,7 +15,7 @@ class EventAssistanceInterceptor {
     return EventAssistanceInterceptor(
       id: json["id"], 
       userId: json["id_user"], 
-      bussinessId: json["bussinessId"]
+      bussinessId: json["eventId"]
     );
   }
 }
