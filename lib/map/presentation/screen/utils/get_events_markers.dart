@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:narramap/content/domain/model/event.dart';
+import 'package:narramap/events/domain/model/event.dart';
 
 List<Marker> getEventsMarkers(
   BuildContext context,

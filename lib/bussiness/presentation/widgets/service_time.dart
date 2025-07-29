@@ -1,6 +1,6 @@
 
 import 'package:flutter/widgets.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
 
 class ServiceTime extends StatelessWidget {
 

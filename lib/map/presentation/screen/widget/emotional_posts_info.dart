@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:narramap/shared/data/enum/emotion_enum.dart';
 import 'package:narramap/map/domain/model/layers_enum.dart';
-import 'package:narramap/shared/presentation/widgets/custom_dropdown.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/buttons/custom_dropdown.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
 
 class EmotionalPostsInfo extends StatefulWidget {
 

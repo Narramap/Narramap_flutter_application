@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
-import 'package:narramap/content/domain/model/emotional_post.dart';
-import 'package:narramap/content/domain/model/post.dart';
+import 'package:narramap/posts/domain/model/emotional_post.dart';
+import 'package:narramap/posts/domain/model/post.dart';
 import 'package:narramap/shared/data/enum/emotion_enum.dart';
 import 'package:narramap/map/presentation/screen/widget/post_modal.dart';
 

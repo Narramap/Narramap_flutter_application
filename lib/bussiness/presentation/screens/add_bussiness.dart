@@ -4,16 +4,16 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/bussiness/presentation/notifiers/add_bussiness_notifier.dart';
 import 'package:narramap/core/layout/white_container.dart';
-import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
-import 'package:narramap/shared/presentation/widgets/custom_button.dart';
-import 'package:narramap/shared/presentation/widgets/custom_checklist.dart';
-import 'package:narramap/shared/presentation/widgets/custom_dropdown.dart';
-import 'package:narramap/shared/presentation/widgets/custom_image_picker.dart';
-import 'package:narramap/shared/presentation/widgets/custom_multiple_selector.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
-import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
-import 'package:narramap/shared/presentation/widgets/time_picker.dart';
-import 'package:narramap/shared/presentation/widgets/ubication_selector.dart';
+import 'package:narramap/bussiness/domain/enum/bussiness_type_enum.dart';
+import 'package:narramap/shared/presentation/widgets/buttons/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/buttons/custom_checklist.dart';
+import 'package:narramap/shared/presentation/widgets/buttons/custom_dropdown.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_image_picker.dart';
+import 'package:narramap/shared/presentation/widgets/buttons/custom_multiple_selector.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/time_picker.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/ubication_selector.dart';
 import 'package:provider/provider.dart';
 
 class AddBussiness extends StatelessWidget {

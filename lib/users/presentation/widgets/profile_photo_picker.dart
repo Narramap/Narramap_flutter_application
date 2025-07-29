@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
 
 class ProfilePhotoPicker extends StatefulWidget {
 

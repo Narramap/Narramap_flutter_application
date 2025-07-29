@@ -4,7 +4,7 @@ import 'package:narramap/bussiness/domain/model/bussiness.dart';
 import 'package:narramap/bussiness/presentation/notifiers/bussiness_notifier.dart';
 import 'package:narramap/bussiness/presentation/widgets/bussines_no_editable_content.dart';
 import 'package:narramap/bussiness/presentation/widgets/bussiness_editable_info.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
 import 'package:provider/provider.dart';
 
 class BussinessCard extends StatelessWidget {

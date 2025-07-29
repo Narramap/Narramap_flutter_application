@@ -5,7 +5,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:narramap/bussiness/data/interceptors/rating_interceptor.dart';
 import 'package:narramap/bussiness/presentation/notifiers/rating_card_notifier.dart';
 import 'package:narramap/bussiness/presentation/notifiers/redirection_notifier.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
 import 'package:provider/provider.dart';
 
 class RatingCard extends StatelessWidget {

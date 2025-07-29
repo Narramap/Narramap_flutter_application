@@ -1,8 +1,8 @@
 
 import 'package:flutter/widgets.dart';
-import 'package:narramap/content/domain/model/post.dart';
+import 'package:narramap/posts/domain/model/post.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
-import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
+import 'package:narramap/posts/domain/use_cases/get_all_posts_use_case.dart';
 
 class AumentedRealityNotifier extends ChangeNotifier {
 

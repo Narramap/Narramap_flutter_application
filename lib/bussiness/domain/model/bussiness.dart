@@ -1,7 +1,7 @@
 
 import 'package:narramap/bussiness/domain/enum/week_days_enum.dart';
-import 'package:narramap/content/data/dto/new_post_dto.dart';
-import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
+import 'package:narramap/posts/data/dto/new_post_dto.dart';
+import 'package:narramap/bussiness/domain/enum/bussiness_type_enum.dart';
 
 class Bussiness {
 

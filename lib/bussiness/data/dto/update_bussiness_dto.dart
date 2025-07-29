@@ -1,5 +1,5 @@
 import 'package:latlong2/latlong.dart';
-import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
+import 'package:narramap/bussiness/domain/enum/bussiness_type_enum.dart';
 
 class UpdateBussinessDTO {
 

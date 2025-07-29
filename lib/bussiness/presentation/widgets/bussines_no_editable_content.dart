@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:narramap/bussiness/data/interceptors/rating_interceptor.dart';
 import 'package:narramap/bussiness/presentation/widgets/rating_card.dart';
-import 'package:narramap/shared/presentation/widgets/comments_container.dart';
-import 'package:narramap/shared/presentation/widgets/custom_button.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/comments/presentation/widgets/comments_container.dart';
+import 'package:narramap/shared/presentation/widgets/buttons/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
 
 class BussinesNoEditableContent extends StatelessWidget {
 

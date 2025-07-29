@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:narramap/shared/presentation/widgets/custom_button.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
-import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/buttons/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_text_field.dart';
 import 'package:narramap/users/domain/model/phrase.dart';
 
 class PhrasesContainer extends StatelessWidget {

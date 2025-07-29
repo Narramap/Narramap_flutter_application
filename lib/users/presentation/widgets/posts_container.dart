@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:narramap/content/domain/model/post.dart';
-import 'package:narramap/shared/presentation/widgets/card_header.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
-import 'package:narramap/shared/presentation/widgets/post_card.dart';
+import 'package:narramap/posts/domain/model/post.dart';
+import 'package:narramap/shared/presentation/widgets/containers/card_header.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
+import 'package:narramap/posts/presentation/widgets/post_card.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 
 class PostsContainer extends StatelessWidget {

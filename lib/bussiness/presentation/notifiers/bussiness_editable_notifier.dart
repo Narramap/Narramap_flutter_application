@@ -8,7 +8,7 @@ import 'package:narramap/bussiness/domain/enum/week_days_enum.dart';
 import 'package:narramap/bussiness/domain/model/bussiness.dart';
 import 'package:narramap/bussiness/domain/use_cases/update_bussiness_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
-import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
+import 'package:narramap/bussiness/domain/enum/bussiness_type_enum.dart';
 import 'package:narramap/shared/utils/datetime_parser.dart';
 import 'package:narramap/shared/utils/get_base64_images.dart';
 

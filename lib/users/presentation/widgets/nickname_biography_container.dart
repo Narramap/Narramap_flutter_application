@@ -1,8 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
-import 'package:narramap/shared/presentation/widgets/custom_text_field.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_text_field.dart';
 
 class NicknameBiographyContainer extends StatelessWidget {
 

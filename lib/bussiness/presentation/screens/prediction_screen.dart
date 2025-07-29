@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:narramap/bussiness/presentation/notifiers/prediction_notifier.dart';
 import 'package:narramap/core/layout/white_container.dart';
-import 'package:narramap/shared/presentation/widgets/custom_button.dart';
-import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
+import 'package:narramap/shared/presentation/widgets/buttons/custom_button.dart';
+import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
 import 'package:narramap/shared/utils/custom_modal.dart';
 import 'package:provider/provider.dart';
 

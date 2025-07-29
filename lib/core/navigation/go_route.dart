@@ -5,8 +5,8 @@ import 'package:narramap/aumented_reality.dart/presentation/screens/aumented_rea
 import 'package:narramap/bussiness/presentation/screens/add_bussiness.dart';
 import 'package:narramap/bussiness/presentation/screens/prediction_screen.dart';
 import 'package:narramap/bussiness/presentation/screens/redirection_bussiness.dart';
-import 'package:narramap/content/presentation/screens/add_eco_screen.dart';
-import 'package:narramap/content/presentation/screens/add_event_screen.dart';
+import 'package:narramap/posts/presentation/screens/add_eco_screen.dart';
+import 'package:narramap/events/presentation/screens/add_event_screen.dart';
 import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/map/presentation/screen/map_screen.dart';
 import 'package:narramap/auth/presentation/screens/login_screen.dart';

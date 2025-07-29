@@ -6,7 +6,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:narramap/bussiness/data/dto/register_bussiness_dto.dart';
 import 'package:narramap/bussiness/domain/use_cases/register_bussiness_use_case.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
-import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
+import 'package:narramap/bussiness/domain/enum/bussiness_type_enum.dart';
 import 'package:narramap/shared/utils/get_base64_images.dart';
 
 class AddBussinessNotifier extends ChangeNotifier {

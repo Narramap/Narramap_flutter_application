@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:narramap/content/domain/model/post.dart';
+import 'package:narramap/posts/domain/model/post.dart';
 import 'package:narramap/map/presentation/screen/widget/report_modal.dart';
-import 'package:narramap/shared/presentation/widgets/card_header.dart';
-import 'package:narramap/shared/presentation/widgets/post_card.dart';
+import 'package:narramap/shared/presentation/widgets/containers/card_header.dart';
+import 'package:narramap/posts/presentation/widgets/post_card.dart';
 
 void showPostModal(
   BuildContext context, 

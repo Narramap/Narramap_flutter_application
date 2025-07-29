@@ -2,24 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:narramap/bussiness/domain/model/bussiness.dart';
 import 'package:narramap/bussiness/domain/use_cases/get_all_bussiness_use_case.dart';
-import 'package:narramap/bussiness/domain/use_cases/get_bussiness_use_case.dart';
-import 'package:narramap/content/data/dto/create_report_dto.dart';
-import 'package:narramap/content/data/dto/reaction_to_post_dto.dart';
-import 'package:narramap/content/domain/model/emotional_post.dart';
-import 'package:narramap/content/domain/model/event.dart';
-import 'package:narramap/content/domain/model/post.dart';
-import 'package:narramap/content/domain/use_cases/react_to_post_use_case.dart';
+import 'package:narramap/posts/data/dto/create_report_dto.dart';
+import 'package:narramap/posts/domain/model/emotional_post.dart';
+import 'package:narramap/events/domain/model/event.dart';
+import 'package:narramap/posts/domain/model/post.dart';
 import 'package:narramap/core/DI/get_it_config.dart';
 import 'package:narramap/core/Location/location_service.dart';
 import 'package:narramap/core/storage/secure_storage.dart';
-import 'package:narramap/map/data/repository/dummy_emotions_zones_repository.dart';
-import 'package:narramap/map/domain/model/emotions_zone.dart';
 import 'package:narramap/map/domain/model/layers_enum.dart';
-import 'package:narramap/map/domain/use_cases/get_all_emotional_posts_use_case.dart';
-import 'package:narramap/map/domain/use_cases/get_all_events_use_case.dart';
-import 'package:narramap/map/domain/use_cases/get_all_posts_use_case.dart';
-import 'package:narramap/map/domain/use_cases/register_view_use_case.dart';
-import 'package:narramap/map/domain/use_cases/report_post_use_case.dart';
+import 'package:narramap/posts/domain/use_cases/get_all_emotional_posts_use_case.dart';
+import 'package:narramap/events/domain/use_cases/get_all_events_use_case.dart';
+import 'package:narramap/posts/domain/use_cases/get_all_posts_use_case.dart';
+import 'package:narramap/posts/domain/use_cases/register_view_use_case.dart';
+import 'package:narramap/posts/domain/use_cases/report_post_use_case.dart';
 
 class MapNotifier extends ChangeNotifier{
 
@@ -45,8 +40,6 @@ class MapNotifier extends ChangeNotifier{
   List<Event> _events = [];
   List<Event> get events => _events;
 
-  List<EmotionsZone> _emotionsZones = [];
-  List<EmotionsZone> get emotionsZones => _emotionsZones;
 
   List<Bussiness> _bussiness = [];
   List<Bussiness> get bussiness => _bussiness;
@@ -63,7 +56,6 @@ class MapNotifier extends ChangeNotifier{
       getEvents(),
       getAllBussiness(),
       
-      // getEmotionsZones(),
     ]);
     print("fetch obtenidos--------------------------");
   }
@@ -96,11 +88,6 @@ class MapNotifier extends ChangeNotifier{
     if(eventRes != null) {
       _events = eventRes;
     }
-  }
-
-  Future<void> getEmotionsZones() async {
-    _emotionsZones = await DummyEmotionsZonesRepository().getAll();
-    notifyListeners();
   }
 
   String _reason = "";
