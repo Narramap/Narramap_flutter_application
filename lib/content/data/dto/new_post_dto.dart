@@ -13,8 +13,8 @@ class LocationDTO {
 
   factory LocationDTO.fromJson(Map<String, dynamic> json) {
     return LocationDTO(
-      latitude: json["latitude"], 
-      longitude: json["longitude"]
+      latitude: (json["latitude"] as num).toDouble(), 
+      longitude: (json["longitude"] as num).toDouble()
     );
   }
 

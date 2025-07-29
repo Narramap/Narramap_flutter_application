@@ -30,10 +30,10 @@ class DioClient {
       )
     );
 
-    dio.interceptors.add(LogInterceptor(
-      requestBody: true,
-      responseBody: true
-    ));
+    // dio.interceptors.add(LogInterceptor(
+    //   requestBody: true,
+    //   responseBody: true
+    // ));
   }
 
   static Future<T?> get<T>({

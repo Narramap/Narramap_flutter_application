@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:narramap/aumented_reality.dart/presentation/screens/aumented_reality_screen.dart';
 import 'package:narramap/bussiness/presentation/screens/add_bussiness.dart';
+import 'package:narramap/bussiness/presentation/screens/prediction_screen.dart';
 import 'package:narramap/bussiness/presentation/screens/redirection_bussiness.dart';
 import 'package:narramap/content/presentation/screens/add_eco_screen.dart';
 import 'package:narramap/content/presentation/screens/add_event_screen.dart';
@@ -58,6 +59,13 @@ GoRouter goRouter = GoRouter(
       path: Routes.redirectionBussiness.label,
       builder: (context, state) => RedirectionBussiness(),
     ),
+    GoRoute(
+      path: Routes.predictionService.label,
+      builder: (context, state) {
+        final bussinessId = state.pathParameters["id"];
+        return PredictionScreen(bussinessId: bussinessId!);
+      }
+    )
     // GoRoute(
     //   path: Routes.bussiness.label,
     //   builder: 

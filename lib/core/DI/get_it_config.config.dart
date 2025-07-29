@@ -14,6 +14,8 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:narramap/auth/data/repository/auth_repository.dart' as _i365;
 import 'package:narramap/auth/domain/use_cases/login_use_case.dart' as _i801;
 import 'package:narramap/auth/domain/use_cases/register_use_case.dart' as _i363;
+import 'package:narramap/bussiness/data/repository/bussiness_model_prediction_repository.dart'
+    as _i988;
 import 'package:narramap/bussiness/data/repository/bussiness_repository.dart'
     as _i119;
 import 'package:narramap/bussiness/domain/use_cases/get_all_bussiness_use_case.dart'
@@ -28,6 +30,8 @@ import 'package:narramap/bussiness/domain/use_cases/get_bussiness_use_case.dart'
     as _i2;
 import 'package:narramap/bussiness/domain/use_cases/get_ratings_use_case.dart'
     as _i56;
+import 'package:narramap/bussiness/domain/use_cases/predict_bussiness_demand_use_case.dart'
+    as _i270;
 import 'package:narramap/bussiness/domain/use_cases/rate_bussiness_use_case.dart'
     as _i963;
 import 'package:narramap/bussiness/domain/use_cases/register_bussiness_use_case.dart'
@@ -159,6 +163,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i70.GetEventAssistenciesUseCase>(
       () => _i70.GetEventAssistenciesUseCase(),
+    );
+    gh.factory<_i988.BussinessModelPredictionRepository>(
+      () => _i988.BussinessModelPredictionRepository(),
+    );
+    gh.factory<_i270.PredictBussinessDemandUseCase>(
+      () => _i270.PredictBussinessDemandUseCase(),
     );
     return this;
   }

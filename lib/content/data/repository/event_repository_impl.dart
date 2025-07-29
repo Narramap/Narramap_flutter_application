@@ -15,11 +15,10 @@ class EventRepositoryImpl extends IEventRepository {
   final url = "https://narramapeventsapi-production.up.railway.app";
 
   @override
-  Future<List<Event>?> getAllByUserId(String? token) async {
+  Future<List<Event>?> getAllByUserId(String userId) async {
 
-    DioClient.authToken = token;
     final events = await DioClient.get(
-      path: '$url/events',
+      path: '$url/events/profile/$userId',
       fromJsonT: (data) => (data as List<dynamic>).map(
           (eventJson) => Event.fromJson(eventJson as Map<String, dynamic>),
         ).toList(),

@@ -51,7 +51,7 @@ class BussinessCard extends StatelessWidget {
                         averageRate: notifier.averageRate, 
                         bussinessId: bussinessId, 
                         ratings: notifier.ratings,
-                        changeRating: notifier.ChangeRating,
+                        changeRating: notifier.changeRating,
                         saveRating: notifier.saveRating,
                       )
                   

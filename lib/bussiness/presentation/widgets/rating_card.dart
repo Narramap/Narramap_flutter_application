@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 class RatingCard extends StatelessWidget {
 
   final RatingInterceptor rating;
-  RatingCard({
+  const RatingCard({
     super.key,
     required this.rating
   });

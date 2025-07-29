@@ -57,12 +57,15 @@ class CustomButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              text,
-              style: TextStyle(
-                color: buttonColor.textColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Comfortaa"
+            Expanded(
+              child: Text(
+                text,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: buttonColor.textColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Comfortaa"
+                ),
               ),
             ),
             SizedBox(width: spacingWithIcon),

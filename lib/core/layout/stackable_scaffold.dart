@@ -28,14 +28,14 @@ class StackableScaffold extends StatelessWidget {
           FloatingActionButton(
             onPressed: () => context.push(Routes.addEvent.label),
             backgroundColor: Color(0xFFF2F2F2),
-            child: Text("📅", style: TextStyle(fontSize: 20)),
             heroTag: "evento",
+            child: Text("📅", style: TextStyle(fontSize: 20)),
           ),
           FloatingActionButton(
             onPressed: () => context.push(Routes.addEco.label),
             backgroundColor: Color(0xFFF2F2F2),
-            child: Text("💭", style: TextStyle(fontSize: 20)),
             heroTag: "eco",
+            child: Text("💭", style: TextStyle(fontSize: 20)),
           ),
           SizedBox(height: 70,)
         ],
@@ -96,7 +96,7 @@ class StackableScaffold extends StatelessWidget {
             left: 0,
             right: 0,
             bottom: 0,
-            child: CustomBottomNavigationBar.getInstance(),
+            child: CustomBottomNavigationBar(),
           ),
         ],
       ),

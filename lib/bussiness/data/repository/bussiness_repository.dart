@@ -101,9 +101,9 @@ class BussinessRepository implements IBussinessRepository {
   Future<List<RatingInterceptor>?> getRates(String bussinessId) async {
 
     final res = await DioClient.get(
-      path: url,
+      path: '$url/rating/$bussinessId',
       fromJsonT: (json) => (json as List<dynamic>).map(
-        (bussJson) => RatingInterceptor.fromJson(json as Map<String, dynamic>)
+        (bussJson) => RatingInterceptor.fromJson(bussJson as Map<String, dynamic>)
       ).toList()
     );
 

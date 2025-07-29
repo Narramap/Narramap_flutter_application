@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:narramap/content/domain/model/event.dart';
 import 'package:narramap/shared/presentation/widgets/custom_switch.dart';
 import 'package:narramap/shared/presentation/widgets/event_card.dart';
-import 'package:narramap/users/domain/model/user.dart';
 import 'package:narramap/users/domain/model/user_profile.dart';
 
 class EventsContainer extends StatelessWidget {
@@ -29,7 +28,22 @@ class EventsContainer extends StatelessWidget {
             color: TextColor.gray.textColor
           ),
         ),
-        ...events.map((event) => EventCard(event: event, user: user))
+        ListView.builder(
+          itemCount: events.length,
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (context, index) => Column(
+            children: [
+              EventCard(
+                event: events[index],
+                user: user, 
+              ),
+              SizedBox(height: 40)
+            ],
+          ) 
+          
+        )
+        // ...events.map((event) => EventCard(event: event, user: user))
       ],
     );
   }

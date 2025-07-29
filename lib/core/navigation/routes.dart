@@ -10,7 +10,8 @@ enum Routes {
   bussiness(label: "/bussiness"),
   publicProfile(label: "/public-profile"),
   aumentedReality(label: "/aumented_reality"),
-  someonePublicProfile(label: "/public-profile/:id")
+  someonePublicProfile(label: "/public-profile/:id"),
+  predictionService(label: "/prediction-service/:id")
   ;
 
   final String label;

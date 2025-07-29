@@ -19,4 +19,6 @@ abstract class IBussinessRepository {
   Future<RatingInterceptor?> rateById(String bussinessId, int rating);
   Future<List<RatingInterceptor>?> getRates(String bussinessId);
   Future<double?> getAverageRate(String bussinessId);
+
+  
 }

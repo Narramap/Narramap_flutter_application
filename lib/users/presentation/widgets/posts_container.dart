@@ -32,16 +32,32 @@ class PostsContainer extends StatelessWidget {
             color: TextColor.gray.textColor
           ),
         ),
-        ...posts.map((post) => PostCard(
-          post: post, 
-          user: user, 
-          cornerAction: deletePost != null ? 
-          CornerAction(
-            icon: Icons.delete, 
-            action: () => deletePost!(post.id)
-          )
-          : null
-        ))
+        ListView.builder(
+          itemCount: posts.length,
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (context, index) => PostCard(
+            post: posts[index],
+            user: user, 
+            cornerAction: deletePost != null ? 
+            CornerAction(
+              icon: Icons.delete, 
+              action: () => deletePost!(posts[index].id)
+            )
+            : null
+          ),
+          
+        )
+        // ...posts.map((post) => PostCard(
+        //   post: post, 
+        //   user: user, 
+        //   cornerAction: deletePost != null ? 
+        //   CornerAction(
+        //     icon: Icons.delete, 
+        //     action: () => deletePost!(post.id)
+        //   )
+        //   : null
+        // ))
       ],
     );
   }

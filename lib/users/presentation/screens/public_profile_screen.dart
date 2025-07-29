@@ -26,7 +26,7 @@ class PublicProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PublicProfileNotifier>(
-      create: (_) => PublicProfileNotifier(),
+      create: (context) => PublicProfileNotifier(),
       builder: (context, _) {
         final notifier = Provider.of<PublicProfileNotifier>(context, listen: false);
 
@@ -46,123 +46,126 @@ class PublicProfileScreen extends StatelessWidget {
                   UserProfile? currentProfile = notifier.user;
                   bool isUsersProfile = userId == null;
                   return StackableScaffold(
-                    child: ListView(
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 130),
-                      children: [
-                        if(currentProfile == null) ...[
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 170),
-                                child: Column(
-                                  spacing: 20,
-                                  children: [
-                                    Icon(
-                                      Icons.info,
-                                      color: TextColor.gray.textColor,                                       
-                                      size: 100,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                                      child: Text(
-                                        "Este usuario ha marcado su perfil como privado",
-                                        textAlign: TextAlign.justify,
-                                        style: TextStyle(
-                                          color: TextColor.gray.textColor
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )
-                            
-                          ]
-                        
-                        else if( currentProfile.isPublic || isUsersProfile) 
-                          ...[
-                            ProfilePhotoPicker(
-                              editing: notifier.editing,
-                              defaultPhoto: currentProfile.profilePhoto,
-                              onSelectImage: notifier.onChangeProfilePhoto
-                            ),
-                            SizedBox(height: 20),
-
-                            
-
-                            NicknameBiographyContainer(
-                              userId: userId,
-                              defaultNickname: currentProfile.nickname,
-                              toggleEditing: notifier.toggleEditing,
-                              updateProfile: notifier.updateProfile,
-                              editing: notifier.editing,
-                              onChangeNickname: notifier.onChangeNickname,
-                              biography: currentProfile.biography,
-                              onChangeBiography: notifier.onChangeBiography,
-                            ),
-
-                            SizedBox(height: 20),
-
-                            if(!isUsersProfile)
-                              CustomButton(
-                                text: "Reportar este usuario", 
-                                onPressed: () => showUserReportModal(
-                                  context: context, 
-                                  onChangeReason: notifier.onChangeReason,
-                                  registerReport: () => notifier.registerUserReport(currentProfile.id, context.pop)
-                                )
-                              ),
-
-                            SizedBox(height: 20),
-                            
-
-                            if(userId == null)
-                              ...[
-                                  CustomSwitch(
-                                    label: "Perfil publico", 
-                                    textColor: TextColor.gray,
-                                    value: notifier.editing ? notifier.public! : currentProfile.isPublic, 
-                                    onChanged: notifier.togglePublic
-                                  ),
-                                  SizedBox(height: 20),
-                                  CustomSwitch(
-                                    label: "Perfil de negocios",
-                                    textColor: TextColor.gray,
-                                    value: currentProfile.bussiness, 
-                                    onChanged: notifier.toggleBussiness
-                                  ),
-                                  SizedBox(height: 40),
-                              ],
-                            
-                            // ConexionsContainer(conexions: currentProfile.conexions),
-                            SizedBox(height: 20),
-                            PhrasesContainer(
-                              userId: userId,
-                              phrases: notifier.phrases,
-                              addingPhrases: notifier.addingPhrase,
-                              onChangeAuthor: notifier.onChangeAuthor,
-                              onChangeTextPhrase: notifier.onChangeTextPhrase,
-                              savePhrase: notifier.addPhrase,
-                              toggleAddingPhrase: notifier.toggleAddingPhrase,
-                            ),
-                            SizedBox(height: 40),
-                            PostsContainer(
-                              deletePost: userId != null ? null : notifier.deletePost,
-                              posts: notifier.userPosts,
-                              user: currentProfile,
-                            ),
-                            SizedBox(height: 40),
-                            if(userId == null)
-                              EventsContainer(
-                                events: notifier.userEvents,
-                                user: currentProfile
-                              ),
-                            SizedBox(height: 40)
-                          ]
-
-                        
-
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 130),
+                        child: Column(
                           
-                      ],
+                          children: [
+                            if(currentProfile == null) ...[
+                                Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 170),
+                                    child: Column(
+                                      spacing: 20,
+                                      children: [
+                                        Icon(
+                                          Icons.info,
+                                          color: TextColor.gray.textColor,                                       
+                                          size: 100,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                                          child: Text(
+                                            "Este usuario ha marcado su perfil como privado",
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                              color: TextColor.gray.textColor
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                )
+                                
+                              ]
+                            
+                            else if( currentProfile.isPublic || isUsersProfile) 
+                              ...[
+                                ProfilePhotoPicker(
+                                  editing: notifier.editing,
+                                  defaultPhoto: currentProfile.profilePhoto,
+                                  onSelectImage: notifier.onChangeProfilePhoto
+                                ),
+                                SizedBox(height: 20),
+                        
+                                NicknameBiographyContainer(
+                                  userId: userId,
+                                  defaultNickname: currentProfile.nickname,
+                                  toggleEditing: notifier.toggleEditing,
+                                  updateProfile: notifier.updateProfile,
+                                  editing: notifier.editing,
+                                  onChangeNickname: notifier.onChangeNickname,
+                                  biography: currentProfile.biography,
+                                  onChangeBiography: notifier.onChangeBiography,
+                                ),
+                        
+                                SizedBox(height: 20),
+                        
+                                if(!isUsersProfile)
+                                  CustomButton(
+                                    text: "Reportar este usuario", 
+                                    onPressed: () => showUserReportModal(
+                                      context: context, 
+                                      onChangeReason: notifier.onChangeReason,
+                                      registerReport: () => notifier.registerUserReport(currentProfile.id, context.pop)
+                                    )
+                                  ),
+                        
+                                SizedBox(height: 20),
+                                
+                        
+                                if(userId == null)
+                                  ...[
+                                      CustomSwitch(
+                                        label: "Perfil publico", 
+                                        textColor: TextColor.gray,
+                                        value: notifier.editing ? notifier.public! : currentProfile.isPublic, 
+                                        onChanged: notifier.togglePublic
+                                      ),
+                                      SizedBox(height: 20),
+                                      CustomSwitch(
+                                        label: "Perfil de negocios",
+                                        textColor: TextColor.gray,
+                                        value: currentProfile.bussiness, 
+                                        onChanged: notifier.toggleBussiness
+                                      ),
+                                      SizedBox(height: 40),
+                                  ],
+                                
+                                // ConexionsContainer(conexions: currentProfile.conexions),
+                                SizedBox(height: 20),
+                                PhrasesContainer(
+                                  userId: userId,
+                                  phrases: notifier.phrases,
+                                  addingPhrases: notifier.addingPhrase,
+                                  onChangeAuthor: notifier.onChangeAuthor,
+                                  onChangeTextPhrase: notifier.onChangeTextPhrase,
+                                  savePhrase: notifier.addPhrase,
+                                  toggleAddingPhrase: notifier.toggleAddingPhrase,
+                                ),
+                                SizedBox(height: 40),
+                                PostsContainer(
+                                  deletePost: userId != null ? null : notifier.deletePost,
+                                  posts: notifier.userPosts,
+                                  user: currentProfile,
+                                ),
+                                SizedBox(height: 40),
+                                // if(userId == null)
+                                  EventsContainer(
+                                    events: notifier.userEvents,
+                                    user: currentProfile
+                                  ),
+                                SizedBox(height: 40)
+                              ]
+                        
+                            
+                        
+                              
+                          ],
+                        ),
+                      ),
                     )
                   );
                 },

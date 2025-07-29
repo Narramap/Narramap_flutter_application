@@ -96,6 +96,17 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       });
     }
 
+    final items = [
+      const BottomNavigationBarItem(icon: Icon(Icons.location_pin), label: ""),
+      const BottomNavigationBarItem(icon: Icon(Icons.camera), label: ""),
+      if (business)
+        const BottomNavigationBarItem(icon: Icon(Icons.store), label: ""),
+      const BottomNavigationBarItem(icon: Icon(Icons.switch_account), label: ""),
+      const BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: ""),
+    ];
+
+    final currentIndex = widget.currentIndex.clamp(0, items.length - 1);
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(top: 10.0),
@@ -124,33 +135,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               elevation: 0,
               currentIndex: widget.currentIndex,
               onTap: changeIndex,
-              selectedItemColor: Colors.black,
+              selectedItemColor: const Color(0xFFA9A9A9),
               unselectedItemColor: const Color(0xFFA9A9A9),
               showSelectedLabels: false,
               showUnselectedLabels: false,
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.location_pin),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.camera),
-                  label: "",
-                ),
-                if(business)
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.store),
-                    label: ""
-                  ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.switch_account),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle),
-                  label: "",
-                ),
-              ],
+              items: items,
             ),
           ),
         ),

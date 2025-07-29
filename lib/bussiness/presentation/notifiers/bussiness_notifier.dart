@@ -106,7 +106,7 @@ class BussinessNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void ChangeRating(double value) {
+  void changeRating(double value) {
     _newRating = value;
     notifyListeners();
   }
@@ -123,6 +123,8 @@ class BussinessNotifier extends ChangeNotifier {
     }
 
   }
+
+  
 
 
 }

@@ -130,12 +130,15 @@ class PublicProfileNotifier extends ChangeNotifier {
       _specificUserId = userId;
     }
 
+    final loggedUser = await SecureStorage.getUserId();
+
     await Future.wait([
       getUserProfile(),
       getPhrases(),
       getPostsByUserId(),
-      getEventsByUserId()
+      getEventsByUserId(userId ?? loggedUser! )
     ]);
+    notifyListeners();
   }
 
   Future<void> getUserProfile() async {
@@ -193,10 +196,9 @@ class PublicProfileNotifier extends ChangeNotifier {
     }
   }
 
-  Future<void> getEventsByUserId() async {
+  Future<void> getEventsByUserId(String userId) async {
 
-    final token = await SecureStorage.getToken();
-    final events = await getUserEventsUseCase.run(token!);
+    final events = await getUserEventsUseCase.run(userId);
 
     if(events != null) {
       _userEvents = events;

@@ -7,6 +7,7 @@ import 'package:narramap/bussiness/presentation/notifiers/bussiness_editable_not
 import 'package:narramap/bussiness/presentation/widgets/service_time.dart';
 import 'package:narramap/core/navigation/routes.dart';
 import 'package:narramap/shared/data/enum/bussiness_type_enum.dart';
+import 'package:narramap/shared/presentation/widgets/custom_button.dart';
 import 'package:narramap/shared/presentation/widgets/custom_checklist.dart';
 import 'package:narramap/shared/presentation/widgets/custom_dropdown.dart';
 import 'package:narramap/shared/presentation/widgets/custom_image_picker.dart';
@@ -128,11 +129,13 @@ class BussinessEditableInfo extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        bussiness.name,
-                        style: TextStyle(
-                          color: TextColor.gray.textColor,
-                          fontSize: 30
+                      Expanded(
+                        child: Text(
+                          bussiness.name,
+                          style: TextStyle(
+                            color: TextColor.gray.textColor,
+                            fontSize: 30
+                          ),
                         ),
                       ),
             
@@ -195,12 +198,16 @@ class BussinessEditableInfo extends StatelessWidget {
                               color: TextColor.gray.textColor
                             ),
                           ),
-
                           
                         ],
                       ),
                   ),
                   
+                  if(editable)
+                    CustomButton(
+                      text: "Prediccion de demanda del negocio", 
+                      onPressed: () => context.push(Routes.predictionService.getParametredRoute([bussiness.id]))
+                    ),
 
                   if(bussiness.images.isNotEmpty)
                     ImagesContainer(

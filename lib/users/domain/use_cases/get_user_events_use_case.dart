@@ -10,7 +10,7 @@ class GetUserEventsUseCase {
 
   final IEventRepository repository = getIt<EventRepositoryImpl>();
 
-  Future<List<Event>?> run(String token) async {
-    return await repository.getAllByUserId(token);
+  Future<List<Event>?> run(String userId) async {
+    return await repository.getAllByUserId(userId);
   }
 }
