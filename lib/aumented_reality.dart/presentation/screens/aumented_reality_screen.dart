@@ -49,10 +49,9 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
   ARAnchor? currentAnchor;
   vector.Matrix4? cameraPose;
   
-  // Configuración
   final double scaleFactor = 1.0;
   final double maxVisibleDistance = 100.0;
-  final double activationDistance = 2.0; // Distancia para mostrar botón (5 metros)
+  final double activationDistance = 2.0; 
 
   Future<void> _getPosts() async {
 
@@ -82,7 +81,6 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
   Future<void> _updateUserLocation() async {
     try {
       final location = await LocationService().getCurrentLocation();
-      if (location == null) return;
 
       setState(() => userLocation = location);
       await _updateNearbyPosts();
@@ -177,7 +175,6 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
     if (hitTestResults.isEmpty || selectedPost == null) return;
 
     try {
-      // 1. Obtener el primer plano detectado
       final hit = hitTestResults.firstWhere(
         (result) => result.type == ARHitTestResultType.plane,
       );
@@ -245,7 +242,6 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
 
     arObjectManager.onInitialize();
     
-    // Manejar taps en planos
     arSessionManager.onPlaneOrPointTap = _onPlaneTapped;
     
     setState(() => arInitialized = true);
@@ -257,14 +253,7 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
       create: (context) => AumentedRealityNotifier(),
       child: Consumer<AumentedRealityNotifier>(
         builder: (context, notifier, _) {
-          // return FutureBuilder(
-          //   future: notifier.getPosts(),
-          //   builder: (context, snapshot) {
-          //     if (snapshot.connectionState == ConnectionState.waiting) {
-          //       return const Center(child: CircularProgressIndicator());
-          //     }
-              
-              // posts = notifier.posts;
+     
               return StackableScaffold(
                 child: Stack(
                   children: [
@@ -287,7 +276,6 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
                       ),
                     ),
                     
-                    // Panel superior con información
                     if(showPostsPanel)
                     Positioned(
                       top: 120,
@@ -364,7 +352,6 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
                       ),
                     ),
                     
-                    // Botón para limpiar todos los posts
                     Positioned(
                       bottom: 100,
                       left: 20,
@@ -376,19 +363,7 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
                       ),
                     ),
                     
-                    // Botón para volver a colocar el post seleccionado
-                    if (selectedPost != null)
-                      Positioned(
-                        bottom: 200,
-                        right: 20,
-                        child: FloatingActionButton(
-                          onPressed: () => _placePostInFront(selectedPost!),
-                          backgroundColor: Colors.blue,
-                          child: const Icon(Icons.center_focus_strong, color: Colors.white),
-                        ),
-                      ),
                     
-                    // Estado de carga
                     if (!arInitialized)
                       const Center(
                         child: CircularProgressIndicator(),
