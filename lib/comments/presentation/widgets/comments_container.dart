@@ -96,7 +96,7 @@ class _CommentsContainerState extends State<CommentsContainer> {
                         ),
                         CustomButton(
                           text: "Comentar",
-                          onPressed: () => notifier.saveComment(widget.sourceId)
+                          onPressed: () => notifier.saveComment(widget.source, widget.sourceId)
                         ),
                       ],
 

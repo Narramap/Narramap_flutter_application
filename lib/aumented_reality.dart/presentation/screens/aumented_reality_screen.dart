@@ -120,10 +120,9 @@ class _AumentedRealityPageState extends State<AumentedRealityPage> {
     setState(() {
       postDistances = newDistances;
       nearbyPosts = newNearbyPosts;
-      selectedPost = null; // Resetear post seleccionado al actualizar
+      selectedPost = null; 
     });
 
-    // await _updateARPosts();
   }
 
 

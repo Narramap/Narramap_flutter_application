@@ -24,8 +24,6 @@ import 'package:narramap/bussiness/domain/use_cases/get_average_rating_use_case.
     as _i97;
 import 'package:narramap/bussiness/domain/use_cases/get_bussiness_by_id_use_case.dart'
     as _i197;
-import 'package:narramap/comments/domain/use_cases/get_bussiness_comments_use_case.dart'
-    as _i743;
 import 'package:narramap/bussiness/domain/use_cases/get_bussiness_use_case.dart'
     as _i2;
 import 'package:narramap/bussiness/domain/use_cases/get_ratings_use_case.dart'
@@ -38,12 +36,18 @@ import 'package:narramap/bussiness/domain/use_cases/register_bussiness_use_case.
     as _i900;
 import 'package:narramap/bussiness/domain/use_cases/update_bussiness_use_case.dart'
     as _i638;
+import 'package:narramap/comments/data/repository/comment_repository.dart'
+    as _i1061;
+import 'package:narramap/comments/domain/use_cases/comment_bussiness_use_case.dart'
+    as _i978;
 import 'package:narramap/comments/domain/use_cases/comment_event_use_case.dart'
     as _i842;
 import 'package:narramap/comments/domain/use_cases/comment_post_use_case.dart'
     as _i748;
 import 'package:narramap/comments/domain/use_cases/delete_comment_use_case.dart'
     as _i990;
+import 'package:narramap/comments/domain/use_cases/get_bussiness_comments_use_case.dart'
+    as _i825;
 import 'package:narramap/comments/domain/use_cases/get_event_comments_use_case.dart'
     as _i538;
 import 'package:narramap/comments/domain/use_cases/get_post_comments_use_case.dart'
@@ -72,8 +76,6 @@ import 'package:narramap/posts/domain/use_cases/register_view_use_case.dart'
     as _i159;
 import 'package:narramap/posts/domain/use_cases/report_post_use_case.dart'
     as _i381;
-import 'package:narramap/comments/data/repository/comment_repository.dart'
-    as _i924;
 import 'package:narramap/users/data/repository/user_repository.dart' as _i575;
 import 'package:narramap/users/domain/use_cases/add_phrase_use_case.dart'
     as _i282;
@@ -112,16 +114,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i353.GetUserEventsUseCase>(() => _i353.GetUserEventsUseCase());
     gh.factory<_i1011.ReportUserUseCase>(() => _i1011.ReportUserUseCase());
     gh.factory<_i575.UserRepository>(() => _i575.UserRepository());
-    gh.factory<_i924.CommentRepository>(() => _i924.CommentRepository());
     gh.factory<_i900.RegisterBussinessUseCase>(
       () => _i900.RegisterBussinessUseCase(),
     );
     gh.factory<_i2.GetBussinessUseCase>(() => _i2.GetBussinessUseCase());
     gh.factory<_i97.GetAverageRatingUseCase>(
       () => _i97.GetAverageRatingUseCase(),
-    );
-    gh.factory<_i743.GetBussinessCommentsUseCase>(
-      () => _i743.GetBussinessCommentsUseCase(),
     );
     gh.factory<_i56.GetRatingsUseCase>(() => _i56.GetRatingsUseCase());
     gh.factory<_i197.GetBussinessByIdUseCase>(
@@ -168,6 +166,13 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i1053.GetPostCommentsUseCase>(
       () => _i1053.GetPostCommentsUseCase(),
+    );
+    gh.factory<_i1061.CommentRepository>(() => _i1061.CommentRepository());
+    gh.factory<_i825.GetBussinessCommentsUseCase>(
+      () => _i825.GetBussinessCommentsUseCase(),
+    );
+    gh.factory<_i978.CommentBussinessUseCase>(
+      () => _i978.CommentBussinessUseCase(),
     );
     return this;
   }

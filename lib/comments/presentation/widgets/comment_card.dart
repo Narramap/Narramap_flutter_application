@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:narramap/comments/data/interceptors/comment_interceptor.dart';
-import 'package:narramap/comments/presentation/notifier/comment_container_notifier.dart';
 import 'package:narramap/shared/presentation/widgets/containers/card_header.dart';
 import 'package:narramap/shared/presentation/widgets/buttons/custom_button.dart';
 import 'package:narramap/shared/presentation/widgets/inputs/custom_switch.dart';
-import 'package:narramap/users/domain/model/user.dart';
-import 'package:provider/provider.dart';
 
 class CommentCard extends StatelessWidget {
 

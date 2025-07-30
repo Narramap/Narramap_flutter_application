@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:narramap/comments/domain/use_cases/comment_bussiness_use_case.dart';
+import 'package:narramap/comments/domain/use_cases/comment_event_use_case.dart';
 import 'package:narramap/comments/domain/use_cases/get_bussiness_comments_use_case.dart';
 import 'package:narramap/comments/domain/use_cases/comment_post_use_case.dart';
 import 'package:narramap/comments/domain/use_cases/delete_comment_use_case.dart';
@@ -21,6 +23,8 @@ class CommentContainerNotifier extends ChangeNotifier {
   final GetBussinessCommentsUseCase _getBussinessCommentsUseCase = getIt<GetBussinessCommentsUseCase>();
   final DeleteCommentUseCase _deleteCommentUseCase = getIt<DeleteCommentUseCase>();
   final _commentPostUseCase = getIt<CommentPostUseCase>();
+  final _commentEventUseCase = getIt<CommentEventUseCase>();
+  final _commentBussinessUseCase = getIt<CommentBussinessUseCase>();
 
   List<CommentInterceptor> _comments = [];
   List<CommentInterceptor> get comments => _comments;
@@ -85,19 +89,35 @@ class CommentContainerNotifier extends ChangeNotifier {
     return res?.profilePhoto;
   }
 
-  Future<void> saveComment(String postId) async {
+  Future<void> saveComment(CommentSource source, String sourceId) async {
 
     final userId = await SecureStorage.getUserId();
     final commentDTO = CommentDto(
       userId: userId!, 
       content: _commentContent
     );
-    final postComment = await _commentPostUseCase.run(commentDTO, postId);
 
-    if(postComment != null) {
-      _commentContent = "";
-      getComments(CommentSource.posts, postId);
-      _showAddComment = false;
+    _commentContent = "";
+    _showAddComment = false;
+    notifyListeners();
+
+    late final dynamic comment;
+
+    switch(source) {
+      case CommentSource.posts :
+        comment = await _commentPostUseCase.run(commentDTO, sourceId);
+        break;
+      case CommentSource.event :
+        comment = await _commentEventUseCase.run(commentDTO, sourceId);
+        break;
+
+      case CommentSource.bussiness : 
+        comment = await _commentBussinessUseCase.run(commentDTO, sourceId);
+    }
+
+    if(comment != null) {
+      
+      await getComments(source, sourceId);
       notifyListeners();
     }
     
